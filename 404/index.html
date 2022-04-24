@@ -501,7 +501,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://newbieqiu.github.io/404/index.html">http://newbieqiu.github.io/404/index.html</a>
+                    <a href="http://212.129.221.159/404/index.html">http://212.129.221.159/404/index.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1152,6 +1152,14 @@ $(function () {
     
 
     <!-- 雪花特效 -->
+     
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/snow.js"><\/script>');
+            }
+        </script>
     
 
     <!-- 鼠标星星特效 -->
