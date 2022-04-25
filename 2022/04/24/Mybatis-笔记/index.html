@@ -523,10 +523,10 @@ password=1234<span aria-hidden="true" class="line-numbers-rows"><span></span><sp
 
 
 
-<h4 id="log4j-properties"><a href="#log4j-properties" class="headerlink" title="log4j.properties"></a>log4j.properties</h4><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">log4j.rootLogger=DEBUG,A1
+<h4 id="log4j-properties"><a href="#log4j-properties" class="headerlink" title="log4j.properties"></a>log4j.properties</h4><pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">log4j.rootLogger=DEBUG<span class="token punctuation">,</span>A1
 log4j.appender.A1=org.apache.log4j.ConsoleAppender
 log4j.appender.A1.layout=org.apache.log4j.PatternLayout
-log4j.appender.A1.layout.ConversionPattern=[%t] [%c]-[%p] %m%n<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+log4j.appender.A1.layout.ConversionPattern=<span class="token punctuation">[</span>%t<span class="token punctuation">]</span> <span class="token punctuation">[</span>%c<span class="token punctuation">]</span><span class="token punctuation">-</span><span class="token punctuation">[</span>%p<span class="token punctuation">]</span> %m%n<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
@@ -1510,7 +1510,7 @@ $(function () {
     
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
-
+    <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js"></script>
 </body>
 
 </html>
