@@ -6,9 +6,7 @@
     <meta charset="utf-8">
     <meta name="keywords" content="最短路之 Dijkstra 算法, 蒟蒻有一天也会成为大佬！">
     <meta name="description" content="最短路之 Dijkstra 算法（朴素做法）时间复杂度  O(n2)没什么好说的先上模板题Dijkstra算法(用于稀疏图) 
-总结来说就是以下的几步：#### 1.初始化距离 dist[1]=0 dist[i] =无穷大
-
-2. for(">
+总结来说就是以下的几步：1.初始化距离 dist[1]=0 dist[i] =无穷大2. for( i=1 到 ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -498,9 +496,7 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="最短路之-Dijkstra-算法（朴素做法）"><a href="#最短路之-Dijkstra-算法（朴素做法）" class="headerlink" title="最短路之 Dijkstra 算法（朴素做法）"></a>最短路之 Dijkstra 算法（朴素做法）</h2><h3 id="时间复杂度-O-n2"><a href="#时间复杂度-O-n2" class="headerlink" title="时间复杂度  O(n2)"></a>时间复杂度  O(n2)</h3><h5 id="没什么好说的先上模板题"><a href="#没什么好说的先上模板题" class="headerlink" title="没什么好说的先上模板题"></a>没什么好说的先上模板题</h5><p><a href="(https://www.acwing.com/problem/content/851/">Dijkstra算法(用于稀疏图) </a></p>
-<h3 id="总结来说就是以下的几步："><a href="#总结来说就是以下的几步：" class="headerlink" title="总结来说就是以下的几步："></a>总结来说就是以下的几步：</h3><pre><code>#### 1.初始化距离 dist[1]=0 dist[i] =无穷大
-</code></pre>
-<h4 id="2-for-i-x3D-1-到-n"><a href="#2-for-i-x3D-1-到-n" class="headerlink" title="2. for( i=1 到 n)"></a>2. for( i=1 到 n)</h4><h5 id="2-1-找t不在s中的距离最近的点"><a href="#2-1-找t不在s中的距离最近的点" class="headerlink" title="2.1 找t不在s中的距离最近的点"></a>2.1 找t不在s中的距离最近的点</h5><h5 id="2-2-讲-t加入到-s中"><a href="#2-2-讲-t加入到-s中" class="headerlink" title="2.2 讲 t加入到 s中"></a>2.2 讲 t加入到 s中</h5><h5 id="2-3-用t更新到其他点的距离"><a href="#2-3-用t更新到其他点的距离" class="headerlink" title="2.3 用t更新到其他点的距离"></a>2.3 用t更新到其他点的距离</h5><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;iostream&gt;
+<h3 id="总结来说就是以下的几步："><a href="#总结来说就是以下的几步：" class="headerlink" title="总结来说就是以下的几步："></a>总结来说就是以下的几步：</h3><h4 id="1-初始化距离-dist-1-x3D-0-dist-i-x3D-无穷大"><a href="#1-初始化距离-dist-1-x3D-0-dist-i-x3D-无穷大" class="headerlink" title="1.初始化距离 dist[1]=0 dist[i] =无穷大"></a>1.初始化距离 dist[1]=0 dist[i] =无穷大</h4><h4 id="2-for-i-x3D-1-到-n"><a href="#2-for-i-x3D-1-到-n" class="headerlink" title="2. for( i=1 到 n)"></a>2. for( i=1 到 n)</h4><h5 id="2-1-找t不在s中的距离最近的点"><a href="#2-1-找t不在s中的距离最近的点" class="headerlink" title="2.1 找t不在s中的距离最近的点"></a>2.1 找t不在s中的距离最近的点</h5><h5 id="2-2-讲-t加入到-s中"><a href="#2-2-讲-t加入到-s中" class="headerlink" title="2.2 讲 t加入到 s中"></a>2.2 讲 t加入到 s中</h5><h5 id="2-3-用t更新到其他点的距离"><a href="#2-3-用t更新到其他点的距离" class="headerlink" title="2.3 用t更新到其他点的距离"></a>2.3 用t更新到其他点的距离</h5><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;iostream&gt;
 #include&lt;algorithm&gt;
 #include&lt;cstring&gt;
 using namespace std;
