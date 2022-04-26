@@ -4,11 +4,11 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="最短路之 Dijstra 算法, NewbieQiu">
-    <meta name="description" content="最短路之 Dijstra 算法（朴素做法）时间复杂度  O(n2)没什么好说的先上模板题Dijstra算法(用于稀疏图) 
-总结来说就是以下的几步：    #### 1.初始化距离 dist[1]=0 dist[i] =无穷大
+    <meta name="keywords" content="最短路之 Dijkstra 算法, 蒟蒻有一天也会成为大佬！">
+    <meta name="description" content="最短路之 Dijkstra 算法（朴素做法）时间复杂度  O(n2)没什么好说的先上模板题Dijkstra算法(用于稀疏图) 
+总结来说就是以下的几步：#### 1.初始化距离 dist[1]=0 dist[i] =无穷大
 
-2. fo">
+2. for(">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -31,7 +31,7 @@
     </style>
 
 
-    <title>最短路之 Dijstra 算法 | NewbieQiu</title>
+    <title>最短路之 Dijkstra 算法 | 蒟蒻有一天也会成为大佬！</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -58,7 +58,7 @@
                     
                     <img src="/medias/logo.png" class="logo-img" alt="LOGO">
                     
-                    <span class="logo-span">NewbieQiu</span>
+                    <span class="logo-span">蒟蒻有一天也会成为大佬！</span>
                 </a>
             </div>
             
@@ -157,7 +157,7 @@
         
         <img src="/medias/logo.png" class="logo-img circle responsive-img">
         
-        <div class="logo-name">NewbieQiu</div>
+        <div class="logo-name">蒟蒻有一天也会成为大佬！</div>
         <div class="logo-desc">
             
             莫听穿林打叶声，何妨吟啸且徐行
@@ -323,12 +323,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">最短路之 Dijstra 算法</h1>
+                    <h1 class="description center-align post-title">最短路之 Dijkstra 算法</h1>
                 </div>
             </div>
         </div>
@@ -497,8 +497,8 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="最短路之-Dijstra-算法（朴素做法）"><a href="#最短路之-Dijstra-算法（朴素做法）" class="headerlink" title="最短路之 Dijstra 算法（朴素做法）"></a>最短路之 Dijstra 算法（朴素做法）</h2><h3 id="时间复杂度-O-n2"><a href="#时间复杂度-O-n2" class="headerlink" title="时间复杂度  O(n2)"></a>时间复杂度  O(n2)</h3><h5 id="没什么好说的先上模板题"><a href="#没什么好说的先上模板题" class="headerlink" title="没什么好说的先上模板题"></a>没什么好说的先上模板题</h5><p><a href="(https://www.acwing.com/problem/content/851/">Dijstra算法(用于稀疏图) </a></p>
-<h3 id="总结来说就是以下的几步："><a href="#总结来说就是以下的几步：" class="headerlink" title="总结来说就是以下的几步："></a>总结来说就是以下的几步：</h3><pre><code>    #### 1.初始化距离 dist[1]=0 dist[i] =无穷大
+                <h2 id="最短路之-Dijkstra-算法（朴素做法）"><a href="#最短路之-Dijkstra-算法（朴素做法）" class="headerlink" title="最短路之 Dijkstra 算法（朴素做法）"></a>最短路之 Dijkstra 算法（朴素做法）</h2><h3 id="时间复杂度-O-n2"><a href="#时间复杂度-O-n2" class="headerlink" title="时间复杂度  O(n2)"></a>时间复杂度  O(n2)</h3><h5 id="没什么好说的先上模板题"><a href="#没什么好说的先上模板题" class="headerlink" title="没什么好说的先上模板题"></a>没什么好说的先上模板题</h5><p><a href="(https://www.acwing.com/problem/content/851/">Dijkstra算法(用于稀疏图) </a></p>
+<h3 id="总结来说就是以下的几步："><a href="#总结来说就是以下的几步：" class="headerlink" title="总结来说就是以下的几步："></a>总结来说就是以下的几步：</h3><pre><code>#### 1.初始化距离 dist[1]=0 dist[i] =无穷大
 </code></pre>
 <h4 id="2-for-i-x3D-1-到-n"><a href="#2-for-i-x3D-1-到-n" class="headerlink" title="2. for( i=1 到 n)"></a>2. for( i=1 到 n)</h4><h5 id="2-1-找t不在s中的距离最近的点"><a href="#2-1-找t不在s中的距离最近的点" class="headerlink" title="2.1 找t不在s中的距离最近的点"></a>2.1 找t不在s中的距离最近的点</h5><h5 id="2-2-讲-t加入到-s中"><a href="#2-2-讲-t加入到-s中" class="headerlink" title="2.2 讲 t加入到 s中"></a>2.2 讲 t加入到 s中</h5><h5 id="2-3-用t更新到其他点的距离"><a href="#2-3-用t更新到其他点的距离" class="headerlink" title="2.3 用t更新到其他点的距离"></a>2.3 用t更新到其他点的距离</h5><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;iostream&gt;
 #include&lt;algorithm&gt;
@@ -564,6 +564,98 @@ int main()
 
 
 
+
+<h3 id="Dijkstra算法（堆优化版）"><a href="#Dijkstra算法（堆优化版）" class="headerlink" title="Dijkstra算法（堆优化版）"></a>Dijkstra算法（堆优化版）</h3><h4 id="用于稠密图，时间复杂度O-mlog-n-m为变数n为点数"><a href="#用于稠密图，时间复杂度O-mlog-n-m为变数n为点数" class="headerlink" title="用于稠密图，时间复杂度O(mlog(n)) m为变数n为点数"></a>用于稠密图，时间复杂度O(mlog(n)) m为变数n为点数</h4><h5 id="模板题："><a href="#模板题：" class="headerlink" title="模板题："></a>模板题：</h5><p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/852/">堆优化版模板题</a></p>
+<h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><h5 id="1-一号点的距离初始化为零，其他点初始化成无穷大。"><a href="#1-一号点的距离初始化为零，其他点初始化成无穷大。" class="headerlink" title="1.一号点的距离初始化为零，其他点初始化成无穷大。"></a>1.一号点的距离初始化为零，其他点初始化成无穷大。</h5><h5 id="2-将一号点放入堆中。"><a href="#2-将一号点放入堆中。" class="headerlink" title="2.将一号点放入堆中。"></a>2.将一号点放入堆中。</h5><h5 id="3-不断循环，直到堆空。每一次循环中执行的操作为："><a href="#3-不断循环，直到堆空。每一次循环中执行的操作为：" class="headerlink" title="3.不断循环，直到堆空。每一次循环中执行的操作为："></a>3.不断循环，直到堆空。每一次循环中执行的操作为：</h5><h5 id="弹出堆顶（与朴素版diijkstra找到S外距离最短的点相同，并标记该点的最短路径已经确定）。"><a href="#弹出堆顶（与朴素版diijkstra找到S外距离最短的点相同，并标记该点的最短路径已经确定）。" class="headerlink" title="弹出堆顶（与朴素版diijkstra找到S外距离最短的点相同，并标记该点的最短路径已经确定）。"></a>弹出堆顶（与朴素版diijkstra找到S外距离最短的点相同，并标记该点的最短路径已经确定）。</h5><h5 id="用该点更新临界点的距离，若更新成功就加入到堆中。"><a href="#用该点更新临界点的距离，若更新成功就加入到堆中。" class="headerlink" title="用该点更新临界点的距离，若更新成功就加入到堆中。"></a>用该点更新临界点的距离，若更新成功就加入到堆中。</h5><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">for</span><span class="token punctuation">(</span>i<span class="token operator">:</span><span class="token number">1</span> <span class="token operator">~</span> n<span class="token punctuation">)</span><span class="token comment">//n次</span>
+<span class="token punctuation">{</span>
+    t <span class="token operator">&lt;</span><span class="token operator">-</span> 没有确定最短路径的节点中距离源点最近的点<span class="token punctuation">;</span><span class="token comment">//每次遍一遍历dist数组，n次的复杂度是O(n^2)</span>
+    state<span class="token punctuation">[</span>t<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    更新 dist<span class="token punctuation">;</span><span class="token comment">//每次遍历一个节点的出边，n次遍历了所有节点的边，复杂度为O(e)</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;iostream&gt;
+#include&lt;cstring&gt;
+#include&lt;queue&gt;
+
+using namespace std;
+
+typedef pair&lt;int, int&gt; PII;
+
+const int N = 100010; // 把N改为150010就能ac
+
+// 稀疏图用邻接表来存
+int h[N], e[N], ne[N], idx;
+int w[N]; // 用来存权重
+int dist[N];
+bool st[N]; // 如果为true说明这个点的最短路径已经确定
+
+int n, m;
+
+void add(int x, int y, int c)
+{
+    w[idx] = c; // 有重边也不要紧，假设1-&gt;2有权重为2和3的边，再遍历到点1的时候2号点的距离会更新两次放入堆中
+    e[idx] = y; // 这样堆中会有很多冗余的点，但是在弹出的时候还是会弹出最小值2+x（x为之前确定的最短路径），并
+    ne[idx] = h[x]; // 标记st为true，所以下一次弹出3+x会continue不会向下执行。
+    h[x] = idx++;
+}
+
+int dijkstra()
+{
+    memset(dist, 0x3f, sizeof(dist));
+    dist[1] = 0;
+    priority_queue&lt;PII, vector&lt;PII&gt;, greater&lt;PII&gt;&gt; heap; // 定义一个小根堆
+    // 这里heap中为什么要存pair呢，首先小根堆是根据距离来排的，所以有一个变量要是距离，其次在从堆中拿出来的时    
+    // 候要知道知道这个点是哪个点，不然怎么更新邻接点呢？所以第二个变量要存点。
+    heap.push({ 0, 1 }); // 这个顺序不能倒，pair排序时是先根据first，再根据second，这里显然要根据距离排序
+    while(heap.size())
+    {
+        PII k = heap.top(); // 取不在集合S中距离最短的点
+        heap.pop();
+        int ver = k.second, distance = k.first;
+
+        if(st[ver]) continue;
+        st[ver] = true;
+
+        for(int i = h[ver]; i != -1; i = ne[i])
+        {
+            int j = e[i]; // i只是个下标，e中在存的是i这个下标对应的点。
+            if(dist[j] &gt; distance + w[i])
+            {
+                dist[j] = distance + w[i];
+                heap.push({ dist[j], j });
+            }
+        }
+    }
+    if(dist[n] == 0x3f3f3f3f) return -1;
+    else return dist[n];
+}
+
+int main()
+{
+    memset(h, -1, sizeof(h));
+    scanf("%d%d", &amp;n, &amp;m);
+
+    while (m--)
+    {
+        int x, y, c;
+        scanf("%d%d%d", &amp;x, &amp;y, &amp;c);
+        add(x, y, c);
+    }
+
+    cout &lt;&lt; dijkstra() &lt;&lt; endl;
+
+    return 0;
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p>ps：不用continue不会影响后面的取值，因为有dis[j]&gt;distance+w[i]的判断，一定会更新成最小的那个，只不过就是把这个点的邻接点又加进去判断了而已，多了几次for循环，加上continue会减少这个判断，不加continue会超时，不会答案错误。</p>
+
                 
             </div>
             <hr/>
@@ -579,7 +671,7 @@ int main()
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="/about" rel="external nofollow noreferrer">NewbieQiu</a>
+                    <a href="/about" rel="external nofollow noreferrer">QZZ</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -602,7 +694,7 @@ int main()
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="/about" target="_blank">NewbieQiu</a>
+                    <a href="/about" target="_blank">QZZ</a>
                     !
                 </span>
             </div>
@@ -815,9 +907,9 @@ int main()
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="最短路之 Dijstra 算法">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="最短路之 Dijkstra 算法">
                         
-                        <span class="card-title">最短路之 Dijstra 算法</span>
+                        <span class="card-title">最短路之 Dijkstra 算法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -887,7 +979,7 @@ int main()
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
-                            NewbieQiu
+                            QZZ
                             
                         </span>
                     </div>
@@ -1081,7 +1173,7 @@ int main()
             
                 <span id="year">2022</span>
             
-            <a href="/about" target="_blank">NewbieQiu</a>
+            <a href="/about" target="_blank">QZZ</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
