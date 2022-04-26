@@ -4,10 +4,11 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Mybatis Plus笔记(1), NewbieQiu">
-    <meta name="description" content="初始化引入依赖(Springboot方式启动)&amp;lt;dependency&amp;gt;
-&amp;lt;groupId&amp;gt;com.baomidou&amp;lt;/groupId&amp;gt;
-&amp;lt;artifactId&amp;gt;mybatis-plus-boo">
+    <meta name="keywords" content="最短路之 Dijstra 算法, NewbieQiu">
+    <meta name="description" content="最短路之 Dijstra 算法（朴素做法）时间复杂度  O(n2)没什么好说的先上模板题Dijstra算法(用于稀疏图) 
+总结来说就是以下的几步：    #### 1.初始化距离 dist[1]=0 dist[i] =无穷大
+
+2. fo">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -21,7 +22,7 @@
 
     
 
-    <title>Mybatis Plus笔记(1) | NewbieQiu</title>
+    <title>最短路之 Dijstra 算法 | NewbieQiu</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -313,12 +314,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Mybatis Plus笔记(1)</h1>
+                    <h1 class="description center-align post-title">最短路之 Dijstra 算法</h1>
                 </div>
             </div>
         </div>
@@ -434,14 +435,27 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/mybatisPlus/">
-                                <span class="chip bg-color">mybatisPlus</span>
+                            <a href="/tags/%E5%9B%BE%E8%AE%BA/">
+                                <span class="chip bg-color">图论</span>
+                            </a>
+                        
+                            <a href="/tags/%E7%AE%97%E6%B3%95/">
+                                <span class="chip bg-color">算法</span>
                             </a>
                         
                     </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                算法
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -450,7 +464,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-04-25
+                    2022-04-26
                 </div>
                 
 
@@ -474,77 +488,72 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><h3 id="引入依赖-Springboot方式启动"><a href="#引入依赖-Springboot方式启动" class="headerlink" title="引入依赖(Springboot方式启动)"></a>引入依赖(Springboot方式启动)</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token generics"><span class="token punctuation">&lt;</span>dependency<span class="token punctuation">&gt;</span></span>
-<span class="token generics"><span class="token punctuation">&lt;</span>groupId<span class="token punctuation">&gt;</span></span>com<span class="token punctuation">.</span>baomidou<span class="token operator">&lt;</span><span class="token operator">/</span>groupId<span class="token operator">&gt;</span>
-<span class="token generics"><span class="token punctuation">&lt;</span>artifactId<span class="token punctuation">&gt;</span></span>mybatis<span class="token operator">-</span>plus<span class="token operator">-</span>boot<span class="token operator">-</span>starter<span class="token operator">&lt;</span><span class="token operator">/</span>artifactId<span class="token operator">&gt;</span>
-<span class="token generics"><span class="token punctuation">&lt;</span>version<span class="token punctuation">&gt;</span></span><span class="token number">3.5</span><span class="token number">.1</span><span class="token operator">&lt;</span><span class="token operator">/</span>version<span class="token operator">&gt;</span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>dependency<span class="token operator">&gt;</span>
-<span class="token generics"><span class="token punctuation">&lt;</span>dependency<span class="token punctuation">&gt;</span></span>
-<span class="token generics"><span class="token punctuation">&lt;</span>groupId<span class="token punctuation">&gt;</span></span>org<span class="token punctuation">.</span>projectlombok<span class="token operator">&lt;</span><span class="token operator">/</span>groupId<span class="token operator">&gt;</span>
-<span class="token generics"><span class="token punctuation">&lt;</span>artifactId<span class="token punctuation">&gt;</span></span>lombok<span class="token operator">&lt;</span><span class="token operator">/</span>artifactId<span class="token operator">&gt;</span>
-<span class="token generics"><span class="token punctuation">&lt;</span>optional<span class="token punctuation">&gt;</span></span><span class="token boolean">true</span><span class="token operator">&lt;</span><span class="token operator">/</span>optional<span class="token operator">&gt;</span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>dependency<span class="token operator">&gt;</span>
-<span class="token generics"><span class="token punctuation">&lt;</span>dependency<span class="token punctuation">&gt;</span></span>
-<span class="token generics"><span class="token punctuation">&lt;</span>groupId<span class="token punctuation">&gt;</span></span>mysql<span class="token operator">&lt;</span><span class="token operator">/</span>groupId<span class="token operator">&gt;</span>
-<span class="token generics"><span class="token punctuation">&lt;</span>artifactId<span class="token punctuation">&gt;</span></span>mysql<span class="token operator">-</span>connector<span class="token operator">-</span>java<span class="token operator">&lt;</span><span class="token operator">/</span>artifactId<span class="token operator">&gt;</span>
-<span class="token generics"><span class="token punctuation">&lt;</span>scope<span class="token punctuation">&gt;</span></span>runtime<span class="token operator">&lt;</span><span class="token operator">/</span>scope<span class="token operator">&gt;</span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>dependency<span class="token operator">&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+                <h2 id="最短路之-Dijstra-算法（朴素做法）"><a href="#最短路之-Dijstra-算法（朴素做法）" class="headerlink" title="最短路之 Dijstra 算法（朴素做法）"></a>最短路之 Dijstra 算法（朴素做法）</h2><h3 id="时间复杂度-O-n2"><a href="#时间复杂度-O-n2" class="headerlink" title="时间复杂度  O(n2)"></a>时间复杂度  O(n2)</h3><h5 id="没什么好说的先上模板题"><a href="#没什么好说的先上模板题" class="headerlink" title="没什么好说的先上模板题"></a>没什么好说的先上模板题</h5><p><a href="(https://www.acwing.com/problem/content/851/">Dijstra算法(用于稀疏图) </a></p>
+<h3 id="总结来说就是以下的几步："><a href="#总结来说就是以下的几步：" class="headerlink" title="总结来说就是以下的几步："></a>总结来说就是以下的几步：</h3><pre><code>    #### 1.初始化距离 dist[1]=0 dist[i] =无穷大
+</code></pre>
+<h4 id="2-for-i-x3D-1-到-n"><a href="#2-for-i-x3D-1-到-n" class="headerlink" title="2. for( i=1 到 n)"></a>2. for( i=1 到 n)</h4><h5 id="2-1-找t不在s中的距离最近的点"><a href="#2-1-找t不在s中的距离最近的点" class="headerlink" title="2.1 找t不在s中的距离最近的点"></a>2.1 找t不在s中的距离最近的点</h5><h5 id="2-2-讲-t加入到-s中"><a href="#2-2-讲-t加入到-s中" class="headerlink" title="2.2 讲 t加入到 s中"></a>2.2 讲 t加入到 s中</h5><h5 id="2-3-用t更新到其他点的距离"><a href="#2-3-用t更新到其他点的距离" class="headerlink" title="2.3 用t更新到其他点的距离"></a>2.3 用t更新到其他点的距离</h5><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;iostream&gt;
+#include&lt;algorithm&gt;
+#include&lt;cstring&gt;
+using namespace std;
 
+const int N=510;
 
+int g[N][N];    //为稠密阵所以用邻接矩阵存储
+int dist[N];    //用于记录每一个点距离第一个点的距离
+bool st[N];     //用于记录该点的最短距离是否已经确定
 
-<h3 id="配置yml文件"><a href="#配置yml文件" class="headerlink" title="配置yml文件"></a>配置yml文件</h3><pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">spring</span><span class="token punctuation">:</span>
-<span class="token comment"># 配置数据源信息</span>
-<span class="token key atrule">datasource</span><span class="token punctuation">:</span>
-<span class="token comment"># 配置数据源类型</span>
-<span class="token key atrule">type</span><span class="token punctuation">:</span> com.zaxxer.hikari.HikariDataSource
-<span class="token comment"># 配置连接数据库信息</span>
-<span class="token key atrule">driver-class-name</span><span class="token punctuation">:</span> com.mysql.cj.jdbc.Driver
-<span class="token key atrule">url</span><span class="token punctuation">:</span> jdbc<span class="token punctuation">:</span>mysql<span class="token punctuation">:</span>//localhost<span class="token punctuation">:</span>3306/mybatis_plus<span class="token punctuation">?</span>characterEncoding=utf<span class="token punctuation">-</span>8<span class="token important">&amp;useSSL=false</span>
-<span class="token key atrule">username</span><span class="token punctuation">:</span> root
-<span class="token key atrule">password</span><span class="token punctuation">:</span> <span class="token number">123456</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+int n,m;
 
-<p>8.0加上这句在问号后面加上 serverTimezone=GMT%2B8&amp;</p>
-<h3 id="启动类"><a href="#启动类" class="headerlink" title="启动类"></a>启动类</h3><h4 id="在Spring-Boot启动类中添加-MapperScan注解，扫描mapper包"><a href="#在Spring-Boot启动类中添加-MapperScan注解，扫描mapper包" class="headerlink" title="在Spring Boot启动类中添加@MapperScan注解，扫描mapper包"></a>在Spring Boot启动类中添加@MapperScan注解，扫描mapper包</h4><h3 id="日志添加"><a href="#日志添加" class="headerlink" title="日志添加"></a>日志添加</h3><pre class="line-numbers language-ymal" data-language="ymal"><code class="language-ymal"># 配置MyBatis日志
-mybatis-plus:
-configuration:
-log-impl: org.apache.ibatis.logging.stdout.StdOutImpl<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+int Dijkstra()
+{
+    memset(dist, 0x3f,sizeof dist);     //初始化距离  0x3f代表无限大 
 
+    dist[1]=0;  //第一个点到自身的距离为0
 
+    for(int i=0;i&lt;n;i++)      //有n个点所以要进行n次 迭代
+    {
+        int t=-1;       //t存储当前访问的点
 
-<h3 id="基本的CRUD操作"><a href="#基本的CRUD操作" class="headerlink" title="基本的CRUD操作"></a>基本的CRUD操作</h3><h4 id="批量删除"><a href="#批量删除" class="headerlink" title="批量删除"></a>批量删除</h4><pre class="line-numbers language-ymal" data-language="ymal"><code class="language-ymal">@Test
-public void testDeleteBatchIds(){
-//通过多个id批量删除
-//DELETE FROM user WHERE id IN ( ? , ? , ? )
+        for(int j=1;j&lt;=n;j++)   //这里的j代表的是从1号点开始
+            if(!st[j]&amp;&amp;(t==-1|| dist[t]&gt;dist[j]) )     
+                t=j;
 
-List&lt;Long&gt; idList = Arrays.asList(1L, 2L, 3L);
+        st[t]=true;   
 
-int result = userMapper.deleteBatchIds(idList);
+        for(int j=1;j&lt;=n;j++)           //依次更新每个点所到相邻的点路径值
+            dist[j]=min(dist[j],dist[t]+g[t][j]);
+ //这里可能有同学要问j如果从1开始的话 会不会影响之前已经确定的点的最小距离
+//但其实是不会 因为按照我们的Dijkstra算法的操作顺序 先确定最短距离的点的距离已经比后确定的要小 所以不会影响
+//当然你也可以在循环判断条件里加上if(!st[i])
+//这里j从1开始只是为了代码的简洁
 
-System.out.println("受影响行数："+result);
+    }
+
+    if(dist[n]==0x3f3f3f3f) return -1;  //如果第n个点路径为无穷大即不存在最低路径
+    return dist[n];
 }
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+int main()
+{
+    cin&gt;&gt;n&gt;&gt;m;
+
+    memset(g,0x3f,sizeof g);    //初始化图 因为是求最短路径
+                                //所以每个点初始为无限大
+
+    while(m--)
+    {
+        int x,y,z;
+        cin&gt;&gt;x&gt;&gt;y&gt;&gt;z;
+        g[x][y]=min(g[x][y],z);     //如果发生重边的情况则保留最短的一条边
+    }
+
+    cout&lt;&lt;Dijkstra()&lt;&lt;endl;
+    return 0;
+}
+
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
-<h4 id="通过Map删除"><a href="#通过Map删除" class="headerlink" title="通过Map删除"></a>通过Map删除</h4><pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml">@Test
-public void testDeleteByMap()<span class="token punctuation">{</span>
-//根据map集合中所设置的条件删除记录
-//DELETE FROM user WHERE name = <span class="token punctuation">?</span> AND age = <span class="token punctuation">?</span>
-Map&lt;String<span class="token punctuation">,</span> Object<span class="token punctuation">&gt;</span> map = new HashMap&lt;<span class="token punctuation">&gt;</span>();
-map.put("age"<span class="token punctuation">,</span> 23);
-map.put("name"<span class="token punctuation">,</span> "张三");
-int result = userMapper.deleteByMap(map);
-System.out.println("受影响行数："+result);
-<span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
-<h4 id="查询的map和批量查大同小异，这里不再一一赘述-。"><a href="#查询的map和批量查大同小异，这里不再一一赘述-。" class="headerlink" title="查询的map和批量查大同小异，这里不再一一赘述 。"></a>查询的map和批量查大同小异，这里不再一一赘述 。</h4><h1 id="最后不要忘了-Mapper接口继承-BaseMapper-哦！！"><a href="#最后不要忘了-Mapper接口继承-BaseMapper-哦！！" class="headerlink" title="最后不要忘了 Mapper接口继承 BaseMapper 哦！！"></a>最后不要忘了 Mapper接口继承 BaseMapper<t> 哦！！</t></h1><h3 id="自定义接口"><a href="#自定义接口" class="headerlink" title="自定义接口"></a>自定义接口</h3><h4 id="在不改yaml文件的情况下默认把xml文件放在Mapper包下或者其子包下（或者可以在yaml文件下设置"><a href="#在不改yaml文件的情况下默认把xml文件放在Mapper包下或者其子包下（或者可以在yaml文件下设置" class="headerlink" title="在不改yaml文件的情况下默认把xml文件放在Mapper包下或者其子包下（或者可以在yaml文件下设置"></a>在不改yaml文件的情况下默认把xml文件放在Mapper包下或者其子包下（或者可以在yaml文件下设置</h4><pre class="line-numbers language-ymal" data-language="ymal"><code class="language-ymal">mapper-locations: classpath:/mapper/Usermapper.xml<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-
-
-<p>记得在主加载类上加@Mapperscan 扫描 ！！！</p>
 
                 
             </div>
@@ -571,7 +580,7 @@ System.out.println("受影响行数："+result);
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://newbieqiu.top/2022/04/25/Mybatis-Plus%E7%AC%94%E8%AE%B0-1/">http://newbieqiu.top/2022/04/25/Mybatis-Plus%E7%AC%94%E8%AE%B0-1/</a>
+                    <a href="http://newbieqiu.top/2022/04/26/%E6%9C%80%E7%9F%AD%E8%B7%AF%E4%B9%8B-Dijstra-%E7%AE%97%E6%B3%95/">http://newbieqiu.top/2022/04/26/%E6%9C%80%E7%9F%AD%E8%B7%AF%E4%B9%8B-Dijstra-%E7%AE%97%E6%B3%95/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -609,8 +618,12 @@ System.out.println("受影响行数："+result);
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/mybatisPlus/">
-                                    <span class="chip bg-color">mybatisPlus</span>
+                                <a href="/tags/%E5%9B%BE%E8%AE%BA/">
+                                    <span class="chip bg-color">图论</span>
+                                </a>
+                            
+                                <a href="/tags/%E7%AE%97%E6%B3%95/">
+                                    <span class="chip bg-color">算法</span>
                                 </a>
                             
                         </div>
@@ -784,9 +797,10 @@ System.out.println("受影响行数："+result);
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2022/04/26/%E6%9C%80%E7%9F%AD%E8%B7%AF%E4%B9%8B-Dijstra-%E7%AE%97%E6%B3%95/">
                     <div class="card-image">
@@ -804,9 +818,9 @@ System.out.println("受影响行数："+result);
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-04-26
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-26
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -819,6 +833,7 @@ System.out.println("受影响行数："+result);
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -841,13 +856,13 @@ System.out.println("受影响行数："+result);
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/04/24/Mybatis-%E5%A4%8D%E4%B9%A0-%E4%B8%80%E5%AF%B9%E5%A4%9A%E5%A4%9A%E5%AF%B9%E4%B8%80/">
+                <a href="/2022/04/25/Mybatis-Plus%E7%AC%94%E8%AE%B0-1/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="Mybatis 复习(一对多多对一)">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="Mybatis Plus笔记(1)">
                         
-                        <span class="card-title">Mybatis 复习(一对多多对一)</span>
+                        <span class="card-title">Mybatis Plus笔记(1)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -858,7 +873,7 @@ System.out.println("受影响行数："+result);
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-24
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-25
                             </span>
                         <span class="publish-author">
                             
@@ -871,8 +886,8 @@ System.out.println("受影响行数："+result);
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Mybatis/">
-                        <span class="chip bg-color">Mybatis</span>
+                    <a href="/tags/mybatisPlus/">
+                        <span class="chip bg-color">mybatisPlus</span>
                     </a>
                     
                 </div>
