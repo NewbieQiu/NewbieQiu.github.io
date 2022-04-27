@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="菜鸡日志">
-    <meta name="description" content="莫听穿林打叶声，何妨吟啸且徐行">
+    <meta name="keywords" content="最短路算法之 bellman_ford 算法, 菜鸡日志">
+    <meta name="description" content="最短路算法之 bellman_ford算法bellman_ford 算法的时间复杂度为o（n*m），一般用在存在负权边的情况。存在负权边的情况bellman_ford 算法和 SPFA算法都可以使用 ，但SPFA算法会优于改算法，但有一种情">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -19,7 +19,7 @@
 
     
 
-    <title>菜鸡日志</title>
+    <title>最短路算法之 bellman_ford 算法 | 菜鸡日志</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -311,12 +311,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title"></h1>
+                    <h1 class="description center-align post-title">最短路算法之 bellman_ford 算法</h1>
                 </div>
             </div>
         </div>
@@ -437,6 +437,19 @@
                 </div>
                 <div class="col s5 right-align">
                     
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                算法
+                            </a>
+                        
+                            <a href="/categories/%E7%AE%97%E6%B3%95/%E6%9C%80%E7%9F%AD%E8%B7%AF/" class="post-category">
+                                最短路
+                            </a>
+                        
+                    </div>
+                    
                 </div>
             </div>
 
@@ -444,7 +457,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-04-22
+                    2022-04-27
                 </div>
                 
 
@@ -468,7 +481,63 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>​—<br>title: tags<br>date: 2018-09-30 18:23:38<br>type: “tags”<br>layout: “tags”<br>​— </p>
+                <h2 id="最短路算法之-bellman-ford算法"><a href="#最短路算法之-bellman-ford算法" class="headerlink" title="最短路算法之 bellman_ford算法"></a>最短路算法之 bellman_ford算法</h2><h3 id="bellman-ford-算法的时间复杂度为o（n-m），一般用在存在负权边的情况。"><a href="#bellman-ford-算法的时间复杂度为o（n-m），一般用在存在负权边的情况。" class="headerlink" title="bellman_ford 算法的时间复杂度为o（n*m），一般用在存在负权边的情况。"></a>bellman_ford 算法的时间复杂度为o（n*m），一般用在存在负权边的情况。</h3><h4 id="存在负权边的情况bellman-ford-算法和-SPFA算法都可以使用-，但SPFA算法会优于改算法，但有一种情况下不能代替。即题目中出现有边数限制的最短路。"><a href="#存在负权边的情况bellman-ford-算法和-SPFA算法都可以使用-，但SPFA算法会优于改算法，但有一种情况下不能代替。即题目中出现有边数限制的最短路。" class="headerlink" title="存在负权边的情况bellman_ford 算法和 SPFA算法都可以使用 ，但SPFA算法会优于改算法，但有一种情况下不能代替。即题目中出现有边数限制的最短路。"></a>存在负权边的情况bellman_ford 算法和 SPFA算法都可以使用 ，但SPFA算法会优于改算法，但有一种情况下不能代替。即题目中出现有边数限制的最短路。</h4><h4 id="模板题"><a href="#模板题" class="headerlink" title="模板题"></a><a target="_blank" rel="noopener" href="https://www.acwing.com/activity/content/problem/content/922/">模板题</a></h4><h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><p><img src="D:\blog\hexo\source_posts\QQ截图20220427193548.png" alt="image-20220427193629207"></p>
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;iostream&gt;
+#include&lt;cstring&gt;
+
+using namespace std;
+
+const int N = 510, M = 10010;
+
+struct Edge {
+    int a;
+    int b;
+    int w;
+} e[M];//把每个边保存下来即可
+int dist[N];
+int back[N];//备份数组防止串联
+int n, m, k;//k代表最短路径最多包涵k条边
+
+int bellman_ford() {
+    memset(dist, 0x3f, sizeof dist);
+    dist[1] = 0;
+    for (int i = 0; i &lt; k; i++) {//k次循环
+        memcpy(back, dist, sizeof dist);
+        for (int j = 0; j &lt; m; j++) {//遍历所有边
+            int a = e[j].a, b = e[j].b, w = e[j].w;
+            dist[b] = min(dist[b], back[a] + w);
+            //使用backup:避免给a更新后立马更新b, 这样b一次性最短路径就多了两条边出来
+        }
+    }
+    if (dist[n] &gt; 0x3f3f3f3f / 2) return -1;
+    else return dist[n];
+
+}
+
+int main() {
+    scanf("%d%d%d", &amp;n, &amp;m, &amp;k);
+    for (int i = 0; i &lt; m; i++) {
+        int a, b, w;
+        scanf("%d%d%d", &amp;a, &amp;b, &amp;w);
+        e[i] = {a, b, w};
+    }
+    int res = bellman_ford();
+    if (res == -1) puts("impossible");
+    else cout &lt;&lt; res;
+
+    return 0;
+}
+
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h4 id="一些小细节"><a href="#一些小细节" class="headerlink" title="一些小细节"></a>一些小细节</h4><h5 id="为什么是dist-n-gt-0x3f3f3f3f-x2F-2，-而不是dist-n-x3D-x3D-0x3f3f3f3f"><a href="#为什么是dist-n-gt-0x3f3f3f3f-x2F-2，-而不是dist-n-x3D-x3D-0x3f3f3f3f" class="headerlink" title="为什么是dist[n]>0x3f3f3f3f/2， 而不是dist[n]==0x3f3f3f3f"></a>为什么是dist[n]&gt;0x3f3f3f3f/2， 而不是dist[n]==0x3f3f3f3f</h5><p>5号节点距离起点的距离是无穷大，利用5号节点更新n号节点距离起点的距离，将得到109−2109−2, 虽然小于109109, 但并不存在最短路，(在边数限制在k条的条件下)。</p>
+<p><img src="D:\blog\hexo\source_posts\QQ截图20220427193711.png" alt="image-20220427193721048"></p>
+<h5 id="为什么需要back-a-数组"><a href="#为什么需要back-a-数组" class="headerlink" title="为什么需要back[a]数组"></a>为什么需要back[a]数组</h5><p>为了避免如下的串联情况， 在边数限制为一条的情况下，节点3的距离应该是3，但是由于串联情况，利用本轮更新的节点2更新了节点3的距离，所以现在节点3的距离是2。</p>
+<p><img src="D:\blog\hexo\source_posts\QQ截图20220427193737.png" alt="image-20220427193409279"></p>
+<p>正确做法是用上轮节点2更新的距离–无穷大，来更新节点3， 再取最小值，所以节点3离起点的距离是3。</p>
+<p><img src="D:\blog\hexo\source_posts\QQ截图20220427193801.png" alt="image-20220427193417783"></p>
 
                 
             </div>
@@ -495,7 +564,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://newbieqiu.top/tags/index.html">http://newbieqiu.top/tags/index.html</a>
+                    <a href="http://newbieqiu.top/2022/04/27/%E6%9C%80%E7%9F%AD%E8%B7%AF%E7%AE%97%E6%B3%95%E4%B9%8B-bellman-ford-%E7%AE%97%E6%B3%95/">http://newbieqiu.top/2022/04/27/%E6%9C%80%E7%9F%AD%E8%B7%AF%E7%AE%97%E6%B3%95%E4%B9%8B-bellman-ford-%E7%AE%97%E6%B3%95/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -709,13 +778,13 @@
                 <i class="far fa-dot-circle"></i>&nbsp;本篇
             </div>
             <div class="card">
-                <a href="/tags/index.html">
+                <a href="/2022/04/27/%E6%9C%80%E7%9F%AD%E8%B7%AF%E7%AE%97%E6%B3%95%E4%B9%8B-bellman-ford-%E7%AE%97%E6%B3%95/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="最短路算法之 bellman_ford 算法">
                         
-                        <span class="card-title"></span>
+                        <span class="card-title">最短路算法之 bellman_ford 算法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -726,12 +795,20 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-22
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-27
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            newbieQiu
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                    算法
+                                </a>
+                            
+                            <a href="/categories/%E7%AE%97%E6%B3%95/%E6%9C%80%E7%9F%AD%E8%B7%AF/" class="post-category">
+                                    最短路
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -744,16 +821,16 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/tags/index.html">
+                <a href="/2022/04/26/%E6%9C%80%E7%9F%AD%E8%B7%AF%E4%B9%8B-Dijstra-%E7%AE%97%E6%B3%95/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="最短路之 Dijkstra 算法">
                         
-                        <span class="card-title"></span>
+                        <span class="card-title">最短路之 Dijkstra 算法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -764,17 +841,32 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-22
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-26
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            newbieQiu
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                    算法
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%9B%BE%E8%AE%BA/">
+                        <span class="chip bg-color">图论</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">算法</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
