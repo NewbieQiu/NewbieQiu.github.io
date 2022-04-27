@@ -481,7 +481,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="最短路算法之-bellman-ford算法"><a href="#最短路算法之-bellman-ford算法" class="headerlink" title="最短路算法之 bellman_ford算法"></a>最短路算法之 bellman_ford算法</h2><h3 id="bellman-ford-算法的时间复杂度为o（n-m），一般用在存在负权边的情况。"><a href="#bellman-ford-算法的时间复杂度为o（n-m），一般用在存在负权边的情况。" class="headerlink" title="bellman_ford 算法的时间复杂度为o（n*m），一般用在存在负权边的情况。"></a>bellman_ford 算法的时间复杂度为o（n*m），一般用在存在负权边的情况。</h3><h4 id="存在负权边的情况bellman-ford-算法和-SPFA算法都可以使用-，但SPFA算法会优于改算法，但有一种情况下不能代替。即题目中出现有边数限制的最短路。"><a href="#存在负权边的情况bellman-ford-算法和-SPFA算法都可以使用-，但SPFA算法会优于改算法，但有一种情况下不能代替。即题目中出现有边数限制的最短路。" class="headerlink" title="存在负权边的情况bellman_ford 算法和 SPFA算法都可以使用 ，但SPFA算法会优于改算法，但有一种情况下不能代替。即题目中出现有边数限制的最短路。"></a>存在负权边的情况bellman_ford 算法和 SPFA算法都可以使用 ，但SPFA算法会优于改算法，但有一种情况下不能代替。即题目中出现有边数限制的最短路。</h4><h4 id="模板题"><a href="#模板题" class="headerlink" title="模板题"></a><a target="_blank" rel="noopener" href="https://www.acwing.com/activity/content/problem/content/922/">模板题</a></h4><h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><p><img src="/2022/04/27/%E6%9C%80%E7%9F%AD%E8%B7%AF%E7%AE%97%E6%B3%95%E4%B9%8B-bellman-ford-%E7%AE%97%E6%B3%95/blog\hexo\source_posts\最短路算法之-bellman-ford-算法\1.png" alt="1.png"></p>
+                <h2 id="最短路算法之-bellman-ford算法"><a href="#最短路算法之-bellman-ford算法" class="headerlink" title="最短路算法之 bellman_ford算法"></a>最短路算法之 bellman_ford算法</h2><h3 id="bellman-ford-算法的时间复杂度为o（n-m），一般用在存在负权边的情况。"><a href="#bellman-ford-算法的时间复杂度为o（n-m），一般用在存在负权边的情况。" class="headerlink" title="bellman_ford 算法的时间复杂度为o（n*m），一般用在存在负权边的情况。"></a>bellman_ford 算法的时间复杂度为o（n*m），一般用在存在负权边的情况。</h3><h4 id="存在负权边的情况bellman-ford-算法和-SPFA算法都可以使用-，但SPFA算法会优于改算法，但有一种情况下不能代替。即题目中出现有边数限制的最短路。"><a href="#存在负权边的情况bellman-ford-算法和-SPFA算法都可以使用-，但SPFA算法会优于改算法，但有一种情况下不能代替。即题目中出现有边数限制的最短路。" class="headerlink" title="存在负权边的情况bellman_ford 算法和 SPFA算法都可以使用 ，但SPFA算法会优于改算法，但有一种情况下不能代替。即题目中出现有边数限制的最短路。"></a>存在负权边的情况bellman_ford 算法和 SPFA算法都可以使用 ，但SPFA算法会优于改算法，但有一种情况下不能代替。即题目中出现有边数限制的最短路。</h4><h4 id="模板题"><a href="#模板题" class="headerlink" title="模板题"></a><a target="_blank" rel="noopener" href="https://www.acwing.com/activity/content/problem/content/922/">模板题</a></h4><h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><p><img src="/2022/04/27/%E6%9C%80%E7%9F%AD%E8%B7%AF%E7%AE%97%E6%B3%95%E4%B9%8B-bellman-ford-%E7%AE%97%E6%B3%95/1.png" alt="1.png"></p>
 <h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;iostream&gt;
 #include&lt;cstring&gt;
 
@@ -533,11 +533,11 @@ int main() {
 
 
 <h4 id="一些小细节"><a href="#一些小细节" class="headerlink" title="一些小细节"></a>一些小细节</h4><h5 id="为什么是dist-n-gt-0x3f3f3f3f-x2F-2，-而不是dist-n-x3D-x3D-0x3f3f3f3f"><a href="#为什么是dist-n-gt-0x3f3f3f3f-x2F-2，-而不是dist-n-x3D-x3D-0x3f3f3f3f" class="headerlink" title="为什么是dist[n]>0x3f3f3f3f/2， 而不是dist[n]==0x3f3f3f3f"></a>为什么是dist[n]&gt;0x3f3f3f3f/2， 而不是dist[n]==0x3f3f3f3f</h5><p>5号节点距离起点的距离是无穷大，利用5号节点更新n号节点距离起点的距离，将得到109−2109−2, 虽然小于109109, 但并不存在最短路，(在边数限制在k条的条件下)。</p>
-<p><img src="/2022/04/27/%E6%9C%80%E7%9F%AD%E8%B7%AF%E7%AE%97%E6%B3%95%E4%B9%8B-bellman-ford-%E7%AE%97%E6%B3%95/blog\hexo\source_posts\最短路算法之-bellman-ford-算法\2.png" alt="2.png"></p>
+<p><img src="/2022/04/27/%E6%9C%80%E7%9F%AD%E8%B7%AF%E7%AE%97%E6%B3%95%E4%B9%8B-bellman-ford-%E7%AE%97%E6%B3%95/2.png" alt="2.png"></p>
 <h5 id="为什么需要back-a-数组"><a href="#为什么需要back-a-数组" class="headerlink" title="为什么需要back[a]数组"></a>为什么需要back[a]数组</h5><p>为了避免如下的串联情况， 在边数限制为一条的情况下，节点3的距离应该是3，但是由于串联情况，利用本轮更新的节点2更新了节点3的距离，所以现在节点3的距离是2。</p>
-<p><img src="/2022/04/27/%E6%9C%80%E7%9F%AD%E8%B7%AF%E7%AE%97%E6%B3%95%E4%B9%8B-bellman-ford-%E7%AE%97%E6%B3%95/blog\hexo\source_posts\最短路算法之-bellman-ford-算法\3.png" alt="3.png"></p>
+<p><img src="/2022/04/27/%E6%9C%80%E7%9F%AD%E8%B7%AF%E7%AE%97%E6%B3%95%E4%B9%8B-bellman-ford-%E7%AE%97%E6%B3%95/3.png" alt="3.png"></p>
 <p>正确做法是用上轮节点2更新的距离–无穷大，来更新节点3， 再取最小值，所以节点3离起点的距离是3。</p>
-<p><img src="/2022/04/27/%E6%9C%80%E7%9F%AD%E8%B7%AF%E7%AE%97%E6%B3%95%E4%B9%8B-bellman-ford-%E7%AE%97%E6%B3%95/blog\hexo\source_posts\最短路算法之-bellman-ford-算法\4.png" alt="4.png"></p>
+<p><img src="/2022/04/27/%E6%9C%80%E7%9F%AD%E8%B7%AF%E7%AE%97%E6%B3%95%E4%B9%8B-bellman-ford-%E7%AE%97%E6%B3%95/4.png" alt="4.png"></p>
 
                 
             </div>
