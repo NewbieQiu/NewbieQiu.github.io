@@ -4,8 +4,12 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="最短路算法之bellman-ford-算法, 菜鸡日志">
-    <meta name="description" content="最短路算法之 bellman_ford算法bellman_ford 算法的时间复杂度为o（n*m），一般用在存在负权边的情况。存在负权边的情况bellman_ford 算法和 SPFA算法都可以使用 ，但SPFA算法会优于改算法，但有一种情">
+    <meta name="keywords" content="从0开始的英语生活——前缀篇, 菜鸡日志">
+    <meta name="description" content="前缀篇前缀定方向，后缀定词性，词根定词义1. ab - 离去，想法，不（消极意思）abnormal  反常的，变态的 adj
+abuse 滥用，虐待 n/v
+2.anti - 反对，相反antiwar 反战的
+antiaging 防衰老的
+">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -19,7 +23,7 @@
 
     
 
-    <title>最短路算法之bellman-ford-算法 | 菜鸡日志</title>
+    <title>从0开始的英语生活——前缀篇 | 菜鸡日志</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -311,12 +315,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">最短路算法之bellman-ford-算法</h1>
+                    <h1 class="description center-align post-title">从0开始的英语生活——前缀篇</h1>
                 </div>
             </div>
         </div>
@@ -430,12 +434,29 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E8%8B%B1%E8%AF%AD/">
+                                <span class="chip bg-color">英语</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%9E%84%E8%AF%8D%E6%B3%95/">
+                                <span class="chip bg-color">构词法</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E8%8B%B1%E8%AF%AD/" class="post-category">
+                                英语
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -444,7 +465,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-04-27
+                    2022-04-28
                 </div>
                 
 
@@ -468,63 +489,91 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="最短路算法之-bellman-ford算法"><a href="#最短路算法之-bellman-ford算法" class="headerlink" title="最短路算法之 bellman_ford算法"></a>最短路算法之 bellman_ford算法</h2><h3 id="bellman-ford-算法的时间复杂度为o（n-m），一般用在存在负权边的情况。"><a href="#bellman-ford-算法的时间复杂度为o（n-m），一般用在存在负权边的情况。" class="headerlink" title="bellman_ford 算法的时间复杂度为o（n*m），一般用在存在负权边的情况。"></a>bellman_ford 算法的时间复杂度为o（n*m），一般用在存在负权边的情况。</h3><h4 id="存在负权边的情况bellman-ford-算法和-SPFA算法都可以使用-，但SPFA算法会优于改算法，但有一种情况下不能代替。即题目中出现有边数限制的最短路。"><a href="#存在负权边的情况bellman-ford-算法和-SPFA算法都可以使用-，但SPFA算法会优于改算法，但有一种情况下不能代替。即题目中出现有边数限制的最短路。" class="headerlink" title="存在负权边的情况bellman_ford 算法和 SPFA算法都可以使用 ，但SPFA算法会优于改算法，但有一种情况下不能代替。即题目中出现有边数限制的最短路。"></a>存在负权边的情况bellman_ford 算法和 SPFA算法都可以使用 ，但SPFA算法会优于改算法，但有一种情况下不能代替。即题目中出现有边数限制的最短路。</h4><h4 id="模板题"><a href="#模板题" class="headerlink" title="模板题"></a><a target="_blank" rel="noopener" href="https://www.acwing.com/activity/content/problem/content/922/">模板题</a></h4><h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><p><img src="/2022/04/27/%E6%9C%80%E7%9F%AD%E8%B7%AF%E7%AE%97%E6%B3%95%E4%B9%8Bbellman-ford-%E7%AE%97%E6%B3%95/blog\hexo\source_posts\最短路算法之bellman-ford-算法\1.png" alt="1.png"></p>
-<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;iostream&gt;
-#include&lt;cstring&gt;
-
-using namespace std;
-
-const int N = 510, M = 10010;
-
-struct Edge {
-    int a;
-    int b;
-    int w;
-} e[M];//把每个边保存下来即可
-int dist[N];
-int back[N];//备份数组防止串联
-int n, m, k;//k代表最短路径最多包涵k条边
-
-int bellman_ford() {
-    memset(dist, 0x3f, sizeof dist);
-    dist[1] = 0;
-    for (int i = 0; i &lt; k; i++) {//k次循环
-        memcpy(back, dist, sizeof dist);
-        for (int j = 0; j &lt; m; j++) {//遍历所有边
-            int a = e[j].a, b = e[j].b, w = e[j].w;
-            dist[b] = min(dist[b], back[a] + w);
-            //使用backup:避免给a更新后立马更新b, 这样b一次性最短路径就多了两条边出来
-        }
-    }
-    if (dist[n] &gt; 0x3f3f3f3f / 2) return -1;
-    else return dist[n];
-
-}
-
-int main() {
-    scanf("%d%d%d", &amp;n, &amp;m, &amp;k);
-    for (int i = 0; i &lt; m; i++) {
-        int a, b, w;
-        scanf("%d%d%d", &amp;a, &amp;b, &amp;w);
-        e[i] = {a, b, w};
-    }
-    int res = bellman_ford();
-    if (res == -1) puts("impossible");
-    else cout &lt;&lt; res;
-
-    return 0;
-}
-
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
-<h4 id="一些小细节"><a href="#一些小细节" class="headerlink" title="一些小细节"></a>一些小细节</h4><h5 id="为什么是dist-n-gt-0x3f3f3f3f-x2F-2，-而不是dist-n-x3D-x3D-0x3f3f3f3f"><a href="#为什么是dist-n-gt-0x3f3f3f3f-x2F-2，-而不是dist-n-x3D-x3D-0x3f3f3f3f" class="headerlink" title="为什么是dist[n]>0x3f3f3f3f/2， 而不是dist[n]==0x3f3f3f3f"></a>为什么是dist[n]&gt;0x3f3f3f3f/2， 而不是dist[n]==0x3f3f3f3f</h5><p>5号节点距离起点的距离是无穷大，利用5号节点更新n号节点距离起点的距离，将得到109−2109−2, 虽然小于109109, 但并不存在最短路，(在边数限制在k条的条件下)。</p>
-<p><img src="/2022/04/27/%E6%9C%80%E7%9F%AD%E8%B7%AF%E7%AE%97%E6%B3%95%E4%B9%8Bbellman-ford-%E7%AE%97%E6%B3%95/blog\hexo\source_posts\最短路算法之bellman-ford-算法\2.png" alt="2.png"></p>
-<h5 id="为什么需要back-a-数组"><a href="#为什么需要back-a-数组" class="headerlink" title="为什么需要back[a]数组"></a>为什么需要back[a]数组</h5><p>为了避免如下的串联情况， 在边数限制为一条的情况下，节点3的距离应该是3，但是由于串联情况，利用本轮更新的节点2更新了节点3的距离，所以现在节点3的距离是2。</p>
-<p><img src="/2022/04/27/%E6%9C%80%E7%9F%AD%E8%B7%AF%E7%AE%97%E6%B3%95%E4%B9%8Bbellman-ford-%E7%AE%97%E6%B3%95/blog\hexo\source_posts\最短路算法之bellman-ford-算法\3.png" alt="3.png"></p>
-<p>正确做法是用上轮节点2更新的距离–无穷大，来更新节点3， 再取最小值，所以节点3离起点的距离是3。</p>
-<p><img src="/2022/04/27/%E6%9C%80%E7%9F%AD%E8%B7%AF%E7%AE%97%E6%B3%95%E4%B9%8Bbellman-ford-%E7%AE%97%E6%B3%95/blog\hexo\source_posts\最短路算法之bellman-ford-算法\4.png" alt="4.png"></p>
+                <h2 id="前缀篇"><a href="#前缀篇" class="headerlink" title="前缀篇"></a>前缀篇</h2><h4 id="前缀定方向，后缀定词性，词根定词义"><a href="#前缀定方向，后缀定词性，词根定词义" class="headerlink" title="前缀定方向，后缀定词性，词根定词义"></a>前缀定方向，后缀定词性，词根定词义</h4><h5 id="1-ab-离去，想法，不（消极意思）"><a href="#1-ab-离去，想法，不（消极意思）" class="headerlink" title="1. ab - 离去，想法，不（消极意思）"></a>1. ab - 离去，想法，不（消极意思）</h5><p>abnormal  反常的，变态的 adj</p>
+<p>abuse 滥用，虐待 n/v</p>
+<h5 id="2-anti-反对，相反"><a href="#2-anti-反对，相反" class="headerlink" title="2.anti - 反对，相反"></a>2.anti - 反对，相反</h5><p>antiwar 反战的</p>
+<p>antiaging 防衰老的</p>
+<p>antiforeign 排外的</p>
+<p>antinoise 抗噪音的</p>
+<p>antibiotics  抗生素 n（biotic像biology）</p>
+<p>antitrust  反垄断的 （trust为托拉斯，垄断组织）</p>
+<h5 id="3-a-双写首字母-加强，强调作用"><a href="#3-a-双写首字母-加强，强调作用" class="headerlink" title="3.a+双写首字母 - 加强，强调作用"></a>3.a+双写首字母 - 加强，强调作用</h5><p>account 账目，存款 n</p>
+<p>attract 吸引（tract的词根意为拉）</p>
+<p>assimilate 同化 v</p>
+<p>affluent 富裕的 adj（强调富得流油）</p>
+<h5 id="4-co-x2F-col-x2F-con-x2F-com-一起"><a href="#4-co-x2F-col-x2F-con-x2F-com-一起" class="headerlink" title="4. co-/col-/con/com- 一起"></a>4. co-/col-/con/com- 一起</h5><p>cooperation </p>
+<p>collaboration  合作（labor为劳动，一起劳动）</p>
+<p>contribute  贡献（bute为贡品）v</p>
+<h5 id="5-counter-反对，相反"><a href="#5-counter-反对，相反" class="headerlink" title="5. counter - 反对，相反"></a>5. counter - 反对，相反</h5><p>counterattack 反击n/v</p>
+<p>countereffect 反效果n</p>
+<p>counterpart  相对应的n</p>
+<p>counterfeit 仿制（feit，fict，fact词根为制造）</p>
+<h5 id="6-de-否定，除去，向下"><a href="#6-de-否定，除去，向下" class="headerlink" title="6.de- 否定，除去，向下"></a>6.de- 否定，除去，向下</h5><p>denationlize 非国有化v</p>
+<p>decompose 分解v（com一起，pose放置）</p>
+<p>deforest 砍伐树林</p>
+<p>devastating 毁灭性的（vast巨大的，巨大的东西掉下来了）</p>
+<p>deception 欺骗（cep词根 来）</p>
+<p>derive 起源</p>
+<h5 id="7-dis-否定，除去，分开"><a href="#7-dis-否定，除去，分开" class="headerlink" title="7. dis-  否定，除去，分开"></a>7. dis-  否定，除去，分开</h5><p>discover 发现</p>
+<p>disease 疾病</p>
+<p>disorder 无秩序n</p>
+<p>distract 分心</p>
+<p>dismiss (解雇，清除)不再miss她</p>
+<p>disposal 清理 pos词根为放置</p>
+<h5 id="8-ex-外，前任的"><a href="#8-ex-外，前任的" class="headerlink" title="8.ex- 外，前任的"></a>8.ex- 外，前任的</h5><p>export 出口v,n</p>
+<p>ex-boyfriend</p>
+<p>expression 表情表达（向外压）</p>
+<h5 id="9-fore-前，先，预先"><a href="#9-fore-前，先，预先" class="headerlink" title="9. fore 前，先，预先"></a>9. fore 前，先，预先</h5><p>forehead 前额（头的前面）</p>
+<p>forefather 祖先</p>
+<p>foresee 预知</p>
+<p>forerunner 先驱</p>
+<h5 id="10-in-im-向里，否定，加强"><a href="#10-in-im-向里，否定，加强" class="headerlink" title="10. in,im- 向里，否定，加强"></a>10. in,im- 向里，否定，加强</h5><p>indoor adj室内的</p>
+<p>inbreathe 吸入</p>
+<p>incorrect</p>
+<p>intense（加强，延伸） 热情的</p>
+<p>immerge 浸入v</p>
+<p>impose 强加，征税（放）</p>
+<p>impluse 冲动（加强，推）</p>
+<h5 id="11-mis-错误，坏"><a href="#11-mis-错误，坏" class="headerlink" title="11. mis- 错误，坏"></a>11. mis- 错误，坏</h5><p>mismanagement 管理不当n</p>
+<p>misfortune 不幸</p>
+<h5 id="12-out-超过，外"><a href="#12-out-超过，外" class="headerlink" title="12.out- 超过，外"></a>12.out- 超过，外</h5><p>outlet 出口</p>
+<p>outperform v表现得更好</p>
+<h5 id="13-over-过度"><a href="#13-over-过度" class="headerlink" title="13.over- 过度"></a>13.over- 过度</h5><p>overstatement 夸大n</p>
+<p>overemphasize 过分强调n</p>
+<h5 id="14-post-后"><a href="#14-post-后" class="headerlink" title="14.post- 后"></a>14.post- 后</h5><p>postwar 战后的</p>
+<p>postpone 推后（pon为放）</p>
+<p>postgraduate 研究生n</p>
+<p>post-disaster 灾后生活</p>
+<h5 id="15-pre-前（时间上的前）"><a href="#15-pre-前（时间上的前）" class="headerlink" title="15. pre -前（时间上的前）"></a>15. pre -前（时间上的前）</h5><p>prehistory 史前的</p>
+<p>precondition 前提条件</p>
+<p>precedent 先例 n（ced 超过)</p>
+<h5 id="16-pro-空间上的前"><a href="#16-pro-空间上的前" class="headerlink" title="16. pro - 空间上的前"></a>16. pro - 空间上的前</h5><p>progress （gress为go）进步 n</p>
+<p>prolong 延长v</p>
+<p>propel 推进，促使v（pel-推）</p>
+<p>propose 提议，求婚（pose 拿put）</p>
+<h5 id="17-re-向后，再一次"><a href="#17-re-向后，再一次" class="headerlink" title="17. re- 向后，再一次"></a>17. re- 向后，再一次</h5><p>return</p>
+<p>recall 召回，记得</p>
+<p>regress 倒退v</p>
+<h5 id="18-sub-下，下级"><a href="#18-sub-下，下级" class="headerlink" title="18. sub- 下，下级"></a>18. sub- 下，下级</h5><p>subaverage 低于平均值v</p>
+<p>suburb 郊区</p>
+<p>subconsciously =without knowing it (不易察觉的) –意识向下</p>
+<h5 id="19-trans-转移（from-A-to-B"><a href="#19-trans-转移（from-A-to-B" class="headerlink" title="19. trans - 转移（from A to B)"></a>19. trans - 转移（from A to B)</h5><p>transform </p>
+<p>transplant 移植</p>
+<h5 id="20-mono-一"><a href="#20-mono-一" class="headerlink" title="20. mono  一"></a>20. mono  一</h5><p>monotone 单调 </p>
+<p>monodrama 独角戏</p>
+<p>monologue 独白</p>
+<h5 id="bi-二"><a href="#bi-二" class="headerlink" title="bi- 二"></a>bi- 二</h5><p>bicycle  （两个轮子）</p>
+<p>bilateral 双边的adj</p>
+<h5 id="di-二"><a href="#di-二" class="headerlink" title="di- 二"></a>di- 二</h5><p>dioxide</p>
+<p>divorce</p>
+<h5 id="tri-三"><a href="#tri-三" class="headerlink" title="tri - 三"></a>tri - 三</h5><p>triangle</p>
+<p>trike 三轮车</p>
+<h5 id="hemi-半"><a href="#hemi-半" class="headerlink" title="hemi - 半"></a>hemi - 半</h5><p>hemisphere 半球</p>
+<p>hemicycle 半圆形</p>
+<h5 id="semi-半（抽象）"><a href="#semi-半（抽象）" class="headerlink" title="semi- 半（抽象）"></a>semi- 半（抽象）</h5><p>semifinal 半决赛</p>
+<h5 id="poly-multi-多"><a href="#poly-multi-多" class="headerlink" title="poly- multi- 多"></a>poly- multi- 多</h5><p>monopoly 垄断（1个有多个）</p>
+<p>polytechnic 理工学院</p>
+<p>multi-media</p>
 
                 
             </div>
@@ -551,7 +600,7 @@ int main() {
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://newbieqiu.top/2022/04/27/%E6%9C%80%E7%9F%AD%E8%B7%AF%E7%AE%97%E6%B3%95%E4%B9%8Bbellman-ford-%E7%AE%97%E6%B3%95/">http://newbieqiu.top/2022/04/27/%E6%9C%80%E7%9F%AD%E8%B7%AF%E7%AE%97%E6%B3%95%E4%B9%8Bbellman-ford-%E7%AE%97%E6%B3%95/</a>
+                    <a href="http://newbieqiu.top/2022/04/28/%E4%BB%8E0%E5%BC%80%E5%A7%8B%E7%9A%84%E8%8B%B1%E8%AF%AD%E7%94%9F%E6%B4%BB%E2%80%94%E2%80%94%E5%89%8D%E7%BC%80%E7%AF%87/">http://newbieqiu.top/2022/04/28/%E4%BB%8E0%E5%BC%80%E5%A7%8B%E7%9A%84%E8%8B%B1%E8%AF%AD%E7%94%9F%E6%B4%BB%E2%80%94%E2%80%94%E5%89%8D%E7%BC%80%E7%AF%87/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -588,7 +637,15 @@ int main() {
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/%E8%8B%B1%E8%AF%AD/">
+                                    <span class="chip bg-color">英语</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%9E%84%E8%AF%8D%E6%B3%95/">
+                                    <span class="chip bg-color">构词法</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -765,13 +822,13 @@ int main() {
                 <i class="far fa-dot-circle"></i>&nbsp;本篇
             </div>
             <div class="card">
-                <a href="/2022/04/27/%E6%9C%80%E7%9F%AD%E8%B7%AF%E7%AE%97%E6%B3%95%E4%B9%8Bbellman-ford-%E7%AE%97%E6%B3%95/">
+                <a href="/2022/04/28/%E4%BB%8E0%E5%BC%80%E5%A7%8B%E7%9A%84%E8%8B%B1%E8%AF%AD%E7%94%9F%E6%B4%BB%E2%80%94%E2%80%94%E5%89%8D%E7%BC%80%E7%AF%87/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="最短路算法之bellman-ford-算法">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="从0开始的英语生活——前缀篇">
                         
-                        <span class="card-title">最短路算法之bellman-ford-算法</span>
+                        <span class="card-title">从0开始的英语生活——前缀篇</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -782,17 +839,33 @@ int main() {
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-27
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-28
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            newbieQiu
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%8B%B1%E8%AF%AD/" class="post-category">
+                                    英语
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
 
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%8B%B1%E8%AF%AD/">
+                        <span class="chip bg-color">英语</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%9E%84%E8%AF%8D%E6%B3%95/">
+                        <span class="chip bg-color">构词法</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
