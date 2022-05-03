@@ -4,9 +4,13 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="最短路之 Dijkstra 算法, 蒟蒻有一天也能成为大佬">
-    <meta name="description" content="最短路之 Dijkstra 算法（朴素做法）时间复杂度  O(n2)没什么好说的先上模板题Dijkstra算法(用于稀疏图) 
-总结来说就是以下的几步：1.初始化距离 dist[1]=0 dist[i] =无穷大2. for( i=1 到 ">
+    <meta name="keywords" content="从0开始的英语生活——词根, 蒟蒻有一天也能成为大佬">
+    <meta name="description" content="词根篇前缀定方向，后缀定词性，词根定词义1. ced/cess =go 行走precede v先于
+precedent 先例
+unprecedentedly 史无前例的
+recede 后退v
+recession 经济衰退
+intercede">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -20,7 +24,7 @@
 
     
 
-    <title>最短路之 Dijkstra 算法 | 蒟蒻有一天也能成为大佬</title>
+    <title>从0开始的英语生活——词根 | 蒟蒻有一天也能成为大佬</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -312,12 +316,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">最短路之 Dijkstra 算法</h1>
+                    <h1 class="description center-align post-title">从0开始的英语生活——词根</h1>
                 </div>
             </div>
         </div>
@@ -433,12 +437,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E7%AE%97%E6%B3%95/">
-                                <span class="chip bg-color">算法</span>
+                            <a href="/tags/%E8%8B%B1%E8%AF%AD/">
+                                <span class="chip bg-color">英语</span>
                             </a>
                         
-                            <a href="/tags/%E5%9B%BE%E8%AE%BA/">
-                                <span class="chip bg-color">图论</span>
+                            <a href="/tags/%E6%9E%84%E8%AF%8D%E6%B3%95/">
+                                <span class="chip bg-color">构词法</span>
                             </a>
                         
                     </div>
@@ -449,8 +453,12 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                算法
+                            <a href="/categories/%E8%8B%B1%E8%AF%AD/" class="post-category">
+                                英语
+                            </a>
+                        
+                            <a href="/categories/%E8%8B%B1%E8%AF%AD/%E6%9E%84%E8%AF%8D%E6%B3%95/" class="post-category">
+                                构词法
                             </a>
                         
                     </div>
@@ -462,7 +470,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-04-26
+                    2022-05-03
                 </div>
                 
 
@@ -486,162 +494,65 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="最短路之-Dijkstra-算法（朴素做法）"><a href="#最短路之-Dijkstra-算法（朴素做法）" class="headerlink" title="最短路之 Dijkstra 算法（朴素做法）"></a>最短路之 Dijkstra 算法（朴素做法）</h2><h3 id="时间复杂度-O-n2"><a href="#时间复杂度-O-n2" class="headerlink" title="时间复杂度  O(n2)"></a>时间复杂度  O(n2)</h3><h5 id="没什么好说的先上模板题"><a href="#没什么好说的先上模板题" class="headerlink" title="没什么好说的先上模板题"></a>没什么好说的先上模板题</h5><p><a href="(https://www.acwing.com/problem/content/851/">Dijkstra算法(用于稀疏图) </a></p>
-<h3 id="总结来说就是以下的几步："><a href="#总结来说就是以下的几步：" class="headerlink" title="总结来说就是以下的几步："></a>总结来说就是以下的几步：</h3><h4 id="1-初始化距离-dist-1-x3D-0-dist-i-x3D-无穷大"><a href="#1-初始化距离-dist-1-x3D-0-dist-i-x3D-无穷大" class="headerlink" title="1.初始化距离 dist[1]=0 dist[i] =无穷大"></a>1.初始化距离 dist[1]=0 dist[i] =无穷大</h4><h4 id="2-for-i-x3D-1-到-n"><a href="#2-for-i-x3D-1-到-n" class="headerlink" title="2. for( i=1 到 n)"></a>2. for( i=1 到 n)</h4><h5 id="2-1-找t不在s中的距离最近的点"><a href="#2-1-找t不在s中的距离最近的点" class="headerlink" title="2.1 找t不在s中的距离最近的点"></a>2.1 找t不在s中的距离最近的点</h5><h5 id="2-2-讲-t加入到-s中"><a href="#2-2-讲-t加入到-s中" class="headerlink" title="2.2 讲 t加入到 s中"></a>2.2 讲 t加入到 s中</h5><h5 id="2-3-用t更新到其他点的距离"><a href="#2-3-用t更新到其他点的距离" class="headerlink" title="2.3 用t更新到其他点的距离"></a>2.3 用t更新到其他点的距离</h5><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;iostream&gt;
-#include&lt;algorithm&gt;
-#include&lt;cstring&gt;
-using namespace std;
-
-const int N=510;
-
-int g[N][N];    //为稠密阵所以用邻接矩阵存储
-int dist[N];    //用于记录每一个点距离第一个点的距离
-bool st[N];     //用于记录该点的最短距离是否已经确定
-
-int n,m;
-
-int Dijkstra()
-{
-    memset(dist, 0x3f,sizeof dist);     //初始化距离  0x3f代表无限大 
-
-    dist[1]=0;  //第一个点到自身的距离为0
-
-    for(int i=0;i&lt;n;i++)      //有n个点所以要进行n次 迭代
-    {
-        int t=-1;       //t存储当前访问的点
-
-        for(int j=1;j&lt;=n;j++)   //这里的j代表的是从1号点开始
-            if(!st[j]&amp;&amp;(t==-1|| dist[t]&gt;dist[j]) )     
-                t=j;
-
-        st[t]=true;   
-
-        for(int j=1;j&lt;=n;j++)           //依次更新每个点所到相邻的点路径值
-            dist[j]=min(dist[j],dist[t]+g[t][j]);
- //这里可能有同学要问j如果从1开始的话 会不会影响之前已经确定的点的最小距离
-//但其实是不会 因为按照我们的Dijkstra算法的操作顺序 先确定最短距离的点的距离已经比后确定的要小 所以不会影响
-//当然你也可以在循环判断条件里加上if(!st[i])
-//这里j从1开始只是为了代码的简洁
-
-    }
-
-    if(dist[n]==0x3f3f3f3f) return -1;  //如果第n个点路径为无穷大即不存在最低路径
-    return dist[n];
-}
-int main()
-{
-    cin&gt;&gt;n&gt;&gt;m;
-
-    memset(g,0x3f,sizeof g);    //初始化图 因为是求最短路径
-                                //所以每个点初始为无限大
-
-    while(m--)
-    {
-        int x,y,z;
-        cin&gt;&gt;x&gt;&gt;y&gt;&gt;z;
-        g[x][y]=min(g[x][y],z);     //如果发生重边的情况则保留最短的一条边
-    }
-
-    cout&lt;&lt;Dijkstra()&lt;&lt;endl;
-    return 0;
-}
-
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
-
-
-<h3 id="Dijkstra算法（堆优化版）"><a href="#Dijkstra算法（堆优化版）" class="headerlink" title="Dijkstra算法（堆优化版）"></a>Dijkstra算法（堆优化版）</h3><h4 id="用于稠密图，时间复杂度O-mlog-n-m为变数n为点数"><a href="#用于稠密图，时间复杂度O-mlog-n-m为变数n为点数" class="headerlink" title="用于稠密图，时间复杂度O(mlog(n)) m为变数n为点数"></a>用于稠密图，时间复杂度O(mlog(n)) m为变数n为点数</h4><h5 id="模板题："><a href="#模板题：" class="headerlink" title="模板题："></a>模板题：</h5><p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/852/">堆优化版模板题</a></p>
-<h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><h5 id="1-一号点的距离初始化为零，其他点初始化成无穷大。"><a href="#1-一号点的距离初始化为零，其他点初始化成无穷大。" class="headerlink" title="1.一号点的距离初始化为零，其他点初始化成无穷大。"></a>1.一号点的距离初始化为零，其他点初始化成无穷大。</h5><h5 id="2-将一号点放入堆中。"><a href="#2-将一号点放入堆中。" class="headerlink" title="2.将一号点放入堆中。"></a>2.将一号点放入堆中。</h5><h5 id="3-不断循环，直到堆空。每一次循环中执行的操作为："><a href="#3-不断循环，直到堆空。每一次循环中执行的操作为：" class="headerlink" title="3.不断循环，直到堆空。每一次循环中执行的操作为："></a>3.不断循环，直到堆空。每一次循环中执行的操作为：</h5><h5 id="弹出堆顶（与朴素版diijkstra找到S外距离最短的点相同，并标记该点的最短路径已经确定）。"><a href="#弹出堆顶（与朴素版diijkstra找到S外距离最短的点相同，并标记该点的最短路径已经确定）。" class="headerlink" title="弹出堆顶（与朴素版diijkstra找到S外距离最短的点相同，并标记该点的最短路径已经确定）。"></a>弹出堆顶（与朴素版diijkstra找到S外距离最短的点相同，并标记该点的最短路径已经确定）。</h5><h5 id="用该点更新临界点的距离，若更新成功就加入到堆中。"><a href="#用该点更新临界点的距离，若更新成功就加入到堆中。" class="headerlink" title="用该点更新临界点的距离，若更新成功就加入到堆中。"></a>用该点更新临界点的距离，若更新成功就加入到堆中。</h5><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">for</span><span class="token punctuation">(</span>i<span class="token operator">:</span><span class="token number">1</span> <span class="token operator">~</span> n<span class="token punctuation">)</span><span class="token comment">//n次</span>
-<span class="token punctuation">{</span>
-    t <span class="token operator">&lt;</span><span class="token operator">-</span> 没有确定最短路径的节点中距离源点最近的点<span class="token punctuation">;</span><span class="token comment">//每次遍一遍历dist数组，n次的复杂度是O(n^2)</span>
-    state<span class="token punctuation">[</span>t<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
-    更新 dist<span class="token punctuation">;</span><span class="token comment">//每次遍历一个节点的出边，n次遍历了所有节点的边，复杂度为O(e)</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
-
-
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;iostream&gt;
-#include&lt;cstring&gt;
-#include&lt;queue&gt;
-
-using namespace std;
-
-typedef pair&lt;int, int&gt; PII;
-
-const int N = 100010; // 把N改为150010就能ac
-
-// 稀疏图用邻接表来存
-int h[N], e[N], ne[N], idx;
-int w[N]; // 用来存权重
-int dist[N];
-bool st[N]; // 如果为true说明这个点的最短路径已经确定
-
-int n, m;
-
-void add(int x, int y, int c)
-{
-    w[idx] = c; // 有重边也不要紧，假设1-&gt;2有权重为2和3的边，再遍历到点1的时候2号点的距离会更新两次放入堆中
-    e[idx] = y; // 这样堆中会有很多冗余的点，但是在弹出的时候还是会弹出最小值2+x（x为之前确定的最短路径），并
-    ne[idx] = h[x]; // 标记st为true，所以下一次弹出3+x会continue不会向下执行。
-    h[x] = idx++;
-}
-
-int dijkstra()
-{
-    memset(dist, 0x3f, sizeof(dist));
-    dist[1] = 0;
-    priority_queue&lt;PII, vector&lt;PII&gt;, greater&lt;PII&gt;&gt; heap; // 定义一个小根堆
-    // 这里heap中为什么要存pair呢，首先小根堆是根据距离来排的，所以有一个变量要是距离，其次在从堆中拿出来的时    
-    // 候要知道知道这个点是哪个点，不然怎么更新邻接点呢？所以第二个变量要存点。
-    heap.push({ 0, 1 }); // 这个顺序不能倒，pair排序时是先根据first，再根据second，这里显然要根据距离排序
-    while(heap.size())
-    {
-        PII k = heap.top(); // 取不在集合S中距离最短的点
-        heap.pop();
-        int ver = k.second, distance = k.first;
-
-        if(st[ver]) continue;
-        st[ver] = true;
-
-        for(int i = h[ver]; i != -1; i = ne[i])
-        {
-            int j = e[i]; // i只是个下标，e中在存的是i这个下标对应的点。
-            if(dist[j] &gt; distance + w[i])
-            {
-                dist[j] = distance + w[i];
-                heap.push({ dist[j], j });
-            }
-        }
-    }
-    if(dist[n] == 0x3f3f3f3f) return -1;
-    else return dist[n];
-}
-
-int main()
-{
-    memset(h, -1, sizeof(h));
-    scanf("%d%d", &amp;n, &amp;m);
-
-    while (m--)
-    {
-        int x, y, c;
-        scanf("%d%d%d", &amp;x, &amp;y, &amp;c);
-        add(x, y, c);
-    }
-
-    cout &lt;&lt; dijkstra() &lt;&lt; endl;
-
-    return 0;
-}
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
-<p>ps：不用continue不会影响后面的取值，因为有dis[j]&gt;distance+w[i]的判断，一定会更新成最小的那个，只不过就是把这个点的邻接点又加进去判断了而已，多了几次for循环，加上continue会减少这个判断，不加continue会超时，不会答案错误。</p>
+                <h2 id="词根篇"><a href="#词根篇" class="headerlink" title="词根篇"></a>词根篇</h2><h3 id="前缀定方向，后缀定词性，词根定词义"><a href="#前缀定方向，后缀定词性，词根定词义" class="headerlink" title="前缀定方向，后缀定词性，词根定词义"></a>前缀定方向，后缀定词性，词根定词义</h3><h4 id="1-ced-x2F-cess-x3D-go-行走"><a href="#1-ced-x2F-cess-x3D-go-行走" class="headerlink" title="1. ced/cess =go 行走"></a>1. ced/cess =go 行走</h4><p>precede v先于</p>
+<p>precedent 先例</p>
+<p>unprecedentedly 史无前例的</p>
+<p>recede 后退v</p>
+<p>recession 经济衰退</p>
+<p>intercede  调停v</p>
+<p>exceed 超过</p>
+<p>excess </p>
+<p>excessive 过分的</p>
+<p>access </p>
+<h4 id="2-cid，cis-x3D-cut-kill-切，杀"><a href="#2-cid，cis-x3D-cut-kill-切，杀" class="headerlink" title="2.-cid，cis =cut ,kill 切，杀"></a>2.-cid，cis =cut ,kill 切，杀</h4><p>decide </p>
+<p>concise 简洁的</p>
+<p>precise 精确的  ~to be more precise 更精确地说</p>
+<p>suicide 自杀</p>
+<p>pesticide 杀虫剂</p>
+<h4 id="3-claim-x3D-cry，shout-喊叫"><a href="#3-claim-x3D-cry，shout-喊叫" class="headerlink" title="3. claim=cry，shout 喊叫"></a>3. claim=cry，shout 喊叫</h4><p>exclaim</p>
+<p>proclaim 宣告公布v</p>
+<p>declaim 演讲v</p>
+<p>reclaim v.收回开拓</p>
+<p>acclaim v 称赞</p>
+<h4 id="4-clud，clus-x3D-close-关闭"><a href="#4-clud，clus-x3D-close-关闭" class="headerlink" title="4. clud，clus =close 关闭"></a>4. clud，clus =close 关闭</h4><p>seclude v使隔绝</p>
+<p>conclude</p>
+<h4 id="5-dec-x2F-dect-x3D-lead-引导"><a href="#5-dec-x2F-dect-x3D-lead-引导" class="headerlink" title="5. dec/dect = lead 引导"></a>5. dec/dect = lead 引导</h4><p>conduct 指挥</p>
+<p>seduce 勾引</p>
+<h4 id="6-fer-x3D-bring-拿"><a href="#6-fer-x3D-bring-拿" class="headerlink" title="6.fer =bring 拿"></a>6.fer =bring 拿</h4><p>ferry 轮渡，渡</p>
+<p>differ</p>
+<p>differentiate</p>
+<h4 id="7-ject，jet-x3D-throw-投掷"><a href="#7-ject，jet-x3D-throw-投掷" class="headerlink" title="7.ject，jet =throw 投掷"></a>7.ject，jet =throw 投掷</h4><p>subject 主题话题 / 受影响的</p>
+<p>project v抛出</p>
+<h4 id="8-migr-x3D-move-迁移"><a href="#8-migr-x3D-move-迁移" class="headerlink" title="8.migr =move 迁移"></a>8.migr =move 迁移</h4><p>emigrate 移居国外</p>
+<p>immigrate 移居国内</p>
+<h4 id="9-pend-x2F-pens花费"><a href="#9-pend-x2F-pens花费" class="headerlink" title="9.pend/pens花费"></a>9.pend/pens花费</h4><p>penny 美分</p>
+<p>pension 退休金</p>
+<p>compensate 赔偿</p>
+<p>expenditure 花费n</p>
+<h4 id="10-pos-x3D-put"><a href="#10-pos-x3D-put" class="headerlink" title="10.pos=put"></a>10.pos=put</h4><p>expose</p>
+<p>compose</p>
+<p>dispose 布置，处理（dis不同方向）</p>
+<p>propose 提议，求婚</p>
+<p>impose 强加</p>
+<h4 id="11-rupt-x3D-break-破"><a href="#11-rupt-x3D-break-破" class="headerlink" title="11.rupt =break 破"></a>11.rupt =break 破</h4><p>bankrupt 破产</p>
+<p>disrupt 使混乱</p>
+<p>corrupt 腐败</p>
+<h4 id="12-spect-x3D-look看"><a href="#12-spect-x3D-look看" class="headerlink" title="12. spect =look看"></a>12. spect =look看</h4><p>prospect 前景</p>
+<p>suspect</p>
+<p>spectator 观众</p>
+<h4 id="13-tract-x3D-draw-拉，引"><a href="#13-tract-x3D-draw-拉，引" class="headerlink" title="13.tract =draw 拉，引"></a>13.tract =draw 拉，引</h4><p>tractor 拖拉机</p>
+<p>contract 合同契约</p>
+<p>extract 提取</p>
+<h4 id="14-vert-x2F-vers-x3D-turn-转动"><a href="#14-vert-x2F-vers-x3D-turn-转动" class="headerlink" title="14.vert/vers =turn 转动"></a>14.vert/vers =turn 转动</h4><p>reserve</p>
+<p>extrovert 外向的人</p>
+<p>introvert 内向的人</p>
+<h4 id="15-vis-x2F-vid-x3D-see-visit"><a href="#15-vis-x2F-vid-x3D-see-visit" class="headerlink" title="15.vis/vid =see(visit)"></a>15.vis/vid =see(visit)</h4><p>revise </p>
+<p>previse 预知</p>
+<p>supervise 监督</p>
+<p>evident</p>
+<h4 id="16-viv-x3D-live-活，生命"><a href="#16-viv-x3D-live-活，生命" class="headerlink" title="16.viv =live 活，生命"></a>16.viv =live 活，生命</h4><p>revive</p>
+<p>vivid 生动的</p>
+<p>vital 重要的</p>
 
                 
             </div>
@@ -668,7 +579,7 @@ int main()
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://newbieqiu.top/2022/04/26/%E6%9C%80%E7%9F%AD%E8%B7%AF%E4%B9%8B-Dijstra-%E7%AE%97%E6%B3%95/">http://newbieqiu.top/2022/04/26/%E6%9C%80%E7%9F%AD%E8%B7%AF%E4%B9%8B-Dijstra-%E7%AE%97%E6%B3%95/</a>
+                    <a href="http://newbieqiu.top/2022/05/03/%E4%BB%8E0%E5%BC%80%E5%A7%8B%E7%9A%84%E8%8B%B1%E8%AF%AD%E7%94%9F%E6%B4%BB%E2%80%94%E2%80%94%E8%AF%8D%E6%A0%B9/">http://newbieqiu.top/2022/05/03/%E4%BB%8E0%E5%BC%80%E5%A7%8B%E7%9A%84%E8%8B%B1%E8%AF%AD%E7%94%9F%E6%B4%BB%E2%80%94%E2%80%94%E8%AF%8D%E6%A0%B9/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -706,12 +617,12 @@ int main()
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E7%AE%97%E6%B3%95/">
-                                    <span class="chip bg-color">算法</span>
+                                <a href="/tags/%E8%8B%B1%E8%AF%AD/">
+                                    <span class="chip bg-color">英语</span>
                                 </a>
                             
-                                <a href="/tags/%E5%9B%BE%E8%AE%BA/">
-                                    <span class="chip bg-color">图论</span>
+                                <a href="/tags/%E6%9E%84%E8%AF%8D%E6%B3%95/">
+                                    <span class="chip bg-color">构词法</span>
                                 </a>
                             
                         </div>
@@ -889,13 +800,13 @@ int main()
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/04/27/%E6%9C%80%E7%9F%AD%E8%B7%AF%E7%AE%97%E6%B3%95%E4%B9%8B-bellman-ford-%E7%AE%97%E6%B3%95/">
+                <a href="/2022/05/03/%E4%BB%8E0%E5%BC%80%E5%A7%8B%E7%9A%84dp%E7%94%9F%E6%B4%BB%E2%80%94%E2%80%94%E7%BA%BF%E6%80%A7dp/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="最短路算法之 bellman_ford 算法">
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="从0开始的dp生活——线性dp">
                         
-                        <span class="card-title">最短路算法之 bellman_ford 算法</span>
+                        <span class="card-title">从0开始的dp生活——线性dp</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -906,7 +817,7 @@ int main()
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-04-27
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-05-03
                         </span>
                         <span class="publish-author">
                             
@@ -916,13 +827,25 @@ int main()
                                     算法
                                 </a>
                             
-                            <a href="/categories/%E7%AE%97%E6%B3%95/%E6%9C%80%E7%9F%AD%E8%B7%AF/" class="post-category">
-                                    最短路
+                            <a href="/categories/%E7%AE%97%E6%B3%95/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" class="post-category">
+                                    动态规划
                                 </a>
                             
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">算法</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">
+                        <span class="chip bg-color">动态规划</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -934,13 +857,13 @@ int main()
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/04/25/Mybatis-Plus%E7%AC%94%E8%AE%B0-1/">
+                <a href="/2022/05/03/%E4%BB%8E0%E5%BC%80%E5%A7%8B%E7%9A%84%E8%8B%B1%E8%AF%AD%E7%94%9F%E6%B4%BB%E2%80%94%E2%80%94%E5%90%8E%E7%BC%80%E7%AF%87/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="Mybatis Plus笔记(1)">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="从0开始的英语学习——后缀">
                         
-                        <span class="card-title">Mybatis Plus笔记(1)</span>
+                        <span class="card-title">从0开始的英语学习——后缀</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -951,12 +874,20 @@ int main()
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-25
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-03
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            newbieQiu
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%9E%84%E8%AF%8D%E6%B3%95/" class="post-category">
+                                    构词法
+                                </a>
+                            
+                            <a href="/categories/%E6%9E%84%E8%AF%8D%E6%B3%95/%E8%8B%B1%E8%AF%AD/" class="post-category">
+                                    英语
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -964,8 +895,12 @@ int main()
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/mybatisPlus/">
-                        <span class="chip bg-color">mybatisPlus</span>
+                    <a href="/tags/%E8%8B%B1%E8%AF%AD/">
+                        <span class="chip bg-color">英语</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%9E%84%E8%AF%8D%E6%B3%95/">
+                        <span class="chip bg-color">构词法</span>
                     </a>
                     
                 </div>

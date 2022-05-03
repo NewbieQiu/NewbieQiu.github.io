@@ -4,9 +4,17 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="最短路之 Dijkstra 算法, 蒟蒻有一天也能成为大佬">
-    <meta name="description" content="最短路之 Dijkstra 算法（朴素做法）时间复杂度  O(n2)没什么好说的先上模板题Dijkstra算法(用于稀疏图) 
-总结来说就是以下的几步：1.初始化距离 dist[1]=0 dist[i] =无穷大2. for( i=1 到 ">
+    <meta name="keywords" content="从0开始的dp生活——线性dp, 蒟蒻有一天也能成为大佬">
+    <meta name="description" content="数字三角形模型
+
+
+#include&amp;lt;iostream&amp;gt;
+
+using namespace std;
+
+int a[510][510], f[510][510]; //a储存数字三角形，f为从起点到任意点(i,j)的最大路径
+
+">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -20,7 +28,7 @@
 
     
 
-    <title>最短路之 Dijkstra 算法 | 蒟蒻有一天也能成为大佬</title>
+    <title>从0开始的dp生活——线性dp | 蒟蒻有一天也能成为大佬</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -312,12 +320,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">最短路之 Dijkstra 算法</h1>
+                    <h1 class="description center-align post-title">从0开始的dp生活——线性dp</h1>
                 </div>
             </div>
         </div>
@@ -437,8 +445,8 @@
                                 <span class="chip bg-color">算法</span>
                             </a>
                         
-                            <a href="/tags/%E5%9B%BE%E8%AE%BA/">
-                                <span class="chip bg-color">图论</span>
+                            <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">
+                                <span class="chip bg-color">动态规划</span>
                             </a>
                         
                     </div>
@@ -453,6 +461,10 @@
                                 算法
                             </a>
                         
+                            <a href="/categories/%E7%AE%97%E6%B3%95/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" class="post-category">
+                                动态规划
+                            </a>
+                        
                     </div>
                     
                 </div>
@@ -462,7 +474,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-04-26
+                    2022-05-03
                 </div>
                 
 
@@ -486,162 +498,91 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="最短路之-Dijkstra-算法（朴素做法）"><a href="#最短路之-Dijkstra-算法（朴素做法）" class="headerlink" title="最短路之 Dijkstra 算法（朴素做法）"></a>最短路之 Dijkstra 算法（朴素做法）</h2><h3 id="时间复杂度-O-n2"><a href="#时间复杂度-O-n2" class="headerlink" title="时间复杂度  O(n2)"></a>时间复杂度  O(n2)</h3><h5 id="没什么好说的先上模板题"><a href="#没什么好说的先上模板题" class="headerlink" title="没什么好说的先上模板题"></a>没什么好说的先上模板题</h5><p><a href="(https://www.acwing.com/problem/content/851/">Dijkstra算法(用于稀疏图) </a></p>
-<h3 id="总结来说就是以下的几步："><a href="#总结来说就是以下的几步：" class="headerlink" title="总结来说就是以下的几步："></a>总结来说就是以下的几步：</h3><h4 id="1-初始化距离-dist-1-x3D-0-dist-i-x3D-无穷大"><a href="#1-初始化距离-dist-1-x3D-0-dist-i-x3D-无穷大" class="headerlink" title="1.初始化距离 dist[1]=0 dist[i] =无穷大"></a>1.初始化距离 dist[1]=0 dist[i] =无穷大</h4><h4 id="2-for-i-x3D-1-到-n"><a href="#2-for-i-x3D-1-到-n" class="headerlink" title="2. for( i=1 到 n)"></a>2. for( i=1 到 n)</h4><h5 id="2-1-找t不在s中的距离最近的点"><a href="#2-1-找t不在s中的距离最近的点" class="headerlink" title="2.1 找t不在s中的距离最近的点"></a>2.1 找t不在s中的距离最近的点</h5><h5 id="2-2-讲-t加入到-s中"><a href="#2-2-讲-t加入到-s中" class="headerlink" title="2.2 讲 t加入到 s中"></a>2.2 讲 t加入到 s中</h5><h5 id="2-3-用t更新到其他点的距离"><a href="#2-3-用t更新到其他点的距离" class="headerlink" title="2.3 用t更新到其他点的距离"></a>2.3 用t更新到其他点的距离</h5><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;iostream&gt;
-#include&lt;algorithm&gt;
-#include&lt;cstring&gt;
-using namespace std;
+                <h2 id="数字三角形模型"><a href="#数字三角形模型" class="headerlink" title="数字三角形模型"></a>数字三角形模型</h2><p><img src="/2022/05/03/%E4%BB%8E0%E5%BC%80%E5%A7%8B%E7%9A%84dp%E7%94%9F%E6%B4%BB%E2%80%94%E2%80%94%E7%BA%BF%E6%80%A7dp/blog\hexo\source_posts\从0开始的dp生活——线性dp\数字三角形.png" alt="image-20220503223251432"></p>
+<p><img src="/2022/05/03/%E4%BB%8E0%E5%BC%80%E5%A7%8B%E7%9A%84dp%E7%94%9F%E6%B4%BB%E2%80%94%E2%80%94%E7%BA%BF%E6%80%A7dp/blog\hexo\source_posts\从0开始的dp生活——线性dp\图1.png" alt="image-20220503223503376"></p>
+<p><img src="/2022/05/03/%E4%BB%8E0%E5%BC%80%E5%A7%8B%E7%9A%84dp%E7%94%9F%E6%B4%BB%E2%80%94%E2%80%94%E7%BA%BF%E6%80%A7dp/blog\hexo\source_posts\从0开始的dp生活——线性dp\图二.png" alt="img"></p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;iostream&gt;</span></span>
 
-const int N=510;
+using namespace std<span class="token punctuation">;</span>
 
-int g[N][N];    //为稠密阵所以用邻接矩阵存储
-int dist[N];    //用于记录每一个点距离第一个点的距离
-bool st[N];     //用于记录该点的最短距离是否已经确定
+<span class="token keyword">int</span> a<span class="token punctuation">[</span><span class="token number">510</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">510</span><span class="token punctuation">]</span><span class="token punctuation">,</span> f<span class="token punctuation">[</span><span class="token number">510</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">510</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">//a储存数字三角形，f为从起点到任意点(i,j)的最大路径</span>
 
-int n,m;
+<span class="token keyword">int</span> INF <span class="token operator">=</span> <span class="token number">1e9</span><span class="token punctuation">;</span>
 
-int Dijkstra()
-{
-    memset(dist, 0x3f,sizeof dist);     //初始化距离  0x3f代表无限大 
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">510</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> <span class="token number">510</span><span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span>
+            f<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token operator">-</span>INF<span class="token punctuation">;</span> <span class="token comment">//a数组中有负数，处理三角形边界时需要使用f的初始值做比较</span>
 
-    dist[1]=0;  //第一个点到自身的距离为0
+    <span class="token keyword">int</span> n<span class="token punctuation">;</span>
+    cin <span class="token operator">&gt;&gt;</span> n<span class="token punctuation">;</span>
 
-    for(int i=0;i&lt;n;i++)      //有n个点所以要进行n次 迭代
-    {
-        int t=-1;       //t存储当前访问的点
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> j <span class="token operator">&lt;=</span> i<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token comment">//等边三角形映射为等腰直角三角形后，录入数字三角形数据</span>
+            cin <span class="token operator">&gt;&gt;</span> a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
 
-        for(int j=1;j&lt;=n;j++)   //这里的j代表的是从1号点开始
-            if(!st[j]&amp;&amp;(t==-1|| dist[t]&gt;dist[j]) )     
-                t=j;
+    f<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> a<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">//起点到起点的最短距离为a[1][1]，其他f默认值为-INF，必须手动设置f[1][1]</span>
 
-        st[t]=true;   
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> j <span class="token operator">&lt;=</span> i<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span>
+            f<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">max</span><span class="token punctuation">(</span>f<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>j <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> f<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">+</span> a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">//dynamic programming</span>
 
-        for(int j=1;j&lt;=n;j++)           //依次更新每个点所到相邻的点路径值
-            dist[j]=min(dist[j],dist[t]+g[t][j]);
- //这里可能有同学要问j如果从1开始的话 会不会影响之前已经确定的点的最小距离
-//但其实是不会 因为按照我们的Dijkstra算法的操作顺序 先确定最短距离的点的距离已经比后确定的要小 所以不会影响
-//当然你也可以在循环判断条件里加上if(!st[i])
-//这里j从1开始只是为了代码的简洁
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+        f<span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">max</span><span class="token punctuation">(</span>f<span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> f<span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//起点到最后一排的各点值的最大值中，选取最大值的最大值</span>
 
-    }
+    cout <span class="token operator">&lt;&lt;</span> f<span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-    if(dist[n]==0x3f3f3f3f) return -1;  //如果第n个点路径为无穷大即不存在最低路径
-    return dist[n];
-}
-int main()
-{
-    cin&gt;&gt;n&gt;&gt;m;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-    memset(g,0x3f,sizeof g);    //初始化图 因为是求最短路径
-                                //所以每个点初始为无限大
+<h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>给定一个 n×m  的矩阵，起点位置在 (1,1)，终点位置是 (n,m)<br>接着给定该矩阵上，每个位置(x,y)上的物品的价值w<br>现需要我们制定一个方案：</p>
+<p>从起点出发，只能向右或向下走，如何走到终点，才能使经过的所有格子的物品总价值最大</p>
+<p>题解<br>这题是一道标准的动态规划问题，模型是数字三角形</p>
+<p>我们先来分析一下</p>
+<p>如果要进行动态规划，则用来表示当前状态的参数有哪些？</p>
+<h5 id="当前走到第i行"><a href="#当前走到第i行" class="headerlink" title="当前走到第i行"></a>当前走到第i行</h5><h5 id="当前走到第j列"><a href="#当前走到第j列" class="headerlink" title="当前走到第j列"></a>当前走到第j列</h5><p>于是乎，我们可以开二维数组f(i,j) 来存储当前在i行j列的状态</p>
+<p>而f[i,j]的值，就是表示从起点走到该点经过的所有格子的价值总和的最大值</p>
+<p>则最终答案的状态就是f(n,m)</p>
+<p>然后再考虑状态转移方程</p>
+<p>因为限制了只能向右或向下走，因此当前状态f(i,j)只能由f(i-1,j)或f[(i,j-1)(只能向右或向下走)转移过来</p>
+<p>闫氏DP分析法<br>状态表示f(i,j)</p>
+<p>属性:从起点出发，走到第i行第j列的所有方案</p>
+<p>集合:方案中的路线经过的所有物品的总价值最大Max状态转移	</p>
+<h4 id="f-i-j-x3D-max-f-i−1-j-f-i-j−1-w-i-j"><a href="#f-i-j-x3D-max-f-i−1-j-f-i-j−1-w-i-j" class="headerlink" title="f(i,j)=max{f(i−1,j),f(i,j−1)}+w(i,j)"></a>f(i,j)=max{f(i−1,j),f(i,j−1)}+w(i,j)</h4><p><img src="/2022/05/03/%E4%BB%8E0%E5%BC%80%E5%A7%8B%E7%9A%84dp%E7%94%9F%E6%B4%BB%E2%80%94%E2%80%94%E7%BA%BF%E6%80%A7dp/blog\hexo\source_posts\从0开始的dp生活——线性dp\1.png" alt="分析法"></p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;iostream&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;algorithm&gt;</span></span>
 
-    while(m--)
-    {
-        int x,y,z;
-        cin&gt;&gt;x&gt;&gt;y&gt;&gt;z;
-        g[x][y]=min(g[x][y],z);     //如果发生重边的情况则保留最短的一条边
-    }
+using namespace std<span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token keyword">int</span> N <span class="token operator">=</span><span class="token number">110</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> dp<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> map<span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">[</span>N<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">int</span> t<span class="token punctuation">;</span>
+    cin<span class="token operator">&gt;&gt;</span>t <span class="token punctuation">;</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>t<span class="token operator">--</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">int</span> m<span class="token punctuation">,</span>n<span class="token punctuation">;</span>
+        cin<span class="token operator">&gt;&gt;</span>m<span class="token operator">&gt;&gt;</span>n<span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>m<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>j<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span>j<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                cin<span class="token operator">&gt;&gt;</span>map<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        
+       
+        
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>m<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>j<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span>j<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">=</span><span class="token function">max</span><span class="token punctuation">(</span>dp<span class="token punctuation">[</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span>dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">+</span>map<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        
+        cout<span class="token operator">&lt;&lt;</span>dp<span class="token punctuation">[</span>m<span class="token punctuation">]</span><span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+        
+        
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-    cout&lt;&lt;Dijkstra()&lt;&lt;endl;
-    return 0;
-}
-
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
-
-
-<h3 id="Dijkstra算法（堆优化版）"><a href="#Dijkstra算法（堆优化版）" class="headerlink" title="Dijkstra算法（堆优化版）"></a>Dijkstra算法（堆优化版）</h3><h4 id="用于稠密图，时间复杂度O-mlog-n-m为变数n为点数"><a href="#用于稠密图，时间复杂度O-mlog-n-m为变数n为点数" class="headerlink" title="用于稠密图，时间复杂度O(mlog(n)) m为变数n为点数"></a>用于稠密图，时间复杂度O(mlog(n)) m为变数n为点数</h4><h5 id="模板题："><a href="#模板题：" class="headerlink" title="模板题："></a>模板题：</h5><p><a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/852/">堆优化版模板题</a></p>
-<h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><h5 id="1-一号点的距离初始化为零，其他点初始化成无穷大。"><a href="#1-一号点的距离初始化为零，其他点初始化成无穷大。" class="headerlink" title="1.一号点的距离初始化为零，其他点初始化成无穷大。"></a>1.一号点的距离初始化为零，其他点初始化成无穷大。</h5><h5 id="2-将一号点放入堆中。"><a href="#2-将一号点放入堆中。" class="headerlink" title="2.将一号点放入堆中。"></a>2.将一号点放入堆中。</h5><h5 id="3-不断循环，直到堆空。每一次循环中执行的操作为："><a href="#3-不断循环，直到堆空。每一次循环中执行的操作为：" class="headerlink" title="3.不断循环，直到堆空。每一次循环中执行的操作为："></a>3.不断循环，直到堆空。每一次循环中执行的操作为：</h5><h5 id="弹出堆顶（与朴素版diijkstra找到S外距离最短的点相同，并标记该点的最短路径已经确定）。"><a href="#弹出堆顶（与朴素版diijkstra找到S外距离最短的点相同，并标记该点的最短路径已经确定）。" class="headerlink" title="弹出堆顶（与朴素版diijkstra找到S外距离最短的点相同，并标记该点的最短路径已经确定）。"></a>弹出堆顶（与朴素版diijkstra找到S外距离最短的点相同，并标记该点的最短路径已经确定）。</h5><h5 id="用该点更新临界点的距离，若更新成功就加入到堆中。"><a href="#用该点更新临界点的距离，若更新成功就加入到堆中。" class="headerlink" title="用该点更新临界点的距离，若更新成功就加入到堆中。"></a>用该点更新临界点的距离，若更新成功就加入到堆中。</h5><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">for</span><span class="token punctuation">(</span>i<span class="token operator">:</span><span class="token number">1</span> <span class="token operator">~</span> n<span class="token punctuation">)</span><span class="token comment">//n次</span>
-<span class="token punctuation">{</span>
-    t <span class="token operator">&lt;</span><span class="token operator">-</span> 没有确定最短路径的节点中距离源点最近的点<span class="token punctuation">;</span><span class="token comment">//每次遍一遍历dist数组，n次的复杂度是O(n^2)</span>
-    state<span class="token punctuation">[</span>t<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
-    更新 dist<span class="token punctuation">;</span><span class="token comment">//每次遍历一个节点的出边，n次遍历了所有节点的边，复杂度为O(e)</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
-
-
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;iostream&gt;
-#include&lt;cstring&gt;
-#include&lt;queue&gt;
-
-using namespace std;
-
-typedef pair&lt;int, int&gt; PII;
-
-const int N = 100010; // 把N改为150010就能ac
-
-// 稀疏图用邻接表来存
-int h[N], e[N], ne[N], idx;
-int w[N]; // 用来存权重
-int dist[N];
-bool st[N]; // 如果为true说明这个点的最短路径已经确定
-
-int n, m;
-
-void add(int x, int y, int c)
-{
-    w[idx] = c; // 有重边也不要紧，假设1-&gt;2有权重为2和3的边，再遍历到点1的时候2号点的距离会更新两次放入堆中
-    e[idx] = y; // 这样堆中会有很多冗余的点，但是在弹出的时候还是会弹出最小值2+x（x为之前确定的最短路径），并
-    ne[idx] = h[x]; // 标记st为true，所以下一次弹出3+x会continue不会向下执行。
-    h[x] = idx++;
-}
-
-int dijkstra()
-{
-    memset(dist, 0x3f, sizeof(dist));
-    dist[1] = 0;
-    priority_queue&lt;PII, vector&lt;PII&gt;, greater&lt;PII&gt;&gt; heap; // 定义一个小根堆
-    // 这里heap中为什么要存pair呢，首先小根堆是根据距离来排的，所以有一个变量要是距离，其次在从堆中拿出来的时    
-    // 候要知道知道这个点是哪个点，不然怎么更新邻接点呢？所以第二个变量要存点。
-    heap.push({ 0, 1 }); // 这个顺序不能倒，pair排序时是先根据first，再根据second，这里显然要根据距离排序
-    while(heap.size())
-    {
-        PII k = heap.top(); // 取不在集合S中距离最短的点
-        heap.pop();
-        int ver = k.second, distance = k.first;
-
-        if(st[ver]) continue;
-        st[ver] = true;
-
-        for(int i = h[ver]; i != -1; i = ne[i])
-        {
-            int j = e[i]; // i只是个下标，e中在存的是i这个下标对应的点。
-            if(dist[j] &gt; distance + w[i])
-            {
-                dist[j] = distance + w[i];
-                heap.push({ dist[j], j });
-            }
-        }
-    }
-    if(dist[n] == 0x3f3f3f3f) return -1;
-    else return dist[n];
-}
-
-int main()
-{
-    memset(h, -1, sizeof(h));
-    scanf("%d%d", &amp;n, &amp;m);
-
-    while (m--)
-    {
-        int x, y, c;
-        scanf("%d%d%d", &amp;x, &amp;y, &amp;c);
-        add(x, y, c);
-    }
-
-    cout &lt;&lt; dijkstra() &lt;&lt; endl;
-
-    return 0;
-}
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
-<p>ps：不用continue不会影响后面的取值，因为有dis[j]&gt;distance+w[i]的判断，一定会更新成最小的那个，只不过就是把这个点的邻接点又加进去判断了而已，多了几次for循环，加上continue会减少这个判断，不加continue会超时，不会答案错误。</p>
 
                 
             </div>
@@ -668,7 +609,7 @@ int main()
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://newbieqiu.top/2022/04/26/%E6%9C%80%E7%9F%AD%E8%B7%AF%E4%B9%8B-Dijstra-%E7%AE%97%E6%B3%95/">http://newbieqiu.top/2022/04/26/%E6%9C%80%E7%9F%AD%E8%B7%AF%E4%B9%8B-Dijstra-%E7%AE%97%E6%B3%95/</a>
+                    <a href="http://newbieqiu.top/2022/05/03/%E4%BB%8E0%E5%BC%80%E5%A7%8B%E7%9A%84dp%E7%94%9F%E6%B4%BB%E2%80%94%E2%80%94%E7%BA%BF%E6%80%A7dp/">http://newbieqiu.top/2022/05/03/%E4%BB%8E0%E5%BC%80%E5%A7%8B%E7%9A%84dp%E7%94%9F%E6%B4%BB%E2%80%94%E2%80%94%E7%BA%BF%E6%80%A7dp/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -710,8 +651,8 @@ int main()
                                     <span class="chip bg-color">算法</span>
                                 </a>
                             
-                                <a href="/tags/%E5%9B%BE%E8%AE%BA/">
-                                    <span class="chip bg-color">图论</span>
+                                <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">
+                                    <span class="chip bg-color">动态规划</span>
                                 </a>
                             
                         </div>
@@ -885,17 +826,18 @@ int main()
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2022/04/27/%E6%9C%80%E7%9F%AD%E8%B7%AF%E7%AE%97%E6%B3%95%E4%B9%8B-bellman-ford-%E7%AE%97%E6%B3%95/">
+                <a href="/2022/05/03/%E4%BB%8E0%E5%BC%80%E5%A7%8B%E7%9A%84dp%E7%94%9F%E6%B4%BB%E2%80%94%E2%80%94%E7%BA%BF%E6%80%A7dp/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="最短路算法之 bellman_ford 算法">
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="从0开始的dp生活——线性dp">
                         
-                        <span class="card-title">最短路算法之 bellman_ford 算法</span>
+                        <span class="card-title">从0开始的dp生活——线性dp</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -905,9 +847,9 @@ int main()
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-04-27
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-03
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -916,13 +858,26 @@ int main()
                                     算法
                                 </a>
                             
-                            <a href="/categories/%E7%AE%97%E6%B3%95/%E6%9C%80%E7%9F%AD%E8%B7%AF/" class="post-category">
-                                    最短路
+                            <a href="/categories/%E7%AE%97%E6%B3%95/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" class="post-category">
+                                    动态规划
                                 </a>
                             
                             
                         </span>
                     </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">算法</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">
+                        <span class="chip bg-color">动态规划</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -934,13 +889,13 @@ int main()
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/04/25/Mybatis-Plus%E7%AC%94%E8%AE%B0-1/">
+                <a href="/2022/05/03/%E4%BB%8E0%E5%BC%80%E5%A7%8B%E7%9A%84%E8%8B%B1%E8%AF%AD%E7%94%9F%E6%B4%BB%E2%80%94%E2%80%94%E8%AF%8D%E6%A0%B9/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="Mybatis Plus笔记(1)">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="从0开始的英语生活——词根">
                         
-                        <span class="card-title">Mybatis Plus笔记(1)</span>
+                        <span class="card-title">从0开始的英语生活——词根</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -951,12 +906,20 @@ int main()
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-25
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-03
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            newbieQiu
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%8B%B1%E8%AF%AD/" class="post-category">
+                                    英语
+                                </a>
+                            
+                            <a href="/categories/%E8%8B%B1%E8%AF%AD/%E6%9E%84%E8%AF%8D%E6%B3%95/" class="post-category">
+                                    构词法
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -964,8 +927,12 @@ int main()
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/mybatisPlus/">
-                        <span class="chip bg-color">mybatisPlus</span>
+                    <a href="/tags/%E8%8B%B1%E8%AF%AD/">
+                        <span class="chip bg-color">英语</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%9E%84%E8%AF%8D%E6%B3%95/">
+                        <span class="chip bg-color">构词法</span>
                     </a>
                     
                 </div>
