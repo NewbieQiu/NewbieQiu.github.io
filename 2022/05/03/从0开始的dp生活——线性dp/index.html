@@ -498,9 +498,9 @@ int a[510][510], f[510][510]; //a储存数字三角形，f为从起点到任意�
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="数字三角形模型"><a href="#数字三角形模型" class="headerlink" title="数字三角形模型"></a>数字三角形模型</h2><p><img src="/2022/05/03/%E4%BB%8E0%E5%BC%80%E5%A7%8B%E7%9A%84dp%E7%94%9F%E6%B4%BB%E2%80%94%E2%80%94%E7%BA%BF%E6%80%A7dp/blog\hexo\source_posts\从0开始的dp生活——线性dp\数字三角形.png" alt="image-20220503223251432"></p>
-<p><img src="/2022/05/03/%E4%BB%8E0%E5%BC%80%E5%A7%8B%E7%9A%84dp%E7%94%9F%E6%B4%BB%E2%80%94%E2%80%94%E7%BA%BF%E6%80%A7dp/blog\hexo\source_posts\从0开始的dp生活——线性dp\图1.png" alt="image-20220503223503376"></p>
-<p><img src="/2022/05/03/%E4%BB%8E0%E5%BC%80%E5%A7%8B%E7%9A%84dp%E7%94%9F%E6%B4%BB%E2%80%94%E2%80%94%E7%BA%BF%E6%80%A7dp/blog\hexo\source_posts\从0开始的dp生活——线性dp\图二.png" alt="img"></p>
+                <h2 id="数字三角形模型"><a href="#数字三角形模型" class="headerlink" title="数字三角形模型"></a>数字三角形模型</h2><p><img src="/2022/05/03/%E4%BB%8E0%E5%BC%80%E5%A7%8B%E7%9A%84dp%E7%94%9F%E6%B4%BB%E2%80%94%E2%80%94%E7%BA%BF%E6%80%A7dp/%E6%95%B0%E5%AD%97%E4%B8%89%E8%A7%92%E5%BD%A2.png" alt="image-20220503223251432"></p>
+<p><img src="/2022/05/03/%E4%BB%8E0%E5%BC%80%E5%A7%8B%E7%9A%84dp%E7%94%9F%E6%B4%BB%E2%80%94%E2%80%94%E7%BA%BF%E6%80%A7dp/%E5%9B%BE1.png" alt="image-20220503223503376"></p>
+<p><img src="/2022/05/03/%E4%BB%8E0%E5%BC%80%E5%A7%8B%E7%9A%84dp%E7%94%9F%E6%B4%BB%E2%80%94%E2%80%94%E7%BA%BF%E6%80%A7dp/%E5%9B%BE%E4%BA%8C.png" alt="img"></p>
 <pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;iostream&gt;</span></span>
 
 using namespace std<span class="token punctuation">;</span>
@@ -548,7 +548,7 @@ using namespace std<span class="token punctuation">;</span>
 <p>闫氏DP分析法<br>状态表示f(i,j)</p>
 <p>属性:从起点出发，走到第i行第j列的所有方案</p>
 <p>集合:方案中的路线经过的所有物品的总价值最大Max状态转移	</p>
-<h4 id="f-i-j-x3D-max-f-i−1-j-f-i-j−1-w-i-j"><a href="#f-i-j-x3D-max-f-i−1-j-f-i-j−1-w-i-j" class="headerlink" title="f(i,j)=max{f(i−1,j),f(i,j−1)}+w(i,j)"></a>f(i,j)=max{f(i−1,j),f(i,j−1)}+w(i,j)</h4><p><img src="/2022/05/03/%E4%BB%8E0%E5%BC%80%E5%A7%8B%E7%9A%84dp%E7%94%9F%E6%B4%BB%E2%80%94%E2%80%94%E7%BA%BF%E6%80%A7dp/blog\hexo\source_posts\从0开始的dp生活——线性dp\1.png" alt="分析法"></p>
+<h4 id="f-i-j-x3D-max-f-i−1-j-f-i-j−1-w-i-j"><a href="#f-i-j-x3D-max-f-i−1-j-f-i-j−1-w-i-j" class="headerlink" title="f(i,j)=max{f(i−1,j),f(i,j−1)}+w(i,j)"></a>f(i,j)=max{f(i−1,j),f(i,j−1)}+w(i,j)</h4><p><img src="/2022/05/03/%E4%BB%8E0%E5%BC%80%E5%A7%8B%E7%9A%84dp%E7%94%9F%E6%B4%BB%E2%80%94%E2%80%94%E7%BA%BF%E6%80%A7dp/1.png" alt="分析法"></p>
 <pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;iostream&gt;</span></span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;algorithm&gt;</span></span>
 
@@ -826,56 +826,54 @@ using namespace std<span class="token punctuation">;</span>
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/05/03/%E4%BB%8E0%E5%BC%80%E5%A7%8B%E7%9A%84dp%E7%94%9F%E6%B4%BB%E2%80%94%E2%80%94%E7%BA%BF%E6%80%A7dp/">
+                <a href="/2022/05/04/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%AE%9E%E6%88%98%E9%A1%B9%E7%9B%AE%E6%89%80%E5%AD%A6%EF%BC%88%E9%80%9A%E7%94%A8%E6%8E%A5%E5%8F%A3%E7%AF%87%EF%BC%89/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="从0开始的dp生活——线性dp">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="记一次实战项目所学（通用接口篇）">
                         
-                        <span class="card-title">从0开始的dp生活——线性dp</span>
+                        <span class="card-title">记一次实战项目所学（通用接口篇）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            第一次做大项目，记录一些以后能用到的通用接口叭
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-03
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-05-04
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                    算法
+                            <a href="/categories/%E5%90%8E%E7%AB%AF%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" class="post-category">
+                                    后端项目实战
                                 </a>
                             
-                            <a href="/categories/%E7%AE%97%E6%B3%95/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" class="post-category">
-                                    动态规划
+                            <a href="/categories/%E5%90%8E%E7%AB%AF%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/springboot/" class="post-category">
+                                    springboot
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">算法</span>
+                    <a href="/tags/%E5%90%8E%E7%AB%AF%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/">
+                        <span class="chip bg-color">后端项目实战</span>
                     </a>
                     
-                    <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">
-                        <span class="chip bg-color">动态规划</span>
+                    <a href="/tags/springboot/">
+                        <span class="chip bg-color">springboot</span>
                     </a>
                     
                 </div>
@@ -927,12 +925,12 @@ using namespace std<span class="token punctuation">;</span>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%9E%84%E8%AF%8D%E6%B3%95/">
-                        <span class="chip bg-color">构词法</span>
-                    </a>
-                    
                     <a href="/tags/%E8%8B%B1%E8%AF%AD/">
                         <span class="chip bg-color">英语</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%9E%84%E8%AF%8D%E6%B3%95/">
+                        <span class="chip bg-color">构词法</span>
                     </a>
                     
                 </div>
