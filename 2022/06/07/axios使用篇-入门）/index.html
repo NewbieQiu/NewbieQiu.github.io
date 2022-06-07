@@ -4,10 +4,22 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="记一次项目所学(中间件等）-动态提醒功能, 菜鸡日志">
-    <meta name="description" content="记一次项目所学(中间件等）–动态提醒功能订阅发布模式与观察者模式
+    <meta name="keywords" content="axios使用篇(入门）, 菜鸡日志">
+    <meta name="description" content="axios的使用（入门篇）
+别问，问就是前端代码看不懂来补课了   QAQ
 
-RocketMQ：纯java编写的开源消息中间件Redis : 高性能缓存工具，数据存储在内存中，读写速度非常快RocketMQ相关工具类及配置实现">
+一、axios的特点
+在浏览器和node中都可以使用
+
+支持 Promise API
+
+可以拦截请求、响应
+
+转换请求数据、响应数据
+
+取消请求
+
+自动转换 JS">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -21,7 +33,7 @@ RocketMQ：纯java编写的开源消息中间件Redis : 高性能缓存工具，
 
     
 
-    <title>记一次项目所学(中间件等）-动态提醒功能 | 菜鸡日志</title>
+    <title>axios使用篇(入门） | 菜鸡日志</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -313,12 +325,12 @@ RocketMQ：纯java编写的开源消息中间件Redis : 高性能缓存工具，
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">记一次项目所学(中间件等）-动态提醒功能</h1>
+                    <h1 class="description center-align post-title">axios使用篇(入门）</h1>
                 </div>
             </div>
         </div>
@@ -434,12 +446,12 @@ RocketMQ：纯java编写的开源消息中间件Redis : 高性能缓存工具，
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/springboot/">
-                                <span class="chip bg-color">springboot</span>
+                            <a href="/tags/%E5%89%8D%E7%AB%AF/">
+                                <span class="chip bg-color">前端</span>
                             </a>
                         
-                            <a href="/tags/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/">
-                                <span class="chip bg-color">项目实战</span>
+                            <a href="/tags/axios/">
+                                <span class="chip bg-color">axios</span>
                             </a>
                         
                     </div>
@@ -450,12 +462,12 @@ RocketMQ：纯java编写的开源消息中间件Redis : 高性能缓存工具，
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/springboot/" class="post-category">
-                                springboot
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                前端
                             </a>
                         
-                            <a href="/categories/springboot/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" class="post-category">
-                                项目实战
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/axios/" class="post-category">
+                                axios
                             </a>
                         
                     </div>
@@ -467,7 +479,7 @@ RocketMQ：纯java编写的开源消息中间件Redis : 高性能缓存工具，
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-05-05
+                    2022-06-07
                 </div>
                 
 
@@ -491,9 +503,120 @@ RocketMQ：纯java编写的开源消息中间件Redis : 高性能缓存工具，
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="记一次项目所学-中间件等）–动态提醒功能"><a href="#记一次项目所学-中间件等）–动态提醒功能" class="headerlink" title="记一次项目所学(中间件等）–动态提醒功能"></a>记一次项目所学(中间件等）–动态提醒功能</h2><h3 id="订阅发布模式与观察者模式"><a href="#订阅发布模式与观察者模式" class="headerlink" title="订阅发布模式与观察者模式"></a>订阅发布模式与观察者模式</h3><p><img src="/2022/05/05/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%A1%B9%E7%9B%AE%E6%89%80%E5%AD%A6-%E4%B8%AD%E9%97%B4%E4%BB%B6%E7%AD%89%EF%BC%89/1.png"></p>
-<p><img src="/2022/05/05/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%A1%B9%E7%9B%AE%E6%89%80%E5%AD%A6-%E4%B8%AD%E9%97%B4%E4%BB%B6%E7%AD%89%EF%BC%89/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%A1%B9%E7%9B%AE%E6%89%80%E5%AD%A6-%E4%B8%AD%E9%97%B4%E4%BB%B6%E7%AD%89%EF%BC%89%5C2.png"></p>
-<h3 id="RocketMQ：纯java编写的开源消息中间件"><a href="#RocketMQ：纯java编写的开源消息中间件" class="headerlink" title="RocketMQ：纯java编写的开源消息中间件"></a>RocketMQ：纯java编写的开源消息中间件</h3><h3 id="Redis-高性能缓存工具，数据存储在内存中，读写速度非常快"><a href="#Redis-高性能缓存工具，数据存储在内存中，读写速度非常快" class="headerlink" title="Redis : 高性能缓存工具，数据存储在内存中，读写速度非常快"></a>Redis : 高性能缓存工具，数据存储在内存中，读写速度非常快</h3><h3 id="RocketMQ相关工具类及配置实现"><a href="#RocketMQ相关工具类及配置实现" class="headerlink" title="RocketMQ相关工具类及配置实现"></a>RocketMQ相关工具类及配置实现</h3>
+                <h3 id="axios的使用（入门篇）"><a href="#axios的使用（入门篇）" class="headerlink" title="axios的使用（入门篇）"></a>axios的使用（入门篇）</h3><blockquote>
+<p>别问，问就是前端代码看不懂来补课了   <del>QAQ</del></p>
+</blockquote>
+<h3 id="一、axios的特点"><a href="#一、axios的特点" class="headerlink" title="一、axios的特点"></a>一、<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=axios&amp;spm=1001.2101.3001.7020">axios</a>的特点</h3><ul>
+<li><p>在浏览器和node中都可以使用</p>
+</li>
+<li><p>支持 Promise API</p>
+</li>
+<li><p>可以拦截请求、响应</p>
+</li>
+<li><p>转换请求数据、响应数据</p>
+</li>
+<li><p>取消请求</p>
+</li>
+<li><p>自动转换 JSON 数据</p>
+</li>
+<li><p>客户端支持防御 XSRF</p>
+<h3 id="二、使用方法"><a href="#二、使用方法" class="headerlink" title="二、使用方法"></a>二、使用方法</h3><p>在项目中安装：</p>
+<pre class="line-numbers language-npm" data-language="npm"><code class="language-npm">$ npm install axios<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+</ul>
+<p>​		</p>
+<h4 id="1-默认配置"><a href="#1-默认配置" class="headerlink" title="1. 默认配置"></a>1. 默认配置</h4><p>​	我们可以给axios设置一个默认的基本配置，里面包括 url、method 等，设置好之后就不用每次添加了。（只有 url 是必需的，如果没有指定 method，请求将默认使用 get 方法。）</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">axios<span class="token punctuation">.</span>defaults<span class="token punctuation">.</span>baseURL <span class="token operator">=</span> <span class="token string">'https://api.example.com'</span><span class="token punctuation">;</span>
+axios<span class="token punctuation">.</span>defaults<span class="token punctuation">.</span>headers<span class="token punctuation">.</span>common<span class="token punctuation">[</span><span class="token string">'Authorization'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token constant">AUTH_TOKEN</span><span class="token punctuation">;</span>
+axios<span class="token punctuation">.</span>defaults<span class="token punctuation">.</span>headers<span class="token punctuation">.</span>post<span class="token punctuation">[</span><span class="token string">'Content-Type'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'application/x-www-form-urlencoded'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h4 id="2-自定义全局配置"><a href="#2-自定义全局配置" class="headerlink" title="2. 自定义全局配置"></a>2. 自定义全局配置</h4><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 设置配置对象</span>
+<span class="token keyword">const</span> configOptions<span class="token operator">=</span><span class="token punctuation">{</span>
+  <span class="token literal-property property">baseURL</span><span class="token operator">:</span> <span class="token string">'https://api.example.com'</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">timeout</span><span class="token operator">:</span><span class="token number">30000</span><span class="token punctuation">,</span> <span class="token comment">// 超时取消请求</span>
+  <span class="token literal-property property">withCredentials</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment">// 表示跨域请求时是否需要使用凭证，默认false</span>
+<span class="token punctuation">}</span>
+<span class="token comment">//创建实例时，传入配置</span>
+<span class="token keyword">const</span> instance <span class="token operator">=</span> axios<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span>configOptions<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 实例创建后更改默认值</span>
+axios<span class="token punctuation">.</span>defaults<span class="token punctuation">.</span>headers<span class="token punctuation">.</span>post<span class="token punctuation">[</span><span class="token string">'Content-Type'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'application/x-www-form-urlencoded'</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>注意：配置是有优先级的，这个顺序是：在 lib/defaults.js 找到的库的默认值 &lt; 是实例的 defaults 属性 &lt; 请求的 config 参数。后者将<strong>优先</strong>于前者。</p>
+</blockquote>
+<h4 id="3-请求配置"><a href="#3-请求配置" class="headerlink" title="3. 请求配置"></a>3. 请求配置</h4><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token punctuation">{</span>
+   <span class="token comment">// `url` 是用于请求的服务器 URL</span>
+  <span class="token literal-property property">url</span><span class="token operator">:</span> <span class="token string">'/user'</span><span class="token punctuation">,</span>
+  <span class="token comment">// `method` 是创建请求时使用的方法</span>
+  <span class="token literal-property property">method</span><span class="token operator">:</span> <span class="token string">'get'</span><span class="token punctuation">,</span> <span class="token comment">// default</span>
+  <span class="token comment">// `baseURL` 将自动加在 `url` 前面，除非 `url` 是一个绝对 URL。</span>
+  <span class="token comment">// 它可以通过设置一个 `baseURL` 便于为 axios 实例的方法传递相对 URL</span>
+  <span class="token literal-property property">baseURL</span><span class="token operator">:</span> <span class="token string">'https://some-domain.com/api/'</span><span class="token punctuation">,</span>
+  <span class="token comment">/* `transformRequest`：向服务器发送前，修改请求数据;
+ 	只能用在 'PUT', 'POST' 和 'PATCH' 这几个请求方法；
+  后面数组中的函数必须返回一个字符串，或 ArrayBuffer，或 Stream */</span>
+  <span class="token literal-property property">transformRequest</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">data<span class="token punctuation">,</span> headers</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 对 data 进行任意转换处理</span>
+    <span class="token keyword">return</span> data<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token comment">// `transformResponse` 在传递给 then/catch 前，修改响应数据</span>
+  <span class="token literal-property property">transformResponse</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">data</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 对 data 进行任意转换处理</span>
+    <span class="token keyword">return</span> data<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h5 id="官方为了方便起见，给axios的常用方法专门起了别名，可以直接像这样使用：axios-get-，axios-post-，axois-put-等等。"><a href="#官方为了方便起见，给axios的常用方法专门起了别名，可以直接像这样使用：axios-get-，axios-post-，axois-put-等等。" class="headerlink" title="官方为了方便起见，给axios的常用方法专门起了别名，可以直接像这样使用：axios.get()，axios.post()，axois.put()等等。"></a>官方为了方便起见，给axios的常用方法专门起了别名，可以直接像这样使用：axios.get()，axios.post()，axois.put()等等。</h5><h3 id="请求方法的别名"><a href="#请求方法的别名" class="headerlink" title="请求方法的别名"></a>请求方法的别名</h3><p>为方便起见，为所有支持的请求方法提供了别名</p>
+<h5 id="axios-request-config"><a href="#axios-request-config" class="headerlink" title="axios.request(config)"></a>axios.request(config)</h5><h5 id="axios-get-url-config"><a href="#axios-get-url-config" class="headerlink" title="axios.get(url[, config])"></a>axios.get(url[, config])</h5><h5 id="axios-delete-url-config"><a href="#axios-delete-url-config" class="headerlink" title="axios.delete(url[, config])"></a>axios.delete(url[, config])</h5><h5 id="axios-head-url-config"><a href="#axios-head-url-config" class="headerlink" title="axios.head(url[, config])"></a>axios.head(url[, config])</h5><h5 id="axios-options-url-config"><a href="#axios-options-url-config" class="headerlink" title="axios.options(url[, config])"></a>axios.options(url[, config])</h5><h5 id="axios-post-url-data-config"><a href="#axios-post-url-data-config" class="headerlink" title="axios.post(url[, data[, config]])"></a>axios.post(url[, data[, config]])</h5><h5 id="axios-put-url-data-config"><a href="#axios-put-url-data-config" class="headerlink" title="axios.put(url[, data[, config]])"></a>axios.put(url[, data[, config]])</h5><h5 id="axios-patch-url-data-config"><a href="#axios-patch-url-data-config" class="headerlink" title="axios.patch(url[, data[, config]])"></a>axios.patch(url[, data[, config]])</h5><h6 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h6><p>在使用别名方法时， <code>url</code>、<code>method</code>、<code>data</code> 这些属性都不必在配置中指定。</p>
+<h3 id="4-发送get请求"><a href="#4-发送get请求" class="headerlink" title="4.发送get请求"></a>4.发送get请求</h3><p>get 请求传参可以直接加在地址后，或写在params对象中。</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> axios <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'axios'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>default<span class="token punctuation">;</span>
+<span class="token comment">// 第一种：直接加在地址后，用问号？传参</span>
+axios<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'/user?ID=12345'</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">response</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>response<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">error</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>error<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// always executed</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 第二种：在花括号中用params对象传参</span>
+axios<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'/user'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">params</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token constant">ID</span><span class="token operator">:</span> <span class="token number">12345</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>  
+<span class="token comment">// Want to use async/await? Add the `async` keyword to your outer function/method.</span>
+<span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">getUser</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">try</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> response <span class="token operator">=</span> <span class="token keyword">await</span> axios<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'/user?ID=12345'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>response<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span>error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span>error<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+<h3 id="5-发送post请求"><a href="#5-发送post请求" class="headerlink" title="5.发送post请求"></a>5.发送post请求</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">axios<span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span><span class="token string">'/user'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+ <span class="token literal-property property">firstName</span><span class="token operator">:</span> <span class="token string">'Fred'</span><span class="token punctuation">,</span>
+ <span class="token literal-property property">lastName</span><span class="token operator">:</span> <span class="token string">'Flintstone'</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">response</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+ console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>response<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">error</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+ console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>error<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
                 
             </div>
             <hr/>
@@ -519,7 +642,7 @@ RocketMQ：纯java编写的开源消息中间件Redis : 高性能缓存工具，
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://newbieqiu.top/2022/05/05/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%A1%B9%E7%9B%AE%E6%89%80%E5%AD%A6-%E4%B8%AD%E9%97%B4%E4%BB%B6%E7%AD%89%EF%BC%89/">http://newbieqiu.top/2022/05/05/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%A1%B9%E7%9B%AE%E6%89%80%E5%AD%A6-%E4%B8%AD%E9%97%B4%E4%BB%B6%E7%AD%89%EF%BC%89/</a>
+                    <a href="http://newbieqiu.top/2022/06/07/axios%E4%BD%BF%E7%94%A8%E7%AF%87-%E5%85%A5%E9%97%A8%EF%BC%89/">http://newbieqiu.top/2022/06/07/axios%E4%BD%BF%E7%94%A8%E7%AF%87-%E5%85%A5%E9%97%A8%EF%BC%89/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -557,12 +680,12 @@ RocketMQ：纯java编写的开源消息中间件Redis : 高性能缓存工具，
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/springboot/">
-                                    <span class="chip bg-color">springboot</span>
+                                <a href="/tags/%E5%89%8D%E7%AB%AF/">
+                                    <span class="chip bg-color">前端</span>
                                 </a>
                             
-                                <a href="/tags/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/">
-                                    <span class="chip bg-color">项目实战</span>
+                                <a href="/tags/axios/">
+                                    <span class="chip bg-color">axios</span>
                                 </a>
                             
                         </div>
@@ -736,17 +859,18 @@ RocketMQ：纯java编写的开源消息中间件Redis : 高性能缓存工具，
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2022/05/17/RocketMQ-%E5%9F%BA%E7%A1%80%E7%AF%87/">
+                <a href="/2022/06/07/axios%E4%BD%BF%E7%94%A8%E7%AF%87-%E5%85%A5%E9%97%A8%EF%BC%89/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="RocketMQ 基础篇">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="axios使用篇(入门）">
                         
-                        <span class="card-title">RocketMQ 基础篇</span>
+                        <span class="card-title">axios使用篇(入门）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -756,16 +880,37 @@ RocketMQ：纯java编写的开源消息中间件Redis : 高性能缓存工具，
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-05-17
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-06-07
+                            </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            newbieQiu
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                    前端
+                                </a>
+                            
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/axios/" class="post-category">
+                                    axios
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%89%8D%E7%AB%AF/">
+                        <span class="chip bg-color">前端</span>
+                    </a>
+                    
+                    <a href="/tags/axios/">
+                        <span class="chip bg-color">axios</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -777,35 +922,35 @@ RocketMQ：纯java编写的开源消息中间件Redis : 高性能缓存工具，
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/05/04/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%AE%9E%E6%88%98%E9%A1%B9%E7%9B%AE%E6%89%80%E5%AD%A6%EF%BC%88%E9%80%9A%E7%94%A8%E6%8E%A5%E5%8F%A3%E7%AF%87%EF%BC%89/">
+                <a href="/2022/06/06/SpringCloud%E5%85%A5%E9%97%A8-Eureka/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="记一次实战项目所学（通用接口篇）">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="SpringCloud入门(Eureka)">
                         
-                        <span class="card-title">记一次实战项目所学（通用接口篇）</span>
+                        <span class="card-title">SpringCloud入门(Eureka)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            第一次做大项目，记录一些以后能用到的通用接口叭
+                            
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-04
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-06-06
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%90%8E%E7%AB%AF%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" class="post-category">
-                                    后端项目实战
+                            <a href="/categories/SpringCloud/" class="post-category">
+                                    SpringCloud
                                 </a>
                             
-                            <a href="/categories/%E5%90%8E%E7%AB%AF%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/springboot/" class="post-category">
-                                    springboot
+                            <a href="/categories/SpringCloud/Eureka/" class="post-category">
+                                    Eureka
                                 </a>
                             
                             
@@ -815,12 +960,12 @@ RocketMQ：纯java编写的开源消息中间件Redis : 高性能缓存工具，
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/springboot/">
-                        <span class="chip bg-color">springboot</span>
+                    <a href="/tags/SpringCloud/">
+                        <span class="chip bg-color">SpringCloud</span>
                     </a>
                     
-                    <a href="/tags/%E5%90%8E%E7%AB%AF%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/">
-                        <span class="chip bg-color">后端项目实战</span>
+                    <a href="/tags/Eureka/">
+                        <span class="chip bg-color">Eureka</span>
                     </a>
                     
                 </div>

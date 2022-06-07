@@ -4,10 +4,11 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="记一次项目所学(中间件等）-动态提醒功能, 菜鸡日志">
-    <meta name="description" content="记一次项目所学(中间件等）–动态提醒功能订阅发布模式与观察者模式
+    <meta name="keywords" content="SpringCloud入门(Eureka), 菜鸡日志">
+    <meta name="description" content="SpringCloud入门(Eureka)Spring 概述Spring Cloud是一套组件，如服务治理和发现、配置中心、消息总线、负载均衡、断路器和数据监控等
 
-RocketMQ：纯java编写的开源消息中间件Redis : 高性能缓存工具，数据存储在内存中，读写速度非常快RocketMQ相关工具类及配置实现">
+
+服务治理和发现：在Spring Cloud中使用Eureka实现服务治理">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -21,7 +22,7 @@ RocketMQ：纯java编写的开源消息中间件Redis : 高性能缓存工具，
 
     
 
-    <title>记一次项目所学(中间件等）-动态提醒功能 | 菜鸡日志</title>
+    <title>SpringCloud入门(Eureka) | 菜鸡日志</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -313,12 +314,12 @@ RocketMQ：纯java编写的开源消息中间件Redis : 高性能缓存工具，
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">记一次项目所学(中间件等）-动态提醒功能</h1>
+                    <h1 class="description center-align post-title">SpringCloud入门(Eureka)</h1>
                 </div>
             </div>
         </div>
@@ -434,12 +435,12 @@ RocketMQ：纯java编写的开源消息中间件Redis : 高性能缓存工具，
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/springboot/">
-                                <span class="chip bg-color">springboot</span>
+                            <a href="/tags/SpringCloud/">
+                                <span class="chip bg-color">SpringCloud</span>
                             </a>
                         
-                            <a href="/tags/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/">
-                                <span class="chip bg-color">项目实战</span>
+                            <a href="/tags/Eureka/">
+                                <span class="chip bg-color">Eureka</span>
                             </a>
                         
                     </div>
@@ -450,12 +451,12 @@ RocketMQ：纯java编写的开源消息中间件Redis : 高性能缓存工具，
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/springboot/" class="post-category">
-                                springboot
+                            <a href="/categories/SpringCloud/" class="post-category">
+                                SpringCloud
                             </a>
                         
-                            <a href="/categories/springboot/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" class="post-category">
-                                项目实战
+                            <a href="/categories/SpringCloud/Eureka/" class="post-category">
+                                Eureka
                             </a>
                         
                     </div>
@@ -467,7 +468,7 @@ RocketMQ：纯java编写的开源消息中间件Redis : 高性能缓存工具，
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-05-05
+                    2022-06-06
                 </div>
                 
 
@@ -491,9 +492,126 @@ RocketMQ：纯java编写的开源消息中间件Redis : 高性能缓存工具，
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="记一次项目所学-中间件等）–动态提醒功能"><a href="#记一次项目所学-中间件等）–动态提醒功能" class="headerlink" title="记一次项目所学(中间件等）–动态提醒功能"></a>记一次项目所学(中间件等）–动态提醒功能</h2><h3 id="订阅发布模式与观察者模式"><a href="#订阅发布模式与观察者模式" class="headerlink" title="订阅发布模式与观察者模式"></a>订阅发布模式与观察者模式</h3><p><img src="/2022/05/05/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%A1%B9%E7%9B%AE%E6%89%80%E5%AD%A6-%E4%B8%AD%E9%97%B4%E4%BB%B6%E7%AD%89%EF%BC%89/1.png"></p>
-<p><img src="/2022/05/05/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%A1%B9%E7%9B%AE%E6%89%80%E5%AD%A6-%E4%B8%AD%E9%97%B4%E4%BB%B6%E7%AD%89%EF%BC%89/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%A1%B9%E7%9B%AE%E6%89%80%E5%AD%A6-%E4%B8%AD%E9%97%B4%E4%BB%B6%E7%AD%89%EF%BC%89%5C2.png"></p>
-<h3 id="RocketMQ：纯java编写的开源消息中间件"><a href="#RocketMQ：纯java编写的开源消息中间件" class="headerlink" title="RocketMQ：纯java编写的开源消息中间件"></a>RocketMQ：纯java编写的开源消息中间件</h3><h3 id="Redis-高性能缓存工具，数据存储在内存中，读写速度非常快"><a href="#Redis-高性能缓存工具，数据存储在内存中，读写速度非常快" class="headerlink" title="Redis : 高性能缓存工具，数据存储在内存中，读写速度非常快"></a>Redis : 高性能缓存工具，数据存储在内存中，读写速度非常快</h3><h3 id="RocketMQ相关工具类及配置实现"><a href="#RocketMQ相关工具类及配置实现" class="headerlink" title="RocketMQ相关工具类及配置实现"></a>RocketMQ相关工具类及配置实现</h3>
+                <h3 id="SpringCloud入门-Eureka"><a href="#SpringCloud入门-Eureka" class="headerlink" title="SpringCloud入门(Eureka)"></a>SpringCloud入门(Eureka)</h3><h4 id="Spring-概述"><a href="#Spring-概述" class="headerlink" title="Spring 概述"></a>Spring 概述</h4><p>Spring Cloud是一套组件，如服务治理和发现、配置中心、消息总线、负载均衡、断路器和数据监控等</p>
+<p><img src="/2022/06/06/SpringCloud%E5%85%A5%E9%97%A8-Eureka/.%5CSpringCloud%E5%85%A5%E9%97%A8-Eureka%5C1.png" alt="概述"></p>
+<p><img src="/2022/06/06/SpringCloud%E5%85%A5%E9%97%A8-Eureka/SpringCloud%E5%85%A5%E9%97%A8-Eureka%5C2.png" alt="概述"></p>
+<h4 id="服务治理和发现：在Spring-Cloud中使用Eureka实现服务治理"><a href="#服务治理和发现：在Spring-Cloud中使用Eureka实现服务治理" class="headerlink" title="服务治理和发现：在Spring Cloud中使用Eureka实现服务治理"></a>服务治理和发现：在Spring Cloud中使用Eureka实现服务治理</h4><p>1.先创建一个项目当作Eureka的服务端，并引入依赖</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml">
+    &lt;dependency<span class="token punctuation">&gt;</span>
+        &lt;groupId<span class="token punctuation">&gt;</span>org.springframework.cloud&lt;/groupId<span class="token punctuation">&gt;</span>
+        &lt;artifactId<span class="token punctuation">&gt;</span>spring<span class="token punctuation">-</span>cloud<span class="token punctuation">-</span>starter<span class="token punctuation">-</span>netflix<span class="token punctuation">-</span>eureka<span class="token punctuation">-</span>server&lt;/artifactId<span class="token punctuation">&gt;</span>
+        &lt;exclusions<span class="token punctuation">&gt;</span>
+            &lt;exclusion<span class="token punctuation">&gt;</span>
+                &lt;groupId<span class="token punctuation">&gt;</span>com.google.code.gson&lt;/groupId<span class="token punctuation">&gt;</span>
+                &lt;artifactId<span class="token punctuation">&gt;</span>gson&lt;/artifactId<span class="token punctuation">&gt;</span>
+            &lt;/exclusion<span class="token punctuation">&gt;</span>
+        &lt;/exclusions<span class="token punctuation">&gt;</span>
+    &lt;/dependency<span class="token punctuation">&gt;</span>
+
+    &lt;dependency<span class="token punctuation">&gt;</span>
+        &lt;groupId<span class="token punctuation">&gt;</span>com.google.code.gson&lt;/groupId<span class="token punctuation">&gt;</span>
+        &lt;artifactId<span class="token punctuation">&gt;</span>gson&lt;/artifactId<span class="token punctuation">&gt;</span>
+        &lt;version<span class="token punctuation">&gt;</span>2.8.7&lt;/version<span class="token punctuation">&gt;</span>
+        &lt;scope<span class="token punctuation">&gt;</span>runtime&lt;/scope<span class="token punctuation">&gt;</span>
+    &lt;/dependency<span class="token punctuation">&gt;</span>
+
+&lt;/dependencies<span class="token punctuation">&gt;</span>
+
+&lt;dependencyManagement<span class="token punctuation">&gt;</span>
+    &lt;dependencies<span class="token punctuation">&gt;</span>
+        &lt;dependency<span class="token punctuation">&gt;</span>
+            &lt;groupId<span class="token punctuation">&gt;</span>org.springframework.cloud&lt;/groupId<span class="token punctuation">&gt;</span>
+            &lt;artifactId<span class="token punctuation">&gt;</span>spring<span class="token punctuation">-</span>cloud<span class="token punctuation">-</span>dependencies&lt;/artifactId<span class="token punctuation">&gt;</span>
+            &lt;version<span class="token punctuation">&gt;</span>$<span class="token punctuation">{</span>spring.cloud.version<span class="token punctuation">}</span>&lt;/version<span class="token punctuation">&gt;</span>
+            &lt;type<span class="token punctuation">&gt;</span>pom&lt;/type<span class="token punctuation">&gt;</span>
+            &lt;scope<span class="token punctuation">&gt;</span>import&lt;/scope<span class="token punctuation">&gt;</span>
+        &lt;/dependency<span class="token punctuation">&gt;</span>
+    &lt;/dependencies<span class="token punctuation">&gt;</span>
+&lt;/dependencyManagement<span class="token punctuation">&gt;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>2.在其yaml文件中配置相关的属性</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment">#应用名称</span>
+spring.application.name=eureka server
+<span class="token comment">#启动端口</span>
+server.port=15006
+<span class="token comment">#是否注册到注册中心</span>
+eureka.client.register<span class="token punctuation">-</span>with<span class="token punctuation">-</span>eureka=false
+<span class="token comment">#是否检索服务</span>
+eureka.client.fetch<span class="token punctuation">-</span>registry=false
+<span class="token comment">#实例host名称</span>
+eureka.instance.hostname=localhost
+<span class="token comment">#治理客户端服务域</span>
+eureka.client.service<span class="token punctuation">-</span>url.defaultZone=http<span class="token punctuation">:</span>//localhost<span class="token punctuation">:</span>15006/eureka/<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>server说明是服务端</p>
+<hr>
+<p>3.在主类上加上注释 @EnableEurekaServer</p>
+<p>4.在要注册的项目的pom文件中加入依赖</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml">&lt;dependency<span class="token punctuation">&gt;</span>
+          &lt;groupId<span class="token punctuation">&gt;</span>org.springframework.cloud&lt;/groupId<span class="token punctuation">&gt;</span>
+          &lt;artifactId<span class="token punctuation">&gt;</span>spring<span class="token punctuation">-</span>cloud<span class="token punctuation">-</span>starter<span class="token punctuation">-</span>netflix<span class="token punctuation">-</span>eureka<span class="token punctuation">-</span>client&lt;/artifactId<span class="token punctuation">&gt;</span>
+          &lt;exclusions<span class="token punctuation">&gt;</span>
+              &lt;exclusion<span class="token punctuation">&gt;</span>
+                  &lt;groupId<span class="token punctuation">&gt;</span>com.google.code.gson&lt;/groupId<span class="token punctuation">&gt;</span>
+                  &lt;artifactId<span class="token punctuation">&gt;</span>gson&lt;/artifactId<span class="token punctuation">&gt;</span>
+              &lt;/exclusion<span class="token punctuation">&gt;</span>
+          &lt;/exclusions<span class="token punctuation">&gt;</span>
+      &lt;/dependency<span class="token punctuation">&gt;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h6 id="注意：若有-mahout依赖会发生包冲突，要除去一些包"><a href="#注意：若有-mahout依赖会发生包冲突，要除去一些包" class="headerlink" title="注意：若有 mahout依赖会发生包冲突，要除去一些包"></a>注意：若有 mahout依赖会发生包冲突，要除去一些包</h6><pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml">&lt;<span class="token tag">!--</span>引入推荐引擎mahout，注意要先全部引入，再使用exclusion标签<span class="token punctuation">-</span><span class="token punctuation">-</span><span class="token punctuation">&gt;</span><span class="token scalar string">
+       &lt;dependency&gt;
+           &lt;groupId&gt;org.apache.mahout&lt;/groupId&gt;
+           &lt;artifactId&gt;mahout-mr&lt;/artifactId&gt;
+           &lt;version&gt;0.12.2&lt;/version&gt;
+           &lt;exclusions&gt;
+               &lt;exclusion&gt;
+                   &lt;groupId&gt;org.slf4j&lt;/groupId&gt;
+                   &lt;artifactId&gt;slf4j-api&lt;/artifactId&gt;
+               &lt;/exclusion&gt;
+               &lt;exclusion&gt;
+                   &lt;groupId&gt;org.slf4j&lt;/groupId&gt;
+                   &lt;artifactId&gt;slf4j-jcl&lt;/artifactId&gt;
+               &lt;/exclusion&gt;
+               &lt;exclusion&gt;
+                   &lt;groupId&gt;org.apache.lucene&lt;/groupId&gt;
+                   &lt;artifactId&gt;lucene-core&lt;/artifactId&gt;
+               &lt;/exclusion&gt;
+               &lt;exclusion&gt;
+                   &lt;groupId&gt;org.apache.lucene&lt;/groupId&gt;
+                   &lt;artifactId&gt;lucene-analyzers-common&lt;/artifactId&gt;
+               &lt;/exclusion&gt;
+               &lt;exclusion&gt;
+                   &lt;groupId&gt;log4j&lt;/groupId&gt;
+                   &lt;artifactId&gt;log4j&lt;/artifactId&gt;
+               &lt;/exclusion&gt;
+               &lt;exclusion&gt;
+                   &lt;groupId&gt;org.slf4j&lt;/groupId&gt;
+                   &lt;artifactId&gt;slf4j-log4j12&lt;/artifactId&gt;
+               &lt;/exclusion&gt;
+               &lt;exclusion&gt;
+                   &lt;artifactId&gt;jersey-client&lt;/artifactId&gt;
+                   &lt;groupId&gt;com.sun.jersey&lt;/groupId&gt;
+               &lt;/exclusion&gt;
+               &lt;exclusion&gt;
+                   &lt;artifactId&gt;jersey-core&lt;/artifactId&gt;
+                   &lt;groupId&gt;com.sun.jersey&lt;/groupId&gt;
+               &lt;/exclusion&gt;
+               &lt;exclusion&gt;
+                   &lt;artifactId&gt;jersey-apache-client4&lt;/artifactId&gt;
+                   &lt;groupId&gt;com.sun.jersey.contribs&lt;/groupId&gt;
+               &lt;/exclusion&gt;
+           &lt;/exclusions&gt;
+       &lt;/dependency&gt;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ol start="5">
+<li><p>在yaml中配置相关信息</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml">spring.application.name=imooc<span class="token punctuation">-</span>bilibili<span class="token punctuation">-</span>api
+eureka.client.service<span class="token punctuation">-</span>url.defaultZone=http<span class="token punctuation">:</span>//localhost<span class="token punctuation">:</span>15006/eureka/<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+</ol>
+<p>6.最后访问上面配置的地址就OK了（服务端的地址）</p>
+
                 
             </div>
             <hr/>
@@ -519,7 +637,7 @@ RocketMQ：纯java编写的开源消息中间件Redis : 高性能缓存工具，
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://newbieqiu.top/2022/05/05/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%A1%B9%E7%9B%AE%E6%89%80%E5%AD%A6-%E4%B8%AD%E9%97%B4%E4%BB%B6%E7%AD%89%EF%BC%89/">http://newbieqiu.top/2022/05/05/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%A1%B9%E7%9B%AE%E6%89%80%E5%AD%A6-%E4%B8%AD%E9%97%B4%E4%BB%B6%E7%AD%89%EF%BC%89/</a>
+                    <a href="http://newbieqiu.top/2022/06/06/SpringCloud%E5%85%A5%E9%97%A8-Eureka/">http://newbieqiu.top/2022/06/06/SpringCloud%E5%85%A5%E9%97%A8-Eureka/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -557,12 +675,12 @@ RocketMQ：纯java编写的开源消息中间件Redis : 高性能缓存工具，
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/springboot/">
-                                    <span class="chip bg-color">springboot</span>
+                                <a href="/tags/SpringCloud/">
+                                    <span class="chip bg-color">SpringCloud</span>
                                 </a>
                             
-                                <a href="/tags/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/">
-                                    <span class="chip bg-color">项目实战</span>
+                                <a href="/tags/Eureka/">
+                                    <span class="chip bg-color">Eureka</span>
                                 </a>
                             
                         </div>
@@ -740,13 +858,13 @@ RocketMQ：纯java编写的开源消息中间件Redis : 高性能缓存工具，
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/05/17/RocketMQ-%E5%9F%BA%E7%A1%80%E7%AF%87/">
+                <a href="/2022/06/07/axios%E4%BD%BF%E7%94%A8%E7%AF%87-%E5%85%A5%E9%97%A8%EF%BC%89/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="RocketMQ 基础篇">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="axios使用篇(入门）">
                         
-                        <span class="card-title">RocketMQ 基础篇</span>
+                        <span class="card-title">axios使用篇(入门）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -757,15 +875,35 @@ RocketMQ：纯java编写的开源消息中间件Redis : 高性能缓存工具，
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-05-17
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-06-07
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            newbieQiu
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                    前端
+                                </a>
+                            
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/axios/" class="post-category">
+                                    axios
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%89%8D%E7%AB%AF/">
+                        <span class="chip bg-color">前端</span>
+                    </a>
+                    
+                    <a href="/tags/axios/">
+                        <span class="chip bg-color">axios</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -777,35 +915,35 @@ RocketMQ：纯java编写的开源消息中间件Redis : 高性能缓存工具，
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/05/04/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%AE%9E%E6%88%98%E9%A1%B9%E7%9B%AE%E6%89%80%E5%AD%A6%EF%BC%88%E9%80%9A%E7%94%A8%E6%8E%A5%E5%8F%A3%E7%AF%87%EF%BC%89/">
+                <a href="/2022/05/25/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%9A%84Vue%E7%94%9F%E6%B4%BB01-%E5%A4%8D%E4%B9%A0/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="记一次实战项目所学（通用接口篇）">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="从零开始的Vue生活01(复习)">
                         
-                        <span class="card-title">记一次实战项目所学（通用接口篇）</span>
+                        <span class="card-title">从零开始的Vue生活01(复习)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            第一次做大项目，记录一些以后能用到的通用接口叭
+                            
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-04
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-25
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%90%8E%E7%AB%AF%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" class="post-category">
-                                    后端项目实战
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                    前端
                                 </a>
                             
-                            <a href="/categories/%E5%90%8E%E7%AB%AF%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/springboot/" class="post-category">
-                                    springboot
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/Vue/" class="post-category">
+                                    Vue
                                 </a>
                             
                             
@@ -815,12 +953,12 @@ RocketMQ：纯java编写的开源消息中间件Redis : 高性能缓存工具，
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/springboot/">
-                        <span class="chip bg-color">springboot</span>
+                    <a href="/tags/%E5%89%8D%E7%AB%AF/">
+                        <span class="chip bg-color">前端</span>
                     </a>
                     
-                    <a href="/tags/%E5%90%8E%E7%AB%AF%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/">
-                        <span class="chip bg-color">后端项目实战</span>
+                    <a href="/tags/Vue/">
+                        <span class="chip bg-color">Vue</span>
                     </a>
                     
                 </div>
