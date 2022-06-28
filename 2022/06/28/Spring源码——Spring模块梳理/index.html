@@ -5,15 +5,11 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="Spring源码——Spring模块梳理, 菜鸡日志">
-    <meta name="description" content="Spring源码——Spring 模块梳理Spring基础架构图
-)
-
-
+    <meta name="description" content="Spring源码——Spring 模块梳理Spring基础架构图)
 重点是“Core Container”中的Beans，Core，Context以及AOP
-
-**Spring-core  *IOC&amp;amp;DI(依赖注入)***
-
-">
+Spring架构
+Spring-core  IOC&amp;amp;DI(依赖注入)
+包含">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -489,27 +485,26 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="Spring源码——Spring-模块梳理"><a href="#Spring源码——Spring-模块梳理" class="headerlink" title="Spring源码——Spring 模块梳理"></a>Spring源码——Spring 模块梳理</h3><p>Spring基础架构图</p>
-<p><img src="/2022/06/28/Spring%E6%BA%90%E7%A0%81%E2%80%94%E2%80%94Spring%E6%A8%A1%E5%9D%97%E6%A2%B3%E7%90%86/1.png">)</p>
-<pre class="line-numbers language-none"><code class="language-none"><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
+                <h3 id="Spring源码——Spring-模块梳理"><a href="#Spring源码——Spring-模块梳理" class="headerlink" title="Spring源码——Spring 模块梳理"></a>Spring源码——Spring 模块梳理</h3><h4 id="Spring基础架构图"><a href="#Spring基础架构图" class="headerlink" title="Spring基础架构图"></a>Spring基础架构图</h4><p><img src="/2022/06/28/Spring%E6%BA%90%E7%A0%81%E2%80%94%E2%80%94Spring%E6%A8%A1%E5%9D%97%E6%A2%B3%E7%90%86/1.png">)</p>
 <p><strong>重点是“Core Container”中的Beans，Core，Context以及AOP</strong></p>
-<p><img src="/2022/06/28/Spring%E6%BA%90%E7%A0%81%E2%80%94%E2%80%94Spring%E6%A8%A1%E5%9D%97%E6%A2%B3%E7%90%86/.%5CSpring%E6%BA%90%E7%A0%81%E2%80%94%E2%80%94Spring%E6%A8%A1%E5%9D%97%E6%A2%B3%E7%90%86%5C2.png"></p>
-<p>**Spring-core  *IOC&amp;DI(依赖注入)*<br>**</p>
-<ul>
+<h4 id="Spring架构"><a href="#Spring架构" class="headerlink" title="Spring架构"></a>Spring架构</h4><p><img src="/2022/06/28/Spring%E6%BA%90%E7%A0%81%E2%80%94%E2%80%94Spring%E6%A8%A1%E5%9D%97%E6%A2%B3%E7%90%86/2.png"></p>
+<h5 id="Spring-core-IOC-amp-DI-依赖注入"><a href="#Spring-core-IOC-amp-DI-依赖注入" class="headerlink" title="Spring-core  IOC&amp;DI(依赖注入)"></a>Spring-core  IOC&amp;DI(依赖注入)</h5><ul>
 <li><strong>包含框架的核心工具类，其它组件都要使用到这个包里的类</strong></li>
 <li><strong>定义并提供资源的访问方式</strong></li>
 </ul>
 <p><strong>Spring-beans：Spring主要面向Bean编程（BOP） *主要注意BeanFacyory这个接口*</strong></p>
 <ul>
-<li><strong>Bean的定义</strong></li>
-<li><strong>Bean的解析</strong></li>
-<li>**Bean的创建<br>**</li>
+<li><p><strong>Bean的定义</strong></p>
+</li>
+<li><p><strong>Bean的解析</strong></p>
+</li>
+<li><p><strong>Bean的创建</strong></p>
+</li>
 </ul>
 <p><strong>Spring-context 是bean之间关系的集合  核心接口：ApplicationContext 是BeanFactory的超类</strong></p>
 <ul>
 <li><strong>为Spring提供运行时环境，保存对象的状态</strong></li>
-<li>**扩展了BeanFactory<br>**</li>
+<li>**扩展了BeanFactory **</li>
 </ul>
 <p><strong>Spring-aop：最小化的动态代理实现，只使用aspectj里的注解功能</strong></p>
 <ul>
@@ -517,7 +512,7 @@
 <li><strong>Cglib：基于类实现的</strong></li>
 <li><strong>共同点：只能运行时织入，仅支持方法级编织，仅支持方法执行切入点</strong></li>
 </ul>
-<p><strong>模块之间的依赖可以通过源码里的gradle文件进行查看</strong>**<br>**</p>
+<p><strong>模块之间的依赖可以通过源码里的gradle文件进行查看</strong></p>
 <p><strong>spring-aspectj +spring-instrument：Full AspectJ</strong></p>
 <p><strong><img src="/2022/06/28/Spring%E6%BA%90%E7%A0%81%E2%80%94%E2%80%94Spring%E6%A8%A1%E5%9D%97%E6%A2%B3%E7%90%86/3.png">)</strong></p>
 <ul>
