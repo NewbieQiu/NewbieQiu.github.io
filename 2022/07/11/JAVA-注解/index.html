@@ -1,0 +1,1511 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="JAVA 注解, 菜鸡日志">
+    <meta name="description" content="JAVA 注解一、注解是什么？ 在Java中注解其实就是写在接口、类、属性、方法上的一个标签，或者说是一个特殊形式的注释，与普通的//或/**/注释不同的是：普通注释只是一个注释，而注解在代码运行时是可以被反射读取并进行相应的操作，而如果没">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    
+
+    <title>JAVA 注解 | 菜鸡日志</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 6.1.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">菜鸡日志</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">菜鸡日志</div>
+        <div class="logo-desc">
+            
+            莫听穿林打叶声，何妨吟啸且徐行
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">JAVA 注解</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E6%B3%A8%E8%A7%A3/">
+                                <span class="chip bg-color">注解</span>
+                            </a>
+                        
+                            <a href="/tags/Spring%E5%89%8D%E7%BD%AE/">
+                                <span class="chip bg-color">Spring前置</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%B3%A8%E8%A7%A3/" class="post-category">
+                                注解
+                            </a>
+                        
+                            <a href="/categories/%E6%B3%A8%E8%A7%A3/Spring%E5%89%8D%E7%BD%AE/" class="post-category">
+                                Spring前置
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2022-07-11
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h3 id="JAVA-注解"><a href="#JAVA-注解" class="headerlink" title="JAVA 注解"></a>JAVA 注解</h3><h4 id="一、注解是什么？"><a href="#一、注解是什么？" class="headerlink" title="一、注解是什么？"></a>一、注解是什么？</h4><p> 在Java中注解其实就是写在接口、类、属性、方法上的一个标签，或者说是一个特殊形式的注释，与普通的//或/**/注释不同的是：普通注释只是一个注释，而注解在代码运行时是可以被反射读取并进行相应的操作，而如果没有使用反射或者其他检查，那么注解是没有任何真实作用的，也不会影响到程序的正常运行结果。</p>
+<p> 举个例子@Override就是一个注解，它的作用是告诉阅读者(开发人员、编译器)这个方法重写了父类的方法，对于开发人员只是一个标志，而编译器则会多做一些事情，编译器如果发现方法标注了这个注解，就会检查这个方法到底是不是真的覆写了父类的方法，如果没有那就是在欺骗他的感情，甭废话，编译时直接给你报个错，不留情面的那种。而如果不添加@Override注解，程序也是可以正常运行的，不过缺乏了静态的检查，本来是想覆写父类的hello方法的，却写成了he110方法，这就会有些尴尬了。</p>
+<p>在spring框架中加注的注解会影响到程序的运行，是因为spring内部使用反射操作了对应的注解。</p>
+<p> 上面的说法是为了方便理解的，那么下面来个稍微正式一点的：注解是提供一种为程序元素设置元数据的方法，理解起来还是一样的，程序元素就是指接口、类、属性、方法，这些都是属于程序的元素，那啥叫元数据呢？就是描述数据的数据(data about data)，举个简单的例子，系统上有一个sm.png文件，这个文件才是我们真正需要的数据本身，而这个文件的属性则可以称之为sm.png的元数据，是用来描述png文件的创建时间、修改时间、分辨率等信息的，这些信息无论是有还是没有都不影响它作为图片的性质，都可以使用图片软件打开。</p>
+<p>元数据是添加到程序元素如方法、字段、类和包上的额外信息，注解就是一种载体形式<br>注解不能直接干扰程序代码的运行</p>
+<h4 id="三、为什么要使用注解？"><a href="#三、为什么要使用注解？" class="headerlink" title="三、为什么要使用注解？"></a>三、为什么要使用注解？</h4><p> 以Spring为例，早期版本的Spring是通过XML文件的形式对整个框架进行配置的，一个缩减版的配置文件如下</p>
+<pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>beans</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://www.springframework.org/schema/beans<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token comment">&lt;!-- 配置事物管理器 --&gt;</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>bean</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>transactionManager<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>org.springframework.jdbc.datasource.DataSourceTransactionManager<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>dataSource<span class="token punctuation">"</span></span> <span class="token attr-name">ref</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>dataSource<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>bean</span><span class="token punctuation">&gt;</span></span>
+    <span class="token comment">&lt;!-- 配置注解驱动事物管理 --&gt;</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token namespace">tx:</span>annotation-driven</span> <span class="token attr-name">transaction-manager</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>transactionManager<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>beans</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p> 在xml文件中可以定义Spring管理的Bean、事物切面等，话说当年非常流行xml配置的。优点呢就是整个项目的配置信息集中在一个文件中，从而方便管理，是集中式的配置。缺点也显而易见，当配置信息非常多的时候，配置文件会变得越来越大不易查看管理，特别是多人协作开发时会导致一定的相互干扰。</p>
+<p> 现在都提倡解耦、轻量化或者说微小化，那么注解就顺应了这一需求，各个包或模块在内部方法或类上使用注解即可实现指定功能，而且使用起来灰常方便，简单易懂。缺点呢就是不方便统一管理，如果需要修改某一类功能，则需要整体搜索逐个修改，是分散式的存在各个角落。</p>
+<p> 这里扩充一下，Spring注解替代了之前Spring xml文件，是不是说spring的xml也是一种元数据呢？对的，spring的配置文件xml也是元数据的一种表现形式。不过xml的方式是集中式的元数据，不需要和代码绑定的，而注解是一种分散式的元数据设置方式。</p>
+<h4 id="三、注解的作用"><a href="#三、注解的作用" class="headerlink" title="三、注解的作用"></a>三、注解的作用</h4><p> 作为 Java开发几乎都使用过一些框架，相信大家对注解的作用都是有所体会的，这里再啰嗦几句加深印象。根本来说注解就是一个注释标签。开发者的视角可以解读出这个类/方法/属性的作用以及该怎么使用，而从框架的视角则可以解析注解本身和其属性实现各种功能，编译器的角度则可以进行一些预检查(@Override)和抑制警告(@SuppressWarnings)等。</p>
+<p>作为特定标记，用于告诉编译器一些信息<br>编译时动态处理，如动态生成代码<br>运行时动态处理，作为额外信息的载体，如获取注解信息</p>
+<h4 id="四、注解的分类"><a href="#四、注解的分类" class="headerlink" title="四、注解的分类"></a>四、注解的分类</h4><p> 通常来说注解分为以下三类</p>
+<p>元注解 – java内置的注解，标明该注解的使用范围、生命周期等。<br>标准注解 – Java提供的基础注解，标明过期的元素/标明是复写父类方法的方法/标明抑制警告。<br>自定义注解 – 第三方定义的注解，含义和功能由第三方来定义和实现。<br>4.1 元注解<br> 用于定义注解的注解，通常用于注解的定义上，标明该注解的使用范围、生效范围等。元XX 都代表最基本最原始的东西，因此，元注解就是最基本不可分解的注解，我们不能去改变它只能使用它来定义自定义的注解。元注解包含以下五种： @Retention、@Target、@Documented、@Inherited、@Repeatable，其中最常用的是@Retention和@Target下面分别介绍一下这五种元注解。</p>
+<p>@Retention ★★★★★<br>中文翻译为保留的意思，标明自定义注解的生命周期</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Documented</span>
+<span class="token annotation punctuation">@Retention</span><span class="token punctuation">(</span><span class="token class-name">RetentionPolicy</span><span class="token punctuation">.</span>RUNTIME<span class="token punctuation">)</span>
+<span class="token annotation punctuation">@Target</span><span class="token punctuation">(</span><span class="token class-name">ElementType</span><span class="token punctuation">.</span>ANNOTATION_TYPE<span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token annotation punctuation">@interface</span> <span class="token class-name">Retention</span> <span class="token punctuation">{</span>
+    <span class="token class-name">RetentionPolicy</span> <span class="token function">value</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p> 从编写Java代码到运行主要周期为源文件→ Class文件 → 运行时数据，@Retention则标注了自定义注解的信息要保留到哪个阶段，分别对应的value取值为SOURCE →CLASS→RUNTIME。</p>
+<p>SOURCE 源代码java文件，生成的class文件中就没有该信息了<br>CLASS class文件中会保留注解，但是jvm加载运行时就没有了<br>RUNTIME 运行时，如果想使用反射获取注解信息，则需要使用RUNTIME，反射是在运行阶段进行反射的<br>示例：当RentionPolicy取值为SOURCE时，Class文件中不会保留注解信息，而取值为CLASS时，Class反编译文件中则保留了注解的信息</p>
+<p>各个生命周期的用途：</p>
+<p>Source：一个最简单的用法，就是自定义一个注解例如@ThreadSafe，用来标识一个类时线程安全的，就和注释的作用一样，不过更引人注目罢了。<br>Class：这个有啥用呢？个人觉得主要是起到标记作用，还没有做实验，例如标记一个@Proxy，JVM加载时就会生成对应的代理类。<br>Runtime：反射实在运行阶段执行的，那么只有Runtime的生命周期才会保留到运行阶段，才能被反射读取，也是我们最常用的。<br>@Target ★★★★★<br>中文翻译为目标，描述自定义注解的使用范围，允许自定义注解标注在哪些Java元素上(类、方法、属性、局部属性、参数…)</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Documented</span>
+<span class="token annotation punctuation">@Retention</span><span class="token punctuation">(</span><span class="token class-name">RetentionPolicy</span><span class="token punctuation">.</span>RUNTIME<span class="token punctuation">)</span>
+<span class="token annotation punctuation">@Target</span><span class="token punctuation">(</span><span class="token class-name">ElementType</span><span class="token punctuation">.</span>ANNOTATION_TYPE<span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token annotation punctuation">@interface</span> <span class="token class-name">Target</span> <span class="token punctuation">{</span>
+    <span class="token class-name">ElementType</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token function">value</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p>value是一个数组，可以有多个取值，说明同一个注解可以同时用于标注在不同的元素上。value的取值如下</p>
+<p>值	说明<br>TYPE	类、接口、注解、枚举<br>FIELD	属性<br>MEHOD	方法<br>PARAMETER	方法参数<br>CONSTRUCTOR	构造函数<br>LOCAL_VARIABLE	局部变量(如循环变量、catch参数)<br>ANNOTATION_TYPE	注解<br>PACKAGE	包<br>TYPE_PARAMETER	泛型参数 jdk1.8<br>TYPE_USE	任何元素 jdk1.8<br>示例：自定义一个注解@MyAnnotation1想要用在类或方法上，就可以如下定义</p>
+<p>@Retention(RetentionPolicy.RUNTIME)<br>@Target({ElementType.TYPE, ElementType.METHOD})</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Retention</span><span class="token punctuation">(</span><span class="token class-name">RetentionPolicy</span><span class="token punctuation">.</span>RUNTIME<span class="token punctuation">)</span>
+<span class="token annotation punctuation">@Target</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token class-name">ElementType</span><span class="token punctuation">.</span>TYPE<span class="token punctuation">,</span> <span class="token class-name">ElementType</span><span class="token punctuation">.</span>METHOD<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token annotation punctuation">@interface</span> <span class="token class-name">MyAnnotation</span> <span class="token punctuation">{</span>
+    <span class="token class-name">String</span> <span class="token function">description</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">default</span> <span class="token string">""</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+
+<span class="token annotation punctuation">@MyAnnotation</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">AnnotationTest</span> <span class="token punctuation">{</span>
+
+    <span class="token comment">// @MyAnnotation   用在属性上则会报错</span>
+    <span class="token keyword">public</span> <span class="token class-name">String</span> name<span class="token punctuation">;</span>
+
+    <span class="token annotation punctuation">@MyAnnotation</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p>@Inherited ★★<br>是否可以被标注类的子类继承。被@Inherited修饰的注解是具有继承性的，在自定义的注解标注到某个类时，该类的子类会继承这个自定义注解。这里需要注意的是只有当子类继承父类的时候，注解才会被继承，类实现接口，或者接口继承接口，都是无法获得父接口上的注解声明的。正确的示例如下(通过反射获取注解)</p>
+<p>@Repeatable ★★<br>是否可以重复标注。这个注解其实是一个语法糖，jdk1.8之前也是有办法进行重复标注的，就是使用数组属性（自定义注解会讲到）。下面给一个例子，虽然我们标注的是多个@MyAnnotation，其实会给我们返回一个@MyAnnotations，相当于是Java帮我们把重复的注解放入了一个数组属性中，所以只是一个语法糖而已。</p>
+<p>@Documented ★<br>是否在生成的JavaDoc文档中体现，被标注该注解后，生成的javadoc中，会包含该注解，这里就不做演示了。</p>
+<p>5.2 标准注解<br>标准注解有一下三个</p>
+<p>@Override 标记一个方法是覆写父类方法<br>@Deprecated 标记一个元素为已过期，避免使用<br> 支持的元素类型为：CONSTRUCTOR, FIELD, LOCAL_VARIABLE, METHOD, PACKAGE, PARAMETER, TYPE</p>
+<p>@SuppressWarnings 不输出对应的编译警告<br>比较常用且固定，下面给出一个简单示例</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@SuppressWarnings</span><span class="token punctuation">(</span>value <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"unused"</span><span class="token punctuation">,</span> <span class="token string">"rawtypes"</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">StandardDemo</span> <span class="token keyword">extends</span> <span class="token class-name">Parent</span><span class="token punctuation">{</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">sayHello</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// unused 声明了list却没有使用</span>
+        <span class="token comment">// rawtypes 创建了泛型类却没有指定元素类型</span>
+        <span class="token class-name">List</span> list <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token annotation punctuation">@Deprecated</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">walk</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p>5.3 自定义注解<br>注解定义格式</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token annotation punctuation">@interface</span> 注解名 <span class="token punctuation">{</span>
+  修饰符 返回值 属性名<span class="token punctuation">(</span><span class="token punctuation">)</span> 默认值<span class="token punctuation">;</span>
+  修饰符 返回值 属性名<span class="token punctuation">(</span><span class="token punctuation">)</span> 默认值<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p> 首先注解的修饰符一般是public的，定义注解一般都是要给三方使用的，不是public的又有什么意义呢？定义的类型使用@interface，可以猜出来和接口是有一些说不清道不明的关系的，其实注解就是一个接口，在程序运行时，JVM会为其生成对应的代理类。</p>
+<p> 然后内部的定义，这个有点四不像，说是方法吧它还有一个默认值，说它是属性吧它的后面还加了一个括号，我个人还是喜欢称之为带默认返回值的接口方法，通过后面的学习我们会进一步认识它的真面目。内部的修饰符只能是public的，即使不写也默认是public的，因为它本质上就是一个接口，而接口方法的默认访问权限就是pubilc的。</p>
+<p> 注解是不能继承也不能实现其他类或接口的，本身就是一个元数据了，确实没什么必要。</p>
+<p> 返回值支持的类型如下</p>
+<p>基本类型 int float boolean byte double char logn short<br>String<br>Class<br>Enum<br>Annotation<br>以上所有类型的数组类型<br>定义一个简单的接口示例</p>
+<p>// 保留至运行时<br>@Retention(RetentionPolicy.RUNTIME)<br>// 可以加在方法或者类上<br>@Target(value = {ElementType.TYPE,ElementType.METHOD})<br>public @interface RequestMapping {<br>    public String method() default “GET”;<br>    public String path();<br>    public boolean required();<br>}<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>接下来我们来看下它到底是不是一个接口</p>
+<p>首先编译一下该注解javac RequestMapping.java生成对应的RequestMapping.class文件，然后对其进行反编译javap -v RequestMapping,输出如下</p>
+<p>// …<br>①public interface RequestMapping extends java.lang.annotation.Annotation<br>  //…<br>  ②public abstract java.lang.String method();<br>    descriptor: ()Ljava/lang/String;<br>    flags: ACC_PUBLIC, ACC_ABSTRACT<br>    AnnotationDefault:<br>      ③default_value: s#7<br>  public abstract java.lang.String path();<br>    descriptor: ()Ljava/lang/String;<br>    flags: ACC_PUBLIC, ACC_ABSTRACT</p>
+<p>  public abstract boolean required();<br>    descriptor: ()Z<br>    flags: ACC_PUBLIC, ACC_ABSTRACT<br>}<br>//…</p>
+<p>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>① 从这里可以看到，注解的本质就是一个接口，并且继承了java.lang.annotation.Annotation</p>
+<p>② ③这里验证了上面所说的，内部的定义其实就是一个带默认值的方法</p>
+<p>六、使用反射操作注解<br> 反射的相关知识就不多做介绍了，不太了解的同学可以看下我的另外一篇博客Java反射学习总结。反射可以获取到Class对象，进而获取到Constructor、Field、Method等实例，点开源码结构发现Class、Constructor、Field、Method等均实现了AnnotatedElement接口，AnnotatedElement接口的方法如下</p>
+<p>// 判断该元素是否包含指定注解，包含则返回true<br>boolean isAnnotationPresent(Class&lt;? extends Annotation&gt; annotationClass)<br>// 返回该元素上对应的注解，如果没有返回null<br><t extends="" annotation=""> T getAnnotation(Class<t> annotationClass);<br>// 返回该元素上的所有注解，如果没有任何注解则返回一个空数组<br>Annotation[] getAnnotations();<br>// 返回指定类型的注解，如果没有返回空数组<br>T[] getAnnotationsByType(Class<t> annotationClass)<br>// 返回指定类型的注解，如果没有返回空数组，只包含直接标注的注解，不包含inherited的注解<br>T getDeclaredAnnotation(Class<t> annotationClass)<br>// 返回指定类型的注解，如果没有返回空数组，只包含直接标注的注解，不包含inherited的注解<br>T[] getDeclaredAnnotationsByType<br>// 返回该元素上的所有注解，如果没有任何注解则返回一个空数组，只包含直接标注的注解，不包含inherited的注解<br>Annotation[] getDeclaredAnnotations();<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>这就说明以上元素均可以通过反射获取该元素上标注的注解。</t></t></t></t></p>
+<p>来一个完整的示例，show you the code</p>
+<p>// package-info.java<br>@AnyAnnotation(order = 0, desc = “包”)<br>package demo.annotation.reflect;</p>
+<p>// AnyAnnotation.java<br>@Retention(RetentionPolicy.RUNTIME)<br>@Target(value = {ElementType.PACKAGE, ElementType.TYPE, ElementType.CONSTRUCTOR, ElementType.METHOD, ElementType.FIELD,<br>        ElementType.LOCAL_VARIABLE, ElementType.PARAMETER})<br>public @interface AnyAnnotation {<br>    int order() default 0;<br>    String desc() default “”;<br>}</p>
+<p>// ReflectAnnotationDemo.java<br>@AnyAnnotation(order = 1, desc = “我是类上的注释”)<br>public class ReflectAnnotationDemo {</p>
+<pre><code>@AnyAnnotation(order = 2, desc = "我是成员属性")
+private String name;
+
+@AnyAnnotation(order = 3, desc = "我是构造器")
+public ReflectAnnotationDemo(@AnyAnnotation(order = 4, desc = "我是构造器参数") String name) {
+    this.name = name;
+}
+
+@AnyAnnotation(order = 45, desc = "我是方法")
+public void method(@AnyAnnotation(order = 6, desc = "我是方法参数") String msg) {
+    @AnyAnnotation(order = 7, desc = "我是方法内部变量") String prefix = "I am ";
+    System.out.println(prefix + msg);
+}
+
+public static void main(String[] args) throws NoSuchFieldException, NoSuchMethodException {
+    Class&lt;ReflectAnnotationDemo&gt; clazz = ReflectAnnotationDemo.class;
+    // 获取包上的注解，声明在package-info.java文件中
+    Package packagee = Package.getPackage("demo.annotation.reflect");
+    printAnnotation(packagee.getAnnotations());
+    // 获取类上的注解
+    Annotation[] annotations = clazz.getAnnotations();
+    printAnnotation(annotations);
+    // 获取成员属性注解
+    Field name = clazz.getDeclaredField("name");
+    Annotation[] annotations1 = name.getAnnotations();
+    printAnnotation(annotations1);
+    //获取构造器上的注解
+    Constructor&lt;ReflectAnnotationDemo&gt; constructor = clazz.getConstructor(String.class);
+    AnyAnnotation[] annotationsByType = constructor.getAnnotationsByType(AnyAnnotation.class);
+    printAnnotation(annotationsByType);
+    // 获取构造器参数上的注解
+    Parameter[] parameters = constructor.getParameters();
+    for (Parameter parameter : parameters) {
+        Annotation[] annotations2 = parameter.getAnnotations();
+        printAnnotation(annotations2);
+    }
+    // 获取方法上的注解
+    Method method = clazz.getMethod("method", String.class);
+    AnyAnnotation annotation = method.getAnnotation(AnyAnnotation.class);
+    printAnnotation(annotation);
+    // 获取方法参数上的注解
+    Parameter[] parameters1 = method.getParameters();
+    for (Parameter parameter : parameters1) {
+        printAnnotation(parameter.getAnnotations());
+    }
+    // 获取局部变量上的注解
+    /**
+     * 查了一些资料，是无法获取局部变量的注解的，且局部变量的注解仅保留到Class文件中，运行时是没有的。
+     * 这个更多是给字节码工具使用的，例如lombok可以嵌入编译流程，检测到有对应注解转换成相应的代码，
+     * 而反射是无法进行操作的。当然也可以利用asm等工具在编译器完成你要做的事情
+     */
+}
+
+public static void printAnnotation(Annotation... annotations) {
+    for (Annotation annotation : annotations) {
+        System.out.println(annotation);
+    }
+}
+</code></pre>
+<p>}<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39<br>40<br>41<br>42<br>43<br>44<br>45<br>46<br>47<br>48<br>49<br>50<br>51<br>52<br>53<br>54<br>55<br>56<br>57<br>58<br>59<br>60<br>61<br>62<br>63<br>64<br>65<br>66<br>67<br>68<br>69<br>70<br>71<br>72<br>73<br>74<br>75<br>76<br>感兴趣的同学可以将@AnyAnnotation的Retention中的生命周期改为SOURCE/CLASS试试，这时就获取不到任何注解信息了哦</p>
+<p>七、注解的底层实现-动态代理<br>首先准备一下测试代码，如下</p>
+<p>@Retention(value = RetentionPolicy.RUNTIME)<br>@Target(value = ElementType.TYPE)<br>public @interface Learn {<br>    String name() default “default”;<br>    int age();<br>}</p>
+<p>@Learn(age = 12)<br>public class LearnAnnotationReflect {</p>
+<pre><code>public static void main(String[] args) {
+    Class&lt;LearnAnnotationReflect&gt; clazz = LearnAnnotationReflect.class;
+            // 判断class元素是否存在对应的注解
+    if (!clazz.isAnnotationPresent(Learn.class)) {
+        return;
+    }
+    // 获取相应的注解，并打印属性
+    Learn learn = clazz.getAnnotation(Learn.class);
+    System.out.println(learn.name());
+    System.out.println(learn.age());
+}
+</code></pre>
+<p>}<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br> 在System.out.println(learn.name());打一个断点，以Debug模式运行，查看learn这个对象到底是什么</p>
+<p> 从上面的截图可以看出，jdk为Learn生成了一个叫$Proxy1的代理对象，并且包含了一个内部成员AnnotationIvocationHandler，接下来就是调用$Proxy1.name()进行获取name的值，那么我们来看下$Proxy1到底是一个什么样的对象，在jdk8中可以添加JVM参数-Dsun.misc.ProxyGenerator.saveGeneratedFiles来保存代理类，更高版本可以使用-Djdk.proxy.ProxyGenerator.saveGeneratedFiles=true来保存代理类。在Idea中的设置方法如下</p>
+<p> 重新运行程序，就会发现在项目根目录多了如下类，其中$Proxy1就是Learn注解对应的代理类</p>
+<p> 当我们调用Learn.name()时，其实就是调用这个代理类的name方法，如下</p>
+<pre><code>public final String name() throws  {
+    try {
+        return (String)super.h.invoke(this, m3, (Object[])null);
+    } catch (RuntimeException | Error var2) {
+        throw var2;
+    } catch (Throwable var3) {
+        throw new UndeclaredThrowableException(var3);
+    }
+}
+</code></pre>
+<p>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br> 代理类的name方法中主要是调用h的invoke方法传入当前对象，以及m3这个方法元素，m3如下</p>
+<p>m3 = Class.forName(“demo.annotation.runtime.Learn”).getMethod(“name”);<br>1<br> 在5.3讲解的内容时，我们反编译了注解的class文件，知道在编译注解时，实际上编译为了一个接口，接口中定义了想干的属性的方法。</p>
+<p> 那么基本的流程我们就可以梳理出来了：</p>
+<p>通过反射我们可以获取对应元素上的注解@Learn，前面说过注解本质是一个接口，也就是获取到了Learn接口的代理对象。<br>Learn代理对象提供了相应的同名方法，内部声明了原注解的相应方法Method，如method3<br>之后通过代理对象父类的h成员属性，也就是AnnotationInvocationHandler去执行invoke方法<br>AnnotationInvocationHandler在初始化时，会包含一个memberValues的map，key就是方法名，value就是对应的属性值，在invoka内部通过Method的name从memberValues中获取到对应的值并返回</p>
+<p> 接下来我们来看下AnnotationInvocationHandler中的invoke方法相关信息，如下</p>
+<p>// 当前注解类型<br>private final Class&lt;? extends Annotation&gt; type;<br>// 当前注解的相关属性集合，key是方法名，value是对应的值<br>private final Map&lt;String, Object&gt; memberValues;</p>
+<p>// jdk会将对应的属性信息传过来<br>AnnotationInvocationHandler(Class&lt;? extends Annotation&gt; var1, Map&lt;String, Object&gt; var2) {<br>            this.type = var1;<br>            this.memberValues = var2;<br>    }</p>
+<p>public Object invoke(Object var1, Method var2, Object[] var3) {<br>        // 方法名<br>        String var4 = var2.getName();<br>        // 参数类型<br>        Class[] var5 = var2.getParameterTypes();<br>        // 如果是equals方法，则调用对应方法<br>        if (var4.equals(“equals”) &amp;&amp; var5.length == 1 &amp;&amp; var5[0] == Object.class) {<br>            return this.equalsImpl(var3[0]);<br>        // 不是equals方法，却有参数，说明是错误的，注解的方法是不允许有参数的<br>        } else if (var5.length != 0) {<br>            throw new AssertionError(“Too many parameters for an annotation method”);<br>        } else {<br>            // 定义一个变量var7 默认值-1<br>            byte var7 = -1;<br>            // 不同的方法赋予var7不同的值<br>            switch(var4.hashCode()) {<br>            case -1776922004:<br>                if (var4.equals(“toString”)) {<br>                    var7 = 0;<br>                }<br>                break;<br>            case 147696667:<br>                if (var4.equals(“hashCode”)) {<br>                    var7 = 1;<br>                }<br>                break;<br>            case 1444986633:<br>                if (var4.equals(“annotationType”)) {<br>                    var7 = 2;<br>                }<br>            }</p>
+<pre><code>          // 返回对应方法的处理
+        switch(var7) {
+        case 0:
+            return this.toStringImpl();
+        case 1:
+            return this.hashCodeImpl();
+        case 2:
+            return this.type;
+        // 默认方法, 也就是我们自定义的属性方法
+        default:
+            // 从map集合中获取对应的值
+            Object var6 = this.memberValues.get(var4);
+            if (var6 == null) {
+                throw new IncompleteAnnotationException(this.type, var4);
+            } else if (var6 instanceof ExceptionProxy) {
+                throw ((ExceptionProxy)var6).generateException();
+            } else {
+                if (var6.getClass().isArray() &amp;&amp; Array.getLength(var6) != 0) {
+                    var6 = this.cloneArray(var6);
+                }
+
+                return var6;
+            }
+        }
+    }
+}
+</code></pre>
+<p>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39<br>40<br>41<br>42<br>43<br>44<br>45<br>46<br>47<br>48<br>49<br>50<br>51<br>52<br>53<br>54<br>55<br>56<br>57<br>58<br>59<br>60<br>61<br>62<br>63<br>64<br>65<br>66<br>67<br>68<br>69<br>70<br>跟着源码debug几次就能明白整体流程了</p>
+<p>八、总结：注解工作流程<br>通过键值对的形式为注解属性赋值<br>编译器检查注解的使用范围 (将注解信息写入元素属性表 attribute)<br>运行时JVM将单个Class的runtime的所有注解属性取出并最终存入map里<br>创建AnnotationInvocationHandler实例并传入前面的map<br>JVM使用JDK动态代理为注解生成代理类，并初始化处理器<br>调用invoke方法，通过传入方法名返回注解对应的属性值<br>————————————————<br>版权声明：本文为CSDN博主「KimZing」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。<br>原文链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/KingBoyWorld/article/details/105337011">https://blog.csdn.net/KingBoyWorld/article/details/105337011</a></p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">newbieQiu</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://newbieqiu.top/2022/07/11/JAVA-%E6%B3%A8%E8%A7%A3/">http://newbieqiu.top/2022/07/11/JAVA-%E6%B3%A8%E8%A7%A3/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">newbieQiu</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E6%B3%A8%E8%A7%A3/">
+                                    <span class="chip bg-color">注解</span>
+                                </a>
+                            
+                                <a href="/tags/Spring%E5%89%8D%E7%BD%AE/">
+                                    <span class="chip bg-color">Spring前置</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2022/08/15/%E4%BB%8E0%E5%BC%80%E5%A7%8B%E7%9A%84%E8%8B%B1%E8%AF%AD%E8%AF%AD%E6%B3%95%E7%94%9F%E6%B4%BB/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="从0开始的英语语法生活">
+                        
+                        <span class="card-title">从0开始的英语语法生活</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-08-15
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%8B%B1%E8%AF%AD/" class="post-category">
+                                    英语
+                                </a>
+                            
+                            <a href="/categories/%E8%8B%B1%E8%AF%AD/%E8%8B%B1%E8%AF%AD%E8%AF%AD%E6%B3%95/" class="post-category">
+                                    英语语法
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%8B%B1%E8%AF%AD/">
+                        <span class="chip bg-color">英语</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2022/07/03/%E5%8F%8D%E5%B0%84/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="反射机制">
+                        
+                        <span class="card-title">反射机制</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-03
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Spring%E6%BA%90%E7%A0%81%E5%89%8D%E7%BD%AE/" class="post-category">
+                                    Spring源码前置
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Spring%E6%BA%90%E7%A0%81%E5%89%8D%E7%BD%AE/">
+                        <span class="chip bg-color">Spring源码前置</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="/libs/aplayer/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2022-2023</span>
+            
+            <a href="/about" target="_blank">newbieQiu</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/NewbieQiu" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1761599105@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1761599105" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1761599105" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+        <img src="https://static.dy208.cn/o_1dfilp8ruo521thr1hvf18ji17soa.png">
+<a href="https://beian.miit.gov.cn/"  style="color:#f72b07" target="_blank">浙ICP备2022012930号</a>
+
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+
+    <!-- 雪花特效 -->
+     
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/snow.js"><\/script>');
+            }
+        </script>
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+    <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js"></script>
+</body>
+
+</html>
