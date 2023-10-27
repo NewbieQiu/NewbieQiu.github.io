@@ -4,9 +4,9 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="浅浅了解@Builder注解, 菜鸡日志">
-    <meta name="description" content="前言Lombok大家都知道，在使用POJO过程中，它给我们带来了很多便利，省下大量写get、set方法、构造器、equal、toString方法的时间。除此之外，通过@Builder注解，lombok还可以方便的实现建造者模式。
-认识@Bu">
+    <meta name="keywords" content="全局异常处理, 菜鸡日志">
+    <meta name="description" content="3. 异常处理3.1 当前问题登录功能和登录校验功能我们都实现了，下面我们学习下今天最后一块技术点：异常处理。首先我们先来看一下系统出现异常之后会发生什么现象，再来介绍异常处理的方案。
+我们打开浏览器，访问系统中的新增部门操作，系统中已经有">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -20,7 +20,7 @@
 
     
 
-    <title>浅浅了解@Builder注解 | 菜鸡日志</title>
+    <title>全局异常处理 | 菜鸡日志</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -312,12 +312,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">浅浅了解@Builder注解</h1>
+                    <h1 class="description center-align post-title">全局异常处理</h1>
                 </div>
             </div>
         </div>
@@ -433,8 +433,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Builder/">
-                                <span class="chip bg-color">Builder</span>
+                            <a href="/tags/SpringBoot/">
+                                <span class="chip bg-color">SpringBoot</span>
                             </a>
                         
                     </div>
@@ -445,8 +445,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Builder/" class="post-category">
-                                Builder
+                            <a href="/categories/SpringBoot/" class="post-category">
+                                SpringBoot
                             </a>
                         
                     </div>
@@ -482,45 +482,74 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><code>Lombok</code>大家都知道，在使用<code>POJO</code>过程中，它给我们带来了很多便利，省下大量写<code>get</code>、<code>set</code>方法、构造器、<code>equal</code>、<code>toString</code>方法的时间。除此之外，通过<code>@Builder</code>注解，<code>lombok</code>还可以方便的实现建造者模式。</p>
-<h2 id="认识-Builder注解"><a href="#认识-Builder注解" class="headerlink" title="认识@Builder注解"></a>认识@Builder注解</h2><p><code>lombok</code>注解在<code>java</code>进行编译时进行代码的构建，对于<code>java</code>对象的创建工作它可以更优雅，不需要写多余的重复的代码，这对于<code>JAVA</code>开发人员是很重要的，在出现<code>lombok</code>之后，对象的创建工作更提供<code>Builder</code>方法，它提供在设计数据实体时，对外保持<code>private setter</code>，而对属性的赋值采用<code>Builder</code>的方式，这种方式最优雅，也更符合封装的原则，不对外公开属性的写操作！<br><code>@Builder</code>声明实体，表示可以进行<code>Builder</code>方式初始化，<code>@Value</code>注解，表示只公开<code>getter</code>，对所有属性的<code>setter</code>都封闭，即<code>private</code>修饰，所以它不能和<code>@Builder</code>现起用</p>
-<h2 id="简单使用"><a href="#简单使用" class="headerlink" title="简单使用"></a>简单使用</h2><p>在项目生成的实体类上，只需要我们添加<code>@Builder</code>注解即可。示例代码：</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>zy<span class="token punctuation">.</span>pagehelper<span class="token punctuation">.</span>model</span><span class="token punctuation">;</span>
+                <h2 id="3-异常处理"><a href="#3-异常处理" class="headerlink" title="3. 异常处理"></a>3. 异常处理</h2><h3 id="3-1-当前问题"><a href="#3-1-当前问题" class="headerlink" title="3.1 当前问题"></a>3.1 当前问题</h3><p>登录功能和登录校验功能我们都实现了，下面我们学习下今天最后一块技术点：异常处理。首先我们先来看一下系统出现异常之后会发生什么现象，再来介绍异常处理的方案。</p>
+<p>我们打开浏览器，访问系统中的新增部门操作，系统中已经有了 “就业部” 这个部门，我们再来增加一个就业部，看看会发生什么现象。</p>
+<img src="/2023/10/07/%E5%85%A8%E5%B1%80%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/Users/qzzshuai/Desktop/复习/day12-SpringBootWeb登录认证/讲义/assets/image-20230112125651073.png" alt="image-20230112125651073" style="zoom: 80%;">   
 
-<span class="token keyword">import</span> <span class="token import"><span class="token namespace">lombok<span class="token punctuation">.</span></span><span class="token class-name">Builder</span></span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token import"><span class="token namespace">lombok<span class="token punctuation">.</span></span><span class="token class-name">Data</span></span><span class="token punctuation">;</span>
+<p>点击确定之后，窗口关闭了，页面没有任何反应，就业部也没有添加上。 而此时，大家会发现，网络请求报错了。</p>
+<img src="/2023/10/07/%E5%85%A8%E5%B1%80%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/Users/qzzshuai/Desktop/复习/day12-SpringBootWeb登录认证/讲义/assets/image-20230112125737863.png" alt="image-20230112125737863" style="zoom:80%;"> 
 
-<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>io<span class="token punctuation">.</span></span><span class="token class-name">Serializable</span></span><span class="token punctuation">;</span>
+<p>状态码为500，表示服务器端异常，我们打开idea，来看一下，服务器端出了什么问题。</p>
+<p><img src="/2023/10/07/%E5%85%A8%E5%B1%80%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/Users/qzzshuai/Desktop/复习/day12-SpringBootWeb登录认证/讲义/assets/image-20230112125826602.png" alt="image-20230112125826602"> </p>
+<p>上述错误信息的含义是，dept部门表的name字段的值 就业部 重复了，因为在数据库表dept中已经有了就业部，我们之前设计这张表时，为name字段建议了唯一约束，所以该字段的值是不能重复的。</p>
+<p>而当我们再添加就业部，这个部门时，就违反了唯一约束，此时就会报错。</p>
+<p>我们来看一下出现异常之后，最终服务端给前端响应回来的数据长什么样。</p>
+<p><img src="/2023/10/07/%E5%85%A8%E5%B1%80%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/Users/qzzshuai/Desktop/复习/day12-SpringBootWeb登录认证/讲义/assets/image-20230112130253486.png" alt="image-20230112130253486"> </p>
+<p>响应回来的数据是一个JSON格式的数据。但这种JSON格式的数据还是我们开发规范当中所提到的统一响应结果Result吗？显然并不是。由于返回的数据不符合开发规范，所以前端并不能解析出响应的JSON数据。</p>
+<p>接下来我们需要思考的是出现异常之后，当前案例项目的异常是怎么处理的？</p>
+<ul>
+<li>答案：没有做任何的异常处理</li>
+</ul>
+<p><img src="/2023/10/07/%E5%85%A8%E5%B1%80%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/Users/qzzshuai/Desktop/复习/day12-SpringBootWeb登录认证/讲义/assets/image-20230107121909087.png" alt="image-20230107121909087"></p>
+<p>当我们没有做任何的异常处理时，我们三层架构处理异常的方案：</p>
+<ul>
+<li>Mapper接口在操作数据库的时候出错了，此时异常会往上抛(谁调用Mapper就抛给谁)，会抛给service。 </li>
+<li>service 中也存在异常了，会抛给controller。</li>
+<li>而在controller当中，我们也没有做任何的异常处理，所以最终异常会再往上抛。最终抛给框架之后，框架就会返回一个JSON格式的数据，里面封装的就是错误的信息，但是框架返回的JSON格式的数据并不符合我们的开发规范。</li>
+</ul>
+<h3 id="3-2-解决方案"><a href="#3-2-解决方案" class="headerlink" title="3.2 解决方案"></a>3.2 解决方案</h3><p>那么在三层构架项目中，出现了异常，该如何处理?</p>
+<ul>
+<li>方案一：在所有Controller的所有方法中进行try…catch处理<ul>
+<li>缺点：代码臃肿（不推荐）</li>
+</ul>
+</li>
+<li>方案二：全局异常处理器<ul>
+<li>好处：简单、优雅（推荐）</li>
+</ul>
+</li>
+</ul>
+<p><img src="/2023/10/07/%E5%85%A8%E5%B1%80%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/Users/qzzshuai/Desktop/复习/day12-SpringBootWeb登录认证/讲义/assets/image-20230107122904214.png" alt="image-20230107122904214"></p>
+<h3 id="3-3-全局异常处理器"><a href="#3-3-全局异常处理器" class="headerlink" title="3.3 全局异常处理器"></a>3.3 全局异常处理器</h3><p>我们该怎么样定义全局异常处理器？</p>
+<ul>
+<li>定义全局异常处理器非常简单，就是定义一个类，在类上加上一个注解@RestControllerAdvice，加上这个注解就代表我们定义了一个全局异常处理器。</li>
+<li>在全局异常处理器当中，需要定义一个方法来捕获异常，在这个方法上需要加上注解@ExceptionHandler。通过@ExceptionHandler注解当中的value属性来指定我们要捕获的是哪一类型的异常。</li>
+</ul>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@RestControllerAdvice</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">GlobalExceptionHandler</span> <span class="token punctuation">{</span>
 
-<span class="token annotation punctuation">@Data</span>
-<span class="token annotation punctuation">@Builder</span>
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Admin</span> <span class="token keyword">implements</span> <span class="token class-name">Serializable</span> <span class="token punctuation">{</span>
+    <span class="token comment">//处理异常</span>
+    <span class="token annotation punctuation">@ExceptionHandler</span><span class="token punctuation">(</span><span class="token class-name">Exception</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span> <span class="token comment">//指定能够处理的异常类型</span>
+    <span class="token keyword">public</span> <span class="token class-name">Result</span> <span class="token function">ex</span><span class="token punctuation">(</span><span class="token class-name">Exception</span> e<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//打印堆栈中的异常信息</span>
 
-    <span class="token keyword">private</span> <span class="token class-name">Long</span> id<span class="token punctuation">;</span>
+        <span class="token comment">//捕获到异常之后，响应一个标准的Result</span>
+        <span class="token keyword">return</span> <span class="token class-name">Result</span><span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token string">"对不起,操作失败,请联系管理员"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-    <span class="token keyword">private</span> <span class="token class-name">String</span> department<span class="token punctuation">;</span>
-
-    <span class="token keyword">private</span> <span class="token class-name">String</span> email<span class="token punctuation">;</span>
-
-    <span class="token keyword">private</span> <span class="token class-name">String</span> encodedpassword<span class="token punctuation">;</span>
-
-    <span class="token keyword">private</span> <span class="token class-name">String</span> name<span class="token punctuation">;</span>
-
-    <span class="token keyword">private</span> <span class="token class-name">String</span> username<span class="token punctuation">;</span>
-
-    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">long</span> serialVersionUID <span class="token operator">=</span> <span class="token number">1L</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>项目中使用。代码实例：</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">Admin</span> admins <span class="token operator">=</span>  <span class="token class-name">Admin</span><span class="token punctuation">.</span><span class="token function">builder</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-                     <span class="token punctuation">.</span><span class="token function">id</span><span class="token punctuation">(</span>admin<span class="token punctuation">.</span><span class="token function">getId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-                     <span class="token punctuation">.</span><span class="token function">name</span><span class="token punctuation">(</span>admin<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-                     <span class="token punctuation">.</span><span class="token function">email</span><span class="token punctuation">(</span>admin<span class="token punctuation">.</span><span class="token function">getEmail</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-                     <span class="token punctuation">.</span><span class="token function">department</span><span class="token punctuation">(</span>admin<span class="token punctuation">.</span><span class="token function">getDepartment</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-                     <span class="token punctuation">.</span><span class="token function">username</span><span class="token punctuation">(</span>admin<span class="token punctuation">.</span><span class="token function">getUsername</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-                     <span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>根据上面的示例，我们可以对@Builder注解有一个简单的认识。当我们向一个对象赋值的时候，可以通过<code>@Builder</code>注解类似于链式的调用对象进行赋值。它的主要优点就是可以优雅的给对象赋值，修改对象，省去了set方法来定义属性内容。</p>
+<blockquote>
+<p>@RestControllerAdvice = @ControllerAdvice + @ResponseBody</p>
+<p>处理异常的方法返回值会转换为json后再响应给前端</p>
+</blockquote>
+<p>重新启动SpringBoot服务，打开浏览器，再来测试一下添加部门这个操作，我们依然添加已存在的 “就业部” 这个部门：</p>
+<p><img src="/2023/10/07/%E5%85%A8%E5%B1%80%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/Users/qzzshuai/Desktop/复习/day12-SpringBootWeb登录认证/讲义/assets/image-20230112131232032.png" alt="image-20230112131232032"> </p>
+<p><img src="/2023/10/07/%E5%85%A8%E5%B1%80%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/Users/qzzshuai/Desktop/复习/day12-SpringBootWeb登录认证/讲义/assets/image-20230112131135272.png" alt="image-20230112131135272"> </p>
+<p>此时，我们可以看到，出现异常之后，异常已经被全局异常处理器捕获了。然后返回的错误信息，被前端程序正常解析，然后提示出了对应的错误提示信息。</p>
+<p>以上就是全局异常处理器的使用，主要涉及到两个注解：</p>
+<ul>
+<li>@RestControllerAdvice  //表示当前类为全局异常处理器</li>
+<li>@ExceptionHandler  //指定可以捕获哪种类型的异常进行处理</li>
+</ul>
 
                 
             </div>
@@ -547,7 +576,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://newbieqiu.top/2023/10/07/%E6%B5%85%E6%B5%85%E4%BA%86%E8%A7%A3-Builder%E6%B3%A8%E8%A7%A3/">http://newbieqiu.top/2023/10/07/%E6%B5%85%E6%B5%85%E4%BA%86%E8%A7%A3-Builder%E6%B3%A8%E8%A7%A3/</a>
+                    <a href="http://newbieqiu.top/2023/10/07/%E5%85%A8%E5%B1%80%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/">http://newbieqiu.top/2023/10/07/%E5%85%A8%E5%B1%80%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -585,8 +614,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Builder/">
-                                    <span class="chip bg-color">Builder</span>
+                                <a href="/tags/SpringBoot/">
+                                    <span class="chip bg-color">SpringBoot</span>
                                 </a>
                             
                         </div>
@@ -764,13 +793,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2023/10/07/%E5%85%A8%E5%B1%80%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/">
+                <a href="/2023/10/08/%E5%86%99%E9%A1%B9%E7%9B%AE%E6%97%B6%E5%A6%82%E4%BD%95%E6%AD%A3%E7%A1%AE%E5%9C%B0%E6%8A%8A%E6%97%A5%E6%9C%9F%E6%A0%BC%E5%BC%8F%E8%BD%AC%E6%8D%A2%E6%88%90json/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="全局异常处理">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="写项目时如何正确地把日期格式转换成json">
                         
-                        <span class="card-title">全局异常处理</span>
+                        <span class="card-title">写项目时如何正确地把日期格式转换成json</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -781,13 +810,17 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-10-07
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-10-08
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/SpringBoot/" class="post-category">
+                            <a href="/categories/%E5%A4%A7%E5%9E%8B%E9%A1%B9%E7%9B%AE/" class="post-category">
+                                    大型项目
+                                </a>
+                            
+                            <a href="/categories/%E5%A4%A7%E5%9E%8B%E9%A1%B9%E7%9B%AE/SpringBoot/" class="post-category">
                                     SpringBoot
                                 </a>
                             
@@ -797,6 +830,10 @@
                 </div>
                 
                 <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%A4%A7%E5%9E%8B%E9%A1%B9%E7%9B%AE/">
+                        <span class="chip bg-color">大型项目</span>
+                    </a>
                     
                     <a href="/tags/SpringBoot/">
                         <span class="chip bg-color">SpringBoot</span>
@@ -813,13 +850,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/10/07/springboot%E5%8E%9F%E7%90%86%E7%AF%87-%E7%95%A5/">
+                <a href="/2023/10/07/%E6%B5%85%E6%B5%85%E4%BA%86%E8%A7%A3-Builder%E6%B3%A8%E8%A7%A3/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="springboot原理篇(略)">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="浅浅了解@Builder注解">
                         
-                        <span class="card-title">springboot原理篇(略)</span>
+                        <span class="card-title">浅浅了解@Builder注解</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -834,11 +871,23 @@
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            newbieQiu
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Builder/" class="post-category">
+                                    Builder
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Builder/">
+                        <span class="chip bg-color">Builder</span>
+                    </a>
+                    
                 </div>
                 
             </div>
